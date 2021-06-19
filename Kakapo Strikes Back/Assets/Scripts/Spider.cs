@@ -69,6 +69,7 @@ public class Spider : Enemy
 
         return val;
     }
+    //Flipping the spider 
     private void FlipTheSpider(IsFacing direction)
     {
         Vector3 newScale = baseScale;
