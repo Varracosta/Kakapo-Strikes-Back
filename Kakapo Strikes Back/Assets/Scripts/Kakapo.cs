@@ -33,13 +33,6 @@ public class Kakapo : MonoBehaviour
     private Vector3 _startPosition;
     private int _damage = 5;
 
-    //Climbing info
-    public bool canClimb;
-    public bool bottomLadder = false;
-    public bool topLadder = false;
-    public Ladder ladder;
-    private float climbSpeed = 3f;
-
     //Caching references
     private Rigidbody2D rigidBody;
     private CapsuleCollider2D feetCollider;
@@ -69,11 +62,6 @@ public class Kakapo : MonoBehaviour
     }
     private void Update()
     {
-        //StateManager();
-        //if(state == State.climbing)
-        //{
-        //    Climb();
-        //}
         if(state != State.hurt)
         {
             Run();
