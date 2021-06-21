@@ -5,12 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
+    private Vector2 movementInput;
+
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
-        Debug.Log("Move input");
+
     }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        Debug.Log("Jump input");
     }
 }
