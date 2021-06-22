@@ -32,12 +32,12 @@ public class PlayerState
     {
         player.Animator.SetBool(animBoolName, false);
     }
-
+    //Update
     public virtual void LogicUpdate()
     {
 
     }
-    //Substitute for FixedUpdate?
+    //FixedUpdate
     public virtual void PhysicsUpdate()
     {
         DoChecks();
