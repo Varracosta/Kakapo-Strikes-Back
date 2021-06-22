@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRunningState : PlayerGroundedState
+public class PlayerGroundedState : PlayerState
 {
-    public PlayerRunningState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
+    protected int xInput;
+    private bool jumpInput;
+    public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -28,9 +30,13 @@ public class PlayerRunningState : PlayerGroundedState
     {
         base.LogicUpdate();
 
-        if(input.x == 0f)
+        xInput = player.InputHandler.NormalizedInputX;
+        jumpInput = player.InputHandler.JumpInput;
+
+        if(jumpInput)
         {
-            stateMachine.ChangeState(player.IdleState);
+            player.InputHandler.SetJumpInputToFalse();
+            stateMachine.ChangeState(player.JumpState);
         }
     }
 

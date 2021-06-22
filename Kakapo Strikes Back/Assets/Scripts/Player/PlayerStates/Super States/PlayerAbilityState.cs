@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGroundedState : PlayerState
+public class PlayerAbilityState : PlayerState
 {
-    protected Vector2 input;
-    public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
+    protected bool isAbilityDone;
+    public PlayerAbilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) 
         : base(player, stateMachine, playerData, animBoolName)
     {
+
     }
 
     public override void DoChecks()
@@ -18,6 +19,7 @@ public class PlayerGroundedState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        isAbilityDone = false;
     }
 
     public override void Exit()
@@ -28,8 +30,6 @@ public class PlayerGroundedState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        input = player.InputHandler.MovementInput;
     }
 
     public override void PhysicsUpdate()

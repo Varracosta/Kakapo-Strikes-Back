@@ -4,31 +4,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
 
-    #region Properties 
-    public PlayerStateMachine StateMachine { get; private set; }
-    public Vector2 CurrentVelocity { get; private set; }
-
+    #region State variables
     //States
+    [SerializeField] private PlayerData playerData;
+    public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdleState IdleState { get; private set; }
-    public PlayerRunningState RunningState { get; private set; }
+    public PlayerRunningState RunState { get; private set; }
+    public PlayerJumpState JumpState { get; private set;}
+    public PlayerInAirState InAirState { get; private set; }
+    public PlayerLandState LandState { get; private set; }
+    #endregion
 
-    //Components
+    #region Components
     public Animator Animator { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
+    #endregion
 
-    //Variables
+    #region Misc
+    public Vector2 CurrentVelocity { get; private set; }
+    public int FacingDirection { get; private set; }
+
     private Vector2 workspaceVector;
     #endregion
 
+    #region Unity Callback Functions
     private void Awake()
     {
         //Declaring the State machine and initializing player's states 
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "Idle");
-        RunningState = new PlayerRunningState(this, StateMachine, playerData, "Run");
+        RunState = new PlayerRunningState(this, StateMachine, playerData, "Run");
+        JumpState = new PlayerJumpState(this, StateMachine, playerData, "InAir");
+        InAirState = new PlayerInAirState(this, StateMachine, playerData, "InAir");
+        LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
     }
 
     private void Start()
@@ -36,6 +46,7 @@ public class Player : MonoBehaviour
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         Rigidbody = GetComponent<Rigidbody2D>();
+        FacingDirection = 1;
 
         //Initializing the State Machine
         StateMachine.Initialize(IdleState);
@@ -50,11 +61,39 @@ public class Player : MonoBehaviour
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }
+    #endregion
 
+    #region Seting Up Functions
     public void SetVelocityX(float velocity)
     {
         workspaceVector.Set(velocity, CurrentVelocity.y);
         Rigidbody.velocity = workspaceVector;
         CurrentVelocity = workspaceVector;
     }
+
+    public void SetVelocityY(float velocity)
+    {
+        workspaceVector.Set(CurrentVelocity.x, velocity);
+        Rigidbody.velocity = workspaceVector;
+        CurrentVelocity = workspaceVector;
+    }
+    #endregion
+
+    #region Check Functions
+    public void CheckIfShouldFlip(int xInput)
+    {
+        if(xInput != 0 && xInput != FacingDirection)
+        {
+            Flip();
+        }
+    }
+    #endregion
+
+    #region Other Functions
+    private void Flip()
+    {
+        FacingDirection *= -1;
+        transform.Rotate(0.0f, 180.0f, 0.0f);
+    }
+    #endregion
 }
