@@ -41,6 +41,9 @@ public class PlayerInAirState : PlayerAbilityState
         {
             player.CheckIfShouldFlip(xInput);
             player.SetVelocityX(playerData.movementVelocity * xInput);
+
+            player.Animator.SetFloat("yVelocity", player.CurrentVelocity.y);
+            player.Animator.SetFloat("xVelocity", Mathf.Abs(player.CurrentVelocity.x));
         }
     }
 
