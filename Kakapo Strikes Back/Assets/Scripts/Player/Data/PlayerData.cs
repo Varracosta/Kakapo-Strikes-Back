@@ -14,4 +14,10 @@ public class PlayerData : ScriptableObject
     [Header("Ground Check components")]
     public float groundCheckRadius = 0.3f;
     public LayerMask whatIsGround;
+
+    [Header("Attack components")]
+    public Transform attackPoint;
+
+    [Header("Audio")]
+    public AudioClip legKickSFX;
 }
