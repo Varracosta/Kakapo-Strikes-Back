@@ -18,3 +18,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  ladderCheckDistance: 0.5
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 512
+  attackPoint: {fileID: 0}
+  ladderClimbVelocity: 3
+  legKickSFX: {fileID: 0}

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set;}
     public PlayerInAirState InAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
+    public PlayerGrabLadderState GrabLadderState { get; private set; }
+    public PlayerClimbLadderState ClimbLadderState { get; private set; }
     #endregion
 
     #region Components
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
 
     #region Check 
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform ladderCheck;
     #endregion
 
     #region Misc
@@ -43,6 +46,8 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "InAir");
         InAirState = new PlayerInAirState(this, StateMachine, playerData, "InAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
+        GrabLadderState = new PlayerGrabLadderState(this, StateMachine, playerData, "LadderGrab");
+        ClimbLadderState = new PlayerClimbLadderState(this, StateMachine, playerData, "Climb");
     }
 
     private void Start()
@@ -87,6 +92,10 @@ public class Player : MonoBehaviour
     public bool CheckIfIsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, playerData.whatIsGround);
+    }
+    public bool CheckIfIsLadder()
+    {
+        return Physics2D.Raycast(ladderCheck.position, Vector2.right * FacingDirection, playerData.ladderCheckDistance, playerData.whatIsLadder);
     }
     public void CheckIfShouldFlip(int xInput)
     {

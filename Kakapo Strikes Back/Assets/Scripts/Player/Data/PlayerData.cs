@@ -11,12 +11,15 @@ public class PlayerData : ScriptableObject
     [Header("Jump State")]
     public float jumpVelocity = 15f;
 
-    [Header("Ground Check components")]
+    [Header("Check components")]
     public float groundCheckRadius = 0.3f;
     public LayerMask whatIsGround;
-
-    [Header("Attack components")]
+    public float ladderCheckDistance = 0.5f;
+    public LayerMask whatIsLadder;
     public Transform attackPoint;
+
+    [Header("Ladder Climb State")]
+    public float ladderClimbVelocity = 2f;
 
     [Header("Audio")]
     public AudioClip legKickSFX;
