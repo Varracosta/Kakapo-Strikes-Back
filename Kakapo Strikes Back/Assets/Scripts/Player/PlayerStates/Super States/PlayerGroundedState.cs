@@ -41,7 +41,11 @@ public class PlayerGroundedState : PlayerState
         jumpInput = player.InputHandler.JumpInput;
         grabInput = player.InputHandler.GrabInput;
 
-        if(jumpInput)
+        if(player.InputHandler.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
+        else if(jumpInput)
         {
             player.InputHandler.SetJumpInputToFalse();
             stateMachine.ChangeState(player.JumpState);

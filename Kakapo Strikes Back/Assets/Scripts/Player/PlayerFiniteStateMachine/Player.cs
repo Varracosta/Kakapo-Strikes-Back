@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     public PlayerGrabLadderState GrabLadderState { get; private set; }
     public PlayerClimbLadderState ClimbLadderState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
     #endregion
 
     #region Components
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "Land");
         GrabLadderState = new PlayerGrabLadderState(this, StateMachine, playerData, "LadderGrab");
         ClimbLadderState = new PlayerClimbLadderState(this, StateMachine, playerData, "Climb");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "Attack");
     }
 
     private void Start()
