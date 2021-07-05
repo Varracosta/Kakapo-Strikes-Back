@@ -49,6 +49,9 @@ public class Kakapo : MonoBehaviour
     private float startingGravity;
     private State state;
 
+    private float attackRate = 2f;
+    private float nextAttackTime = 0f;
+
     private void Start()
     {
         _startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
@@ -69,20 +72,16 @@ public class Kakapo : MonoBehaviour
     }
     private void Update()
     {
-        //StateManager();
-        //if(state == State.climbing)
-        //{
-        //    Climb();
-        //}
         if(state != State.hurt)
         {
+
+
+            Attack();
             Run();
             Jump();
             FlipTheCharacter();
-            Attack();
             IsTouchingWater();
         }
-        //animator.SetInteger("State", (int)state);
     }
     private void StateManager()
     {
@@ -160,18 +159,22 @@ public class Kakapo : MonoBehaviour
     }
     private void Attack()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("Attack");
-            AudioSource.PlayClipAtPoint(legKickSFX, Camera.main.transform.position, 0.2f);
+            if (Input.GetKey(KeyCode.R))
+            {
+                animator.SetTrigger("Attack");
+                AudioSource.PlayClipAtPoint(legKickSFX, Camera.main.transform.position, 0.2f);
 
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, 
-                                                                _attackRadius, 
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position,
+                                                                _attackRadius,
                                                                 LayerMask.GetMask("Killable enemy"));
 
-            foreach (Collider2D enemy in enemies)
-            {
-                enemy.GetComponent<DamageDealer>().TakeDamage(_damage);
+                foreach (Collider2D enemy in enemies)
+                {
+                    enemy.GetComponent<DamageDealer>().TakeDamage(_damage);
+                }
+                nextAttackTime = Time.time + 1f / attackRate;
             }
         }
     }
@@ -195,7 +198,6 @@ public class Kakapo : MonoBehaviour
         if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")) 
             && !other.gameObject.CompareTag("Spikes"))
         {
-            Destroy(other.gameObject);
             other.GetComponent<DamageDealer>().TakeDamage(_damage);
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 10f);
         }

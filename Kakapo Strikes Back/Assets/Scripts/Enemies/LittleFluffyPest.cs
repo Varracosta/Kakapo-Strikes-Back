@@ -124,11 +124,8 @@ public class LittleFluffyPest : Enemy
 
         return val;
     }
+
     protected override void Die()
     {
-        FindObjectOfType<UIManager>().AddToScore(100);
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
     }
-
 }
