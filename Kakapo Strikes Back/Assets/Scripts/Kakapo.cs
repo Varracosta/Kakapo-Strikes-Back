@@ -43,7 +43,6 @@ public class Kakapo : MonoBehaviour
     public bool canClimb;
     public bool bottomLadder = false;
     public bool topLadder = false;
-    public Ladder ladder;
     private float climbSpeed = 3f;
 
     //Caching references

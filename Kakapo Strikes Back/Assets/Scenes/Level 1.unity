@@ -413,12 +413,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &365669326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1668970232140361007, guid: 1fec6b555acaaee4e876262a612488f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 4330754545894729041}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &375758548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 690139356965852417, guid: 9406319345f90e74c84b4a88c112ff53,
@@ -7646,7 +7640,7 @@ PrefabInstance:
     - target: {fileID: 4330754544799369303, guid: 1fec6b555acaaee4e876262a612488f2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: -1.99
       objectReference: {fileID: 0}
     - target: {fileID: 4330754544799369303, guid: 1fec6b555acaaee4e876262a612488f2,
         type: 3}
@@ -7687,16 +7681,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4330754544799369305, guid: 1fec6b555acaaee4e876262a612488f2,
-        type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 365669326}
-    - target: {fileID: 4330754544799369305, guid: 1fec6b555acaaee4e876262a612488f2,
-        type: 3}
-      propertyPath: whatIsGround.m_Bits
-      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 4330754545894729043, guid: 1fec6b555acaaee4e876262a612488f2,
         type: 3}
@@ -7809,7 +7793,7 @@ PrefabInstance:
     - target: {fileID: 8250188391879102703, guid: ee7e091e101a0264995a54c17a4edc8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.51692
+      value: -11.646919
       objectReference: {fileID: 0}
     - target: {fileID: 8250188392641881349, guid: ee7e091e101a0264995a54c17a4edc8e,
         type: 3}
@@ -7874,12 +7858,12 @@ PrefabInstance:
     - target: {fileID: 8250188392712680789, guid: ee7e091e101a0264995a54c17a4edc8e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.324266
+      value: -12.277227
       objectReference: {fileID: 0}
     - target: {fileID: 8250188392712680789, guid: ee7e091e101a0264995a54c17a4edc8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.328244
+      value: -10.691046
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee7e091e101a0264995a54c17a4edc8e, type: 3}
