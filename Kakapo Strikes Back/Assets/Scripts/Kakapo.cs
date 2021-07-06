@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 enum State
 {
@@ -21,17 +22,22 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpSpeed = 20f;
     [SerializeField] private BoxCollider2D stompBox;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask whatIsGround;
     public float maxLives = 3f;
 
     [Header("Audio")]
     [SerializeField] private AudioClip legKickSFX;
 
-    private int _health;
-    private float _attackRadius = 0.4f;
     private float horizontalMovement;
     private float verticalMovement;
     private Vector3 _startPosition;
+    private int _health;
+
+    private float _attackRadius = 0.4f;
     private int _damage = 5;
+
+    private float groundCheckRadius = 0.5f;
 
     //Climbing info
     public bool canClimb;
@@ -42,7 +48,7 @@ public class Kakapo : MonoBehaviour
 
     //Caching references
     private Rigidbody2D rigidBody;
-    private CapsuleCollider2D feetCollider;
+    private CircleCollider2D feetCollider;
     private Animator animator;
     private SceneLoader _sceneLoader;
     private LivesManager _livesManager;
@@ -52,17 +58,22 @@ public class Kakapo : MonoBehaviour
     private float attackRate = 2f;
     private float nextAttackTime = 0f;
 
+    private bool isGrounded;
+    private bool jump = false;
+
     private void Start()
     {
         _startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
         rigidBody = GetComponent<Rigidbody2D>();
-        feetCollider = GetComponent<CapsuleCollider2D>();
+        feetCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
         _sceneLoader = FindObjectOfType<SceneLoader>();
         _livesManager = FindObjectOfType<LivesManager>();
         _health = FindObjectOfType<LivesManager>().GetLives();
         startingGravity = rigidBody.gravityScale;
         state = State.alive;
+
+        isGrounded = true;
     }
 
     private void FixedUpdate()
@@ -74,14 +85,14 @@ public class Kakapo : MonoBehaviour
     {
         if(state != State.hurt)
         {
-
-
             Attack();
             Run();
             Jump();
             FlipTheCharacter();
             IsTouchingWater();
         }
+
+        Debug.Log(jump);
     }
     private void StateManager()
     {
@@ -110,28 +121,37 @@ public class Kakapo : MonoBehaviour
         }
     }
     private void Run()
-    {
+    { 
         rigidBody.velocity = new Vector2(horizontalMovement * speed, rigidBody.velocity.y);
 
         bool isMovingHorizontaly = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
-        animator.SetBool("Running", isMovingHorizontaly);
+        //animator.SetBool("Running", isMovingHorizontaly);
+        animator.SetFloat("VelocityX", Mathf.Abs(horizontalMovement));
     }
     private void Jump() 
     {
-        bool isGrounded = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        bool wasGrounded = isGrounded;
+        isGrounded = false;
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump")/* && isGrounded*/)
         {
             rigidBody.velocity = new Vector2(0f, jumpSpeed);  //<-- perform jump if the button is pressed and the character is grounded 
+            animator.SetBool("Jumping", true);
+            jump = true;
         }
 
-        animator.SetBool("Jumping", !isGrounded);
-
-        if(rigidBody.velocity.y < Mathf.Epsilon)
+        Collider2D[] groundCheckColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, whatIsGround);
+        foreach (Collider2D surface in groundCheckColliders)
         {
-            animator.SetBool("Falling", true);
-            if (isGrounded)
-                animator.SetBool("Falling", false);
+            if (surface != gameObject)
+            {
+                isGrounded = true;
+                if (!wasGrounded)
+                {
+                    animator.SetBool("Jumping", false);
+                    jump = false;
+                }
+            }
         }
     }
     private void Climb()
