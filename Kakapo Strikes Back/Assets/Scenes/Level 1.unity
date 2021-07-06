@@ -401,12 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &198342625 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7588715579566640618, guid: 7b14d131100bd284b85b267f85ac4968,
-    type: 3}
-  m_PrefabInstance: {fileID: 225808683372648374}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &287648309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7225,11 +7219,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6096524071131216395, guid: 7b14d131100bd284b85b267f85ac4968,
-        type: 3}
-      propertyPath: collider
-      value: 
-      objectReference: {fileID: 198342625}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b14d131100bd284b85b267f85ac4968, type: 3}
 --- !u!1001 &690139356791491541
@@ -7567,6 +7556,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stoat
       objectReference: {fileID: 0}
+    - target: {fileID: 7541367383077518898, guid: fdff4c442bc638b4a9d79f763253ed93,
+        type: 3}
+      propertyPath: explosionAnim
+      value: 
+      objectReference: {fileID: 1991327397727362192, guid: e79721e031400af4889ef1f4b500a122,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdff4c442bc638b4a9d79f763253ed93, type: 3}
 --- !u!4 &3236484165553301018 stripped

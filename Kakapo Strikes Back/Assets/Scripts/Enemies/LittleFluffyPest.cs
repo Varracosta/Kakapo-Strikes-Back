@@ -36,10 +36,14 @@ public class LittleFluffyPest : Enemy
     }
     private void FixedUpdate()
     {
-        Move();
+        if(GetComponent<DamageDealer>().IsDead == false)
+        {
+            Move();
+        }
     }
     protected override void Move()
     {
+
         //caching _speed in a variable
         float movementSpeed = _speed;
 
