@@ -155,8 +155,6 @@ MonoBehaviour:
   _damage: 1
   currentHealth: 5
   pointsPerKill: 100
-  explosionAnim: {fileID: 1991327397727362192, guid: e79721e031400af4889ef1f4b500a122,
-    type: 3}
   IsDead: 0
 --- !u!95 &5177802684668834710
 Animator:
