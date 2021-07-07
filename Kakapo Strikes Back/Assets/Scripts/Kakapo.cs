@@ -4,27 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-enum State
-{
-    idle, 
-    running,
-    jumping,
-    falling,
-    climbing,
-    hurt,
-    alive, 
-}
 public class Kakapo : MonoBehaviour
 {
     //Configuration
-    [Header("Main info")] 
+    [Header("Main info")]
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private Transform attackPoint;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float jumpSpeed = 20f;
     [SerializeField] private BoxCollider2D stompBox;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
     public float maxLives = 3f;
+
+    private bool isHurt = false;
 
     [Header("Audio")]
     [SerializeField] private AudioClip legKickSFX;
@@ -40,9 +31,6 @@ public class Kakapo : MonoBehaviour
     private float groundCheckRadius = 0.5f;
 
     //Climbing info
-    public bool canClimb;
-    public bool bottomLadder = false;
-    public bool topLadder = false;
     private float climbSpeed = 3f;
 
     //Caching references
@@ -52,13 +40,11 @@ public class Kakapo : MonoBehaviour
     private SceneLoader _sceneLoader;
     private LivesManager _livesManager;
     private float startingGravity;
-    private State state;
 
     private float attackRate = 2f;
     private float nextAttackTime = 0f;
 
-    private bool isGrounded;
-    private bool jump = false;
+    private bool isGrounded = true;
 
     private void Start()
     {
@@ -70,9 +56,6 @@ public class Kakapo : MonoBehaviour
         _livesManager = FindObjectOfType<LivesManager>();
         _health = FindObjectOfType<LivesManager>().GetLives();
         startingGravity = rigidBody.gravityScale;
-        state = State.alive;
-
-        isGrounded = true;
     }
 
     private void FixedUpdate()
@@ -82,49 +65,20 @@ public class Kakapo : MonoBehaviour
     }
     private void Update()
     {
-        if(state != State.hurt)
+        if(!isHurt)
         {
             Attack();
             Run();
             Jump();
-            FlipTheCharacter();
+            Climb();
+            Flip();
             IsTouchingWater();
-        }
-
-        Debug.Log(jump);
-    }
-    private void StateManager()
-    {
-        if (Math.Abs(rigidBody.velocity.x) > Mathf.Epsilon)
-        {
-            state = State.running;
-        }
-        else if (state == State.jumping)
-        {
-
-        }
-        if(rigidBody.velocity.y < .1f)
-        {
-            state = State.falling;
-        }
-        else if(state == State.falling)
-        {
-            if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
-            {
-                state = State.idle;
-            }
-        }
-        else
-        {
-            state = State.idle;
         }
     }
     private void Run()
     { 
-        rigidBody.velocity = new Vector2(horizontalMovement * speed, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(horizontalMovement * playerData.speed, rigidBody.velocity.y);
 
-        bool isMovingHorizontaly = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
-        //animator.SetBool("Running", isMovingHorizontaly);
         animator.SetFloat("VelocityX", Mathf.Abs(horizontalMovement));
     }
     private void Jump() 
@@ -132,11 +86,10 @@ public class Kakapo : MonoBehaviour
         bool wasGrounded = isGrounded;
         isGrounded = false;
 
-        if (Input.GetButtonDown("Jump")/* && isGrounded*/)
+        if (Input.GetButtonDown("Jump") && wasGrounded)
         {
-            rigidBody.velocity = new Vector2(0f, jumpSpeed);  //<-- perform jump if the button is pressed and the character is grounded 
+            rigidBody.velocity = new Vector2(0f, playerData.jumpSpeed);  //<-- perform jump if the button is pressed and the character is grounded 
             animator.SetBool("Jumping", true);
-            jump = true;
         }
 
         Collider2D[] groundCheckColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, whatIsGround);
@@ -148,29 +101,59 @@ public class Kakapo : MonoBehaviour
                 if (!wasGrounded)
                 {
                     animator.SetBool("Jumping", false);
-                    jump = false;
                 }
             }
         }
     }
     private void Climb()
     {
-        //bool isTouchingLadder = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
-        //if (!isTouchingLadder)
-        //{
-        //    animator.SetBool("Climbing", false);
-        //    rigidBody.gravityScale = _startingGravity;
-        //    return;
-        //}
+        bool isClimbing = false;
+        /*
+            if(button Up is pressed and held)
+                Start climbing + start climb animation
+            
+            if(button Up is up)
+                stop climbing + one frame of animation should be displayed
+                prevent falling down to jump from the ladder
+                should be allowed 
+         */
+
+        bool isTouchingLadder = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
+        if (!isTouchingLadder)
+        {
+            animator.SetBool("Climbing", false);
+            rigidBody.gravityScale = startingGravity;
+            return;
+        }
+
+
+        //if(ladder is detected & button for climbing is pressed)
+        // Start Grab animation
+        if (isTouchingLadder & Mathf.Abs(verticalMovement) > Mathf.Epsilon)
+        {
+            animator.SetBool("GrabLadder", true);
+        }
+
+        //if(button Up is pressed and held)
+        //Start climbing +start climb animation
+
+        if(Mathf.Abs(verticalMovement) > Mathf.Epsilon)
+        {
+            isClimbing = true;
+            rigidBody.gravityScale = 0f;
+            rigidBody.velocity += new Vector2(rigidBody.velocity.x, verticalMovement * playerData.climbingSpeed);
+            animator.SetBool("Climbing", true);
+            Debug.Log(isClimbing);
+        }
 
         //float climbing = Input.GetAxisRaw("Vertical");
-        //rigidBody.velocity += new Vector2(rigidBody.velocity.x, climbing * 0.25f);
+        //rigidBody.velocity += new Vector2(rigidBody.velocity.x, climbing * 0.05f);
         //rigidBody.gravityScale = 0f;
 
-        //bool isMovingVertically = Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon;
+        //bool isMovingVertically = Mathf.Abs(verticalMovement) > Mathf.Epsilon;
         //animator.SetBool("Climbing", isMovingVertically);
     } 
-    private void FlipTheCharacter()
+    private void Flip()
     {
         bool isFacingRight = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
         if (isFacingRight)
@@ -223,7 +206,7 @@ public class Kakapo : MonoBehaviour
     }
     public void TakeDamage(int damageValue)
     {
-        state = State.hurt;
+        isHurt = true;
         animator.SetBool("Take damage", true);
         rigidBody.velocity = new Vector2(-2f, 10f);  //<-- perform a kickback when kakapo is hurt
         StartCoroutine(GetHurt());
@@ -237,7 +220,7 @@ public class Kakapo : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         animator.SetBool("Take damage", false);
-        state = State.alive;
+        isHurt = false;
     }
     private void Respawn()
     {
