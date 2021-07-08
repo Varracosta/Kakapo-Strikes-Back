@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6165317309867535116}
   - component: {fileID: 286365802928041941}
   - component: {fileID: 5204176107374418065}
+  - component: {fileID: 73082394}
   m_Layer: 10
   m_Name: hedgehog
   m_TagString: Spikes
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136,3 +138,23 @@ MonoBehaviour:
   _damage: 1
   currentHealth: 5
   pointsPerKill: 100
+  IsDead: 0
+--- !u!95 &73082394
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165317309867535119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd0b42035642a314a8728762e4c3a665, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
