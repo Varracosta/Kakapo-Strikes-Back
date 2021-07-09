@@ -543,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.4125519, y: -6.7}
+  m_AnchoredPosition: {x: -1.4125366, y: -6.700012}
   m_SizeDelta: {x: -169.6729, y: -79.80739}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &440201392
@@ -6550,6 +6550,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1301066949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6134698407411733672, guid: fdff4c442bc638b4a9d79f763253ed93,
+    type: 3}
+  m_PrefabInstance: {fileID: 3236484165553301017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1301066950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301066949}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87ff1c286bff59d4c80924d33abb4dba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1310150361
 GameObject:
   m_ObjectHideFlags: 0
