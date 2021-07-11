@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5204176107374418065}
   - component: {fileID: 73082394}
   m_Layer: 10
-  m_Name: hedgehog
+  m_Name: Hedgehog
   m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
