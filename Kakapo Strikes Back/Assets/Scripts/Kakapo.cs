@@ -195,7 +195,7 @@ public class Kakapo : MonoBehaviour
         _livesManager.DisplayLives(_livesManager.numberOfLives);
 
         if (_livesManager.numberOfLives <= 0)
-            Respawn();
+            _sceneLoader.GameOver();
     }
     IEnumerator GetHurt()
     {
