@@ -14,7 +14,6 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
     public float maxLives = 3f;
-    public GameObject explosionAnim;
 
     private bool isHurt = false;
 
@@ -75,6 +74,8 @@ public class Kakapo : MonoBehaviour
             Flip();
             IsTouchingWater();
         }
+
+        FinishTheLevel();
     }
     private void Run()
     { 
@@ -208,5 +209,12 @@ public class Kakapo : MonoBehaviour
         _livesManager.Respawn();
         FindObjectOfType<UIManager>().ResetScore();
         transform.position = _startPosition;
+    }
+    private void FinishTheLevel()
+    {
+        if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Exit")))
+        {
+            _sceneLoader.LoadNextLevel();
+        }
     }
 }

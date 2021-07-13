@@ -273,20 +273,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f14aef980295e7479f23995db39733e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: f3f7de9ac425b594f92f33cd656ed88b, type: 2}
   attackPoint: {fileID: 423537375677959877}
-  speed: 10
-  jumpSpeed: 20
   stompBox: {fileID: 1649565606558826986}
   groundCheck: {fileID: 1668970232140361007}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   maxLives: 3
+  explosionAnim: {fileID: 0}
   legKickSFX: {fileID: 8300000, guid: e5b9080b808c3034f8df9eb72e957545, type: 3}
-  canClimb: 0
-  bottomLadder: 0
-  topLadder: 0
-  ladder: {fileID: 0}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
   m_ObjectHideFlags: 0
