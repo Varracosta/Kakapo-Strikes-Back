@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2159642413999122296}
   - component: {fileID: 2159642413999122299}
   - component: {fileID: 2159642413999122303}
-  m_Layer: 18
+  m_Layer: 8
   m_Name: stone
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9196169460501898586}
   - component: {fileID: 2321034699686929395}
-  m_Layer: 18
+  m_Layer: 8
   m_Name: stomping bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6330545763382120735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.39, z: 0}
+  m_LocalPosition: {x: -0.03, y: -1.214, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2159642413999122302}
@@ -190,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026460648, y: 0.36160398}
+  m_Offset: {x: -0.008029938, y: 0.36160398}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -201,5 +201,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7232094, y: 0.27679205}
+  m_Size: {x: 1.481781, y: 0.27679205}
   m_EdgeRadius: 0

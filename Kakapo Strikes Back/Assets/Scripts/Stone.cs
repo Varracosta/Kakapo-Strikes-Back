@@ -6,6 +6,7 @@ public class Stone : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D stomper;
 
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject enemy = other.gameObject;

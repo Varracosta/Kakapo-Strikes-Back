@@ -9,6 +9,7 @@ TagManager:
   - Spikes
   - Spider
   - Ladder
+  - Stone
   layers:
   - Default
   - TransparentFX

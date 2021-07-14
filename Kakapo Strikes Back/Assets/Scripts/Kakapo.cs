@@ -195,7 +195,7 @@ public class Kakapo : MonoBehaviour
     }
     IEnumerator GetHurt()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         animator.SetBool("Take damage", false);
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }

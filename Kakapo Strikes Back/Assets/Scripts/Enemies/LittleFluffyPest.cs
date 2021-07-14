@@ -96,8 +96,7 @@ public class LittleFluffyPest : Enemy
         targetPos.x += castDist;
 
         Debug.DrawLine(castPos.position, targetPos, Color.blue);
-        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground"))
-            || Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Stone")))
+        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
         {
             val = true;
         }
