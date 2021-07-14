@@ -10,23 +10,23 @@ enum IsFacing
 public class LittleFluffyPest : Enemy
 {
     //configuration
-    [SerializeField] private float _maxHealth = 5f;
-    [SerializeField] private float _speed = 3f;
+    [SerializeField] private float maxHealth = 5f;
+    [SerializeField] private float speed = 3f;
     [SerializeField] private Transform castPos;
     private float baseCastDist = 0.5f;
-    private IsFacing _facingDirection;
+    private IsFacing facingDirection;
 
     //caching references
-    private Rigidbody2D _rigidBody;
-    private Animator _animator;
+    private Rigidbody2D rigidBody;
+    private Animator animator;
     private Vector3 baseScale;
 
 
     private void Start()
     {
-        _facingDirection = IsFacing.Right;
-        _rigidBody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        facingDirection = IsFacing.Right;
+        rigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         baseScale = transform.localScale;
     }
 
@@ -45,18 +45,18 @@ public class LittleFluffyPest : Enemy
     {
 
         //caching _speed in a variable
-        float movementSpeed = _speed;
+        float movementSpeed = speed;
 
         //...and changing it to opposite if enemy is facing left
-        if (_facingDirection == IsFacing.Left)
-            movementSpeed = -_speed;
+        if (facingDirection == IsFacing.Left)
+            movementSpeed = -speed;
 
-        _rigidBody.velocity = new Vector2(movementSpeed, _rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(movementSpeed, rigidBody.velocity.y);
        
         //if enemy is hitting a wall or has reached an edge - flip the enemy and make 
         if (IsHittingWall() || IsAtTheEdge())
         {
-            if (_facingDirection == IsFacing.Left)
+            if (facingDirection == IsFacing.Left)
             {
                 FlipTheEnemy(IsFacing.Right);
             }
@@ -80,14 +80,14 @@ public class LittleFluffyPest : Enemy
         }
 
         transform.localScale = newScale;
-        _facingDirection = direction;
+        facingDirection = direction;
     }
     private bool IsHittingWall()
     {
         bool val = false;
 
         float castDist = baseCastDist;
-        if(_facingDirection == IsFacing.Left)
+        if(facingDirection == IsFacing.Left)
         {
             castDist = -baseCastDist;
         }
@@ -96,7 +96,8 @@ public class LittleFluffyPest : Enemy
         targetPos.x += castDist;
 
         Debug.DrawLine(castPos.position, targetPos, Color.blue);
-        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground"))
+            || Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Stone")))
         {
             val = true;
         }
