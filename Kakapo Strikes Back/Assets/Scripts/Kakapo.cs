@@ -76,6 +76,7 @@ public class Kakapo : MonoBehaviour
         }
 
         FinishTheLevel();
+        Debug.Log(isHurt);
     }
     private void Run()
     { 
@@ -171,11 +172,11 @@ public class Kakapo : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") || 
-            other.gameObject.CompareTag("Spikes"))
-        {
-            TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
-        }
+       if (other.gameObject.CompareTag("Enemy") || 
+           other.gameObject.CompareTag("Spikes"))
+       {
+           TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+       }     
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -190,12 +191,12 @@ public class Kakapo : MonoBehaviour
     }
     public void TakeDamage(int damageValue)
     {
-        isHurt = true;
+        Physics2D.IgnoreLayerCollision(10, 11, true);
         animator.SetBool("Take damage", true);
         rigidBody.velocity += new Vector2(-2.5f, 0f);  //<-- perform a kickback when kakapo is hurt
-        StartCoroutine(GetHurt());
         livesManager.numberOfLives -= damageValue;
         livesManager.DisplayLives(livesManager.numberOfLives);
+        StartCoroutine(GetHurt());
 
         if (livesManager.numberOfLives == 0)
             sceneLoader.GameOver();
@@ -204,7 +205,7 @@ public class Kakapo : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         animator.SetBool("Take damage", false);
-        isHurt = false;
+        Physics2D.IgnoreLayerCollision(10, 11, false);
     }
     private void Respawn()
     {

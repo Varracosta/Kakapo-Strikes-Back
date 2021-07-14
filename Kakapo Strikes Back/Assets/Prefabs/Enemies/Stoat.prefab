@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5210379939464406123}
   - component: {fileID: 3236484165553301021}
   - component: {fileID: 7541367383077518898}
+  - component: {fileID: 1301066950}
   m_Layer: 10
   m_Name: Stoat
   m_TagString: Enemy
@@ -81,6 +82,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -180,6 +182,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16ae2446d5a25549bb59671905e3766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
+  damage: 1
   currentHealth: 5
   pointsPerKill: 100
+  IsDead: 0
+--- !u!95 &1301066950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134698407411733672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87ff1c286bff59d4c80924d33abb4dba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

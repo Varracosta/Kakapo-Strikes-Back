@@ -17,6 +17,7 @@ public class DamageDealer : MonoBehaviour
     }
     public int GetDamage() { return damage; }
     public int GetHealth() { return currentHealth; }
+    public int GetPointsPerKill() { return pointsPerKill; }
     public void TakeDamage(int damageValue)
     {
         currentHealth -= damageValue;
