@@ -37,13 +37,6 @@ public class Kakapo : MonoBehaviour
     private LivesManager livesManager;
     private float startingGravity;
 
-    #region Attack data
-    private float attackRate = 2f;
-    private float nextAttackTime = 0f;
-    private float attackRadius = 0.4f;
-    private int damage = 5;
-    #endregion
-
     private bool isGrounded = true;
 
     private void Start()
@@ -76,7 +69,6 @@ public class Kakapo : MonoBehaviour
         }
 
         FinishTheLevel();
-        Debug.Log(isHurt);
     }
     private void Run()
     { 
@@ -144,7 +136,7 @@ public class Kakapo : MonoBehaviour
     }
     private void Attack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= playerData.nextAttackTime)
         {
             if (Input.GetKey(KeyCode.R))
             {
@@ -152,14 +144,14 @@ public class Kakapo : MonoBehaviour
                 AudioSource.PlayClipAtPoint(legKickSFX, Camera.main.transform.position, 0.2f);
 
                 Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position,
-                                                                attackRadius,
+                                                                playerData.attackRadius,
                                                                 LayerMask.GetMask("Killable enemy"));
 
                 foreach (Collider2D enemy in enemies)
                 {
-                    enemy.GetComponent<DamageDealer>().TakeDamage(damage);
+                    enemy.GetComponent<DamageDealer>().TakeDamage(playerData.damage);
                 }
-                nextAttackTime = Time.time + 1f / attackRate;
+                playerData.nextAttackTime = Time.time + 1f / playerData.attackRate;
             }
         }
     }
@@ -185,7 +177,7 @@ public class Kakapo : MonoBehaviour
 
         if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
         {
-            other.GetComponent<DamageDealer>().TakeDamage(damage);
+            other.GetComponent<DamageDealer>().TakeDamage(playerData.damage);
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 15f);
         }
     }

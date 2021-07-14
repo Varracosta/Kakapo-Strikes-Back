@@ -12,4 +12,10 @@ public class PlayerData : ScriptableObject
     public float speed = 10f;
     public float jumpSpeed = 25f;
     public float climbingSpeed = 0.25f;
+
+    [Header("Attack Info")]
+    public float attackRate = 2f;
+    public float nextAttackTime = 0f;
+    public float attackRadius = 0.4f;
+    public int damage = 5;
 }

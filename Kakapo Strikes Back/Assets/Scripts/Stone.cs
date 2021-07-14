@@ -6,8 +6,7 @@ public class Stone : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D stomper;
 
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject enemy = other.gameObject;
         if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
