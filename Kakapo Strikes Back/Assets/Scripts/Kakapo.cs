@@ -13,7 +13,6 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private BoxCollider2D stompBox;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
-    public float maxLives = 3f;
 
     private bool isHurt = false;
 
@@ -22,11 +21,8 @@ public class Kakapo : MonoBehaviour
 
     private float horizontalMovement;
     private float verticalMovement;
-    private Vector3 _startPosition;
-    private int _health;
-
-    private float _attackRadius = 0.4f;
-    private int _damage = 5;
+    private Vector3 startPosition;
+    private int health;
 
     private float groundCheckRadius = 0.5f;
 
@@ -37,24 +33,28 @@ public class Kakapo : MonoBehaviour
     private Rigidbody2D rigidBody;
     private CircleCollider2D feetCollider;
     private Animator animator;
-    private SceneLoader _sceneLoader;
-    private LivesManager _livesManager;
+    private SceneLoader sceneLoader;
+    private LivesManager livesManager;
     private float startingGravity;
 
+    #region Attack data
     private float attackRate = 2f;
     private float nextAttackTime = 0f;
+    private float attackRadius = 0.4f;
+    private int damage = 5;
+    #endregion
 
     private bool isGrounded = true;
 
     private void Start()
     {
-        _startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
+        startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
         rigidBody = GetComponent<Rigidbody2D>();
         feetCollider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
-        _sceneLoader = FindObjectOfType<SceneLoader>();
-        _livesManager = FindObjectOfType<LivesManager>();
-        _health = FindObjectOfType<LivesManager>().GetLives();
+        sceneLoader = FindObjectOfType<SceneLoader>();
+        livesManager = FindObjectOfType<LivesManager>();
+        health = FindObjectOfType<LivesManager>().GetLives();
         startingGravity = rigidBody.gravityScale;
     }
 
@@ -151,12 +151,12 @@ public class Kakapo : MonoBehaviour
                 AudioSource.PlayClipAtPoint(legKickSFX, Camera.main.transform.position, 0.2f);
 
                 Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position,
-                                                                _attackRadius,
+                                                                attackRadius,
                                                                 LayerMask.GetMask("Killable enemy"));
 
                 foreach (Collider2D enemy in enemies)
                 {
-                    enemy.GetComponent<DamageDealer>().TakeDamage(_damage);
+                    enemy.GetComponent<DamageDealer>().TakeDamage(damage);
                 }
                 nextAttackTime = Time.time + 1f / attackRate;
             }
@@ -166,7 +166,7 @@ public class Kakapo : MonoBehaviour
     {
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
-            TakeDamage(_health);
+            TakeDamage(health);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -179,10 +179,12 @@ public class Kakapo : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")) 
-            && !other.gameObject.CompareTag("Spikes"))
+        if (other.gameObject.CompareTag("Spikes"))
+            return;
+
+        if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
         {
-            other.GetComponent<DamageDealer>().TakeDamage(_damage);
+            other.GetComponent<DamageDealer>().TakeDamage(damage);
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 15f);
         }
     }
@@ -190,13 +192,13 @@ public class Kakapo : MonoBehaviour
     {
         isHurt = true;
         animator.SetBool("Take damage", true);
-        rigidBody.velocity = new Vector2(-2f, 10f);  //<-- perform a kickback when kakapo is hurt
+        rigidBody.velocity += new Vector2(-2.5f, 0f);  //<-- perform a kickback when kakapo is hurt
         StartCoroutine(GetHurt());
-        _livesManager.numberOfLives -= damageValue;
-        _livesManager.DisplayLives(_livesManager.numberOfLives);
+        livesManager.numberOfLives -= damageValue;
+        livesManager.DisplayLives(livesManager.numberOfLives);
 
-        if (_livesManager.numberOfLives <= 0)
-            _sceneLoader.GameOver();
+        if (livesManager.numberOfLives == 0)
+            sceneLoader.GameOver();
     }
     IEnumerator GetHurt()
     {
@@ -206,15 +208,15 @@ public class Kakapo : MonoBehaviour
     }
     private void Respawn()
     {
-        _livesManager.Respawn();
+        livesManager.Respawn();
         FindObjectOfType<UIManager>().ResetScore();
-        transform.position = _startPosition;
+        transform.position = startPosition;
     }
     private void FinishTheLevel()
     {
         if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Exit")))
         {
-            _sceneLoader.LoadNextLevel();
+            sceneLoader.LoadNextLevel();
         }
     }
 }

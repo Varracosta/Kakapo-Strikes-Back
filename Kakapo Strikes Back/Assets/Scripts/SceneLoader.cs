@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator GameOverCoroutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Game Over");
     }
 }

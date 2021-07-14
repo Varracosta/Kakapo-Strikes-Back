@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    [SerializeField] private int _damage = 1;
-    [SerializeField] private float currentHealth = 5f;
+    [SerializeField] private int damage = 1;
+    [SerializeField] private int currentHealth = 5;
     [SerializeField] private int pointsPerKill = 100;
 
     private Animator animator;
@@ -15,7 +15,8 @@ public class DamageDealer : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
-    public int GetDamage() { return _damage; }
+    public int GetDamage() { return damage; }
+    public int GetHealth() { return currentHealth; }
     public void TakeDamage(int damageValue)
     {
         currentHealth -= damageValue;
