@@ -29,6 +29,11 @@ public class Kakapo : MonoBehaviour
     //Climbing info
     private float climbSpeed = 3f;
 
+    public float attackRate = 2f;
+    public float nextAttackTime = 0f;
+    public float attackRadius = 0.4f;
+    public int damage = 5;
+
     //Caching references
     private Rigidbody2D rigidBody;
     private CircleCollider2D feetCollider;
@@ -55,10 +60,11 @@ public class Kakapo : MonoBehaviour
     {
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
+
     }
     private void Update()
     {
-        if(!isHurt)
+        if(isHurt == false)
         {
             Attack();
             Run();
@@ -67,7 +73,6 @@ public class Kakapo : MonoBehaviour
             Flip();
             IsTouchingWater();
         }
-
         FinishTheLevel();
     }
     private void Run()
@@ -136,7 +141,7 @@ public class Kakapo : MonoBehaviour
     }
     private void Attack()
     {
-        if (Time.time >= playerData.nextAttackTime)
+        if (Time.time >= nextAttackTime)
         {
             if (Input.GetKey(KeyCode.R))
             {
@@ -151,13 +156,13 @@ public class Kakapo : MonoBehaviour
                 {
                     enemy.GetComponent<DamageDealer>().TakeDamage(playerData.damage);
                 }
-                playerData.nextAttackTime = Time.time + 1f / playerData.attackRate;
+                nextAttackTime = Time.time + 1f / playerData.attackRate;
             }
         }
     }
     private void IsTouchingWater()
     {
-        if (feetCollider.IsTouchingLayers(LayerMask.GetMask("Water")))
+        if (stompBox.IsTouchingLayers(LayerMask.GetMask("Water")))
         {
             TakeDamage(health);
         }
