@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Kakapo : MonoBehaviour
 {
-    //Configuration
+    #region Inspector Part
     [Header("Main info")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private Transform attackPoint;
@@ -14,36 +14,31 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
 
-    private bool isHurt = false;
-
     [Header("Audio")]
     [SerializeField] private AudioClip legKickSFX;
-
+    #endregion
+   
+    #region Physics variables
     private float horizontalMovement;
     private float verticalMovement;
     private Vector3 startPosition;
+    private float startingGravity;
+    #endregion
+
+    #region Other info
     private int health;
+    private bool isHurt = false;
+    private bool isGrounded = true;
+    private float nextAttackTime = 0f;
+    #endregion
 
-    private float groundCheckRadius = 0.5f;
-
-    //Climbing info
-    private float climbSpeed = 3f;
-
-    public float attackRate = 2f;
-    public float nextAttackTime = 0f;
-    public float attackRadius = 0.4f;
-    public int damage = 5;
-
-    //Caching references
+    #region Cached components 
     private Rigidbody2D rigidBody;
     private CircleCollider2D feetCollider;
     private Animator animator;
     private SceneLoader sceneLoader;
     private LivesManager livesManager;
-    private float startingGravity;
-
-    private bool isGrounded = true;
-
+    #endregion
     private void Start()
     {
         startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
@@ -60,7 +55,6 @@ public class Kakapo : MonoBehaviour
     {
         horizontalMovement = Input.GetAxisRaw("Horizontal");
         verticalMovement = Input.GetAxisRaw("Vertical");
-
     }
     private void Update()
     {
@@ -92,7 +86,7 @@ public class Kakapo : MonoBehaviour
             animator.SetBool("Jumping", true);
         }
 
-        Collider2D[] groundCheckColliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, whatIsGround);
+        Collider2D[] groundCheckColliders = Physics2D.OverlapCircleAll(groundCheck.position, playerData.groundCheckRadius, whatIsGround);
         foreach (Collider2D surface in groundCheckColliders)
         {
             if (surface != gameObject)
@@ -172,25 +166,21 @@ public class Kakapo : MonoBehaviour
        if (other.gameObject.CompareTag("Enemy") || 
            other.gameObject.CompareTag("Spikes"))
        {
-           TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
-       }     
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Spikes"))
-            return;
+            rigidBody.velocity = new Vector2(-10f, 15f);  //<-- perform a kickback when kakapo is hurt
+            TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+       }
 
-        if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
-        {
-            other.GetComponent<DamageDealer>().TakeDamage(playerData.damage);
+       if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")) && 
+                !other.gameObject.CompareTag("Spikes"))
+       {
+            other.gameObject.GetComponent<DamageDealer>().TakeDamage(playerData.damage);
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 15f);
-        }
+       }
     }
     public void TakeDamage(int damageValue)
     {
         Physics2D.IgnoreLayerCollision(10, 11, true);
         animator.SetBool("Take damage", true);
-        rigidBody.velocity += new Vector2(-2.5f, 0f);  //<-- perform a kickback when kakapo is hurt
         livesManager.numberOfLives -= damageValue;
         livesManager.DisplayLives(livesManager.numberOfLives);
         StartCoroutine(GetHurt());
@@ -203,12 +193,6 @@ public class Kakapo : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("Take damage", false);
         Physics2D.IgnoreLayerCollision(10, 11, false);
-    }
-    private void Respawn()
-    {
-        livesManager.Respawn();
-        FindObjectOfType<UIManager>().ResetScore();
-        transform.position = startPosition;
     }
     private void FinishTheLevel()
     {

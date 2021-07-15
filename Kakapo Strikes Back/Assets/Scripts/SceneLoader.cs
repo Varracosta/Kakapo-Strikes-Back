@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] private GameObject gameOverMenu;
     int currentSceneIndex;
-    int lastSceneIndex;
+
     private void Start()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        lastSceneIndex = currentSceneIndex;
     }
     public void StartLevel()
     {
@@ -18,7 +18,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(lastSceneIndex);
+        SceneManager.LoadScene("Level 1");
     }
     public void LoadNextLevel()
     {
@@ -36,6 +36,10 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator GameOverCoroutine()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Game Over");
+        gameOverMenu.SetActive(true);
+    }
+    public void QuitTheGame()
+    {
+        Application.Quit();
     }
 }

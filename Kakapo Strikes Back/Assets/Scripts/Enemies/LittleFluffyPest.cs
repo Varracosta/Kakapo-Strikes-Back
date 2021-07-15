@@ -10,7 +10,6 @@ enum IsFacing
 public class LittleFluffyPest : Enemy
 {
     //configuration
-    [SerializeField] private float maxHealth = 5f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private Transform castPos;
     private float baseCastDist = 0.5f;
