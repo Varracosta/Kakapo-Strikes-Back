@@ -53,3 +53,9 @@ TagManager:
   - name: Background
     uniqueID: 1184645665
     locked: 0
+  - name: Spider
+    uniqueID: 3583797119
+    locked: 0
+  - name: Spider Web
+    uniqueID: 2022683185
+    locked: 0
