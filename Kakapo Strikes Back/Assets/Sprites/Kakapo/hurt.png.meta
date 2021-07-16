@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d0d1e967aa736b44a8ef860e2efc78a7
+guid: 5a6f68aba999ab64abfef9f9c63b0bba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5610774095921936604
-    second: climbing_2
+      213: -3582916166963785052
+    second: hurt_0
   - first:
-      213: 5857612786333312657
-    second: climbing_3
+      213: 1642290761556927327
+    second: hurt_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: climbing_0
+      name: hurt_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 3
-        width: 19
-        height: 34
+        x: 4
+        y: 9
+        width: 31
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57bcec50ef2f058e0800000000000000
-      internalID: -1706597085940364427
+      spriteID: 4a29e10babce64ec0800000000000000
+      internalID: -3582916166963785052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: climbing_1
+      name: hurt_1
       rect:
         serializedVersion: 2
-        x: 26
-        y: 3
-        width: 19
-        height: 34
+        x: 43
+        y: 9
+        width: 31
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,50 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f7893ec76215d270800000000000000
-      internalID: 8274540127413962741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: climbing_2
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 3
-        width: 19
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4270c99dfa68222b0800000000000000
-      internalID: -5610774095921936604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: climbing_3
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 3
-        width: 19
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 196ee215bcb6a4150800000000000000
-      internalID: 5857612786333312657
+      spriteID: f53a1841fb69ac610800000000000000
+      internalID: 1642290761556927327
       vertices: []
       indices: 
       edges: []
