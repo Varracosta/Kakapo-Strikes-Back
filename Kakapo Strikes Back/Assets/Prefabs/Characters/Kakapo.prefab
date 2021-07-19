@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540192876546153304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.32, y: -0.24, z: 0}
+  m_LocalPosition: {x: 2.01, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4330754544799369303}
@@ -74,7 +74,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.41498005}
+  m_Offset: {x: 0.014947891, y: -0.41498005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -85,7 +85,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5531502, y: 0.17003989}
+  m_Size: {x: 1.5466499, y: 0.17003989}
   m_EdgeRadius: 0
 --- !u!1 &4330754544799369299
 GameObject:
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4330754544799369302}
   - component: {fileID: 4330754544799369305}
   - component: {fileID: 4330754545894729043}
+  - component: {fileID: 594934138}
   m_Layer: 11
   m_Name: Kakapo
   m_TagString: Kakapo
@@ -280,8 +281,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  maxLives: 3
-  explosionAnim: {fileID: 0}
   legKickSFX: {fileID: 8300000, guid: e5b9080b808c3034f8df9eb72e957545, type: 3}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
@@ -302,6 +301,19 @@ MonoBehaviour:
   numberOfLives: 3
   activeHeart: {fileID: 21300000, guid: aaaa623b21cb6654fa639f3480c7d5fb, type: 3}
   inactiveHeart: {fileID: 21300000, guid: a8938ce56412ffb409218220de2d4d48, type: 3}
+--- !u!114 &594934138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330754544799369299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17d5bfe3a756546a75d7432096b225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: f3f7de9ac425b594f92f33cd656ed88b, type: 2}
 --- !u!1 &9015697274122641373
 GameObject:
   m_ObjectHideFlags: 0

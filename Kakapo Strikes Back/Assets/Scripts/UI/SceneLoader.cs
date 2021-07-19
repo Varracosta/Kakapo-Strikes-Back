@@ -15,10 +15,12 @@ public class SceneLoader : MonoBehaviour
     public void StartLevel()
     {
         SceneManager.LoadScene("Level 1");
+        Time.timeScale = 1f;
     }
     public void Restart()
     {
         SceneManager.LoadScene("Level 1");
+        Time.timeScale = 1f;
     }
     public void LoadNextLevel()
     {
@@ -37,6 +39,7 @@ public class SceneLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         gameOverMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
     public void QuitTheGame()
     {

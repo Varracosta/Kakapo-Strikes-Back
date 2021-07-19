@@ -13,6 +13,7 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private BoxCollider2D stompBox;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask whatIsLadder;
 
     [Header("Audio")]
     [SerializeField] private AudioClip legKickSFX;
@@ -29,7 +30,10 @@ public class Kakapo : MonoBehaviour
     private int health;
     private bool isHurt = false;
     private bool isGrounded = true;
+    private bool isClimbing;
+    private float raycastDistance;
     private float nextAttackTime = 0f;
+    private float climbSpeed = 5f;
     #endregion
 
     #region Cached components 
@@ -101,32 +105,39 @@ public class Kakapo : MonoBehaviour
     }
     private void Climb()
     {
-        bool isTouchingLadder = feetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
-        bool isMovingVertically = Mathf.Abs(verticalMovement) > Mathf.Epsilon;
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, raycastDistance, whatIsLadder);
 
-        if (!isTouchingLadder)
+        if (hitInfo.collider != null)
         {
-            animator.SetBool("Climbing", false);
-            rigidBody.gravityScale = startingGravity;
-            return;
-        }
-
-        if (isTouchingLadder & isMovingVertically)
-        {
-
-            if (isMovingVertically)
+            if (verticalMovement != 0)
             {
-                rigidBody.gravityScale = 0f;
-                rigidBody.velocity += new Vector2(rigidBody.velocity.x, verticalMovement * playerData.climbingSpeed);
+                isClimbing = true;
                 animator.SetBool("Climbing", true);
                 animator.speed = 1f;
             }
-            else
-            {
-                animator.speed = 0f;
-            }
         }
-    } 
+
+        else if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            isClimbing = false;
+            animator.SetBool("Climbing", false);
+        }
+
+        if (isClimbing == true && hitInfo.collider != null)
+        {
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, verticalMovement * climbSpeed);
+
+            rigidBody.gravityScale = 0;
+        }
+        else if(isClimbing == true && verticalMovement == 0)
+        {
+            animator.speed = 0f;
+        }
+        else
+        {
+            rigidBody.gravityScale = startingGravity;
+        }
+    }
     private void Flip()
     {
         bool isFacingRight = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
@@ -169,7 +180,6 @@ public class Kakapo : MonoBehaviour
             TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
        }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
          if (stompBox.IsTouchingLayers(LayerMask.GetMask("Killable enemy")) &&
@@ -193,6 +203,7 @@ public class Kakapo : MonoBehaviour
         {
             Physics2D.IgnoreLayerCollision(10, 11, true);
             sceneLoader.GameOver();
+            Physics2D.IgnoreLayerCollision(10, 11, false);
         }
     }
     IEnumerator GetHurt()
