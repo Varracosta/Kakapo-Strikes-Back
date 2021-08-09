@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81224b254a70d8c4a9510cae2a7e6b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _speed: 3
+  speed: 3
   castPos: {fileID: 7143266277621330479}
+  damageDealer: {fileID: 7541367383077518898}
 --- !u!114 &7541367383077518898
 MonoBehaviour:
   m_ObjectHideFlags: 0

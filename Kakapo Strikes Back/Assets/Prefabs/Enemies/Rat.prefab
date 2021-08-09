@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81224b254a70d8c4a9510cae2a7e6b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _speed: 4
+  speed: 4
   castPos: {fileID: 5336452045551567053}
+  damageDealer: {fileID: 6096524071131216395}
 --- !u!114 &6096524071131216395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16ae2446d5a25549bb59671905e3766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  damage: 1
   currentHealth: 5
   pointsPerKill: 100
   IsDead: 0

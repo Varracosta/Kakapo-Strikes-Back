@@ -9,11 +9,11 @@ public class Stone : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject enemy = other.gameObject;
+
         if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
         {
-            FindObjectOfType<UIManager>().AddToScore(enemy.GetComponent<DamageDealer>().GetPointsPerKill());
-            Debug.Log("I detected an enemy!");
-            Destroy(enemy);
+            enemy.gameObject.GetComponent<DamageDealer>().Die();
         }
     }
+
 }

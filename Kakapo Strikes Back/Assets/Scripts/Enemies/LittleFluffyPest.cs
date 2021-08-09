@@ -12,6 +12,7 @@ public class LittleFluffyPest : Enemy
     //configuration
     [SerializeField] private float speed = 3f;
     [SerializeField] private Transform castPos;
+    [SerializeField] private DamageDealer damageDealer;
     private float baseCastDist = 0.5f;
     private IsFacing facingDirection;
 
@@ -95,7 +96,8 @@ public class LittleFluffyPest : Enemy
         targetPos.x += castDist;
 
         Debug.DrawLine(castPos.position, targetPos, Color.blue);
-        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground"))
+            || Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Platform")))
         {
             val = true;
         }
@@ -116,7 +118,8 @@ public class LittleFluffyPest : Enemy
         targetPos.y -= castDist;
 
         Debug.DrawLine(castPos.position, targetPos, Color.red);
-        if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground"))
+            || Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Platform")))
         {
             val = false;
         }

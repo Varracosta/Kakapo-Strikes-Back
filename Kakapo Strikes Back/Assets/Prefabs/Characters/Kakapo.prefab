@@ -74,7 +74,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014947891, y: -0.41498005}
+  m_Offset: {x: -0.031518936, y: -0.41498005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -85,7 +85,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5466499, y: 0.17003989}
+  m_Size: {x: 1.1645927, y: 0.17003989}
   m_EdgeRadius: 0
 --- !u!1 &4330754544799369299
 GameObject:
@@ -103,7 +103,9 @@ GameObject:
   - component: {fileID: 4330754544799369302}
   - component: {fileID: 4330754544799369305}
   - component: {fileID: 4330754545894729043}
-  - component: {fileID: 594934138}
+  - component: {fileID: 4685950627742670114}
+  - component: {fileID: 3584348182448610715}
+  - component: {fileID: 361489596436156547}
   m_Layer: 11
   m_Name: Kakapo
   m_TagString: Kakapo
@@ -125,6 +127,7 @@ Transform:
   - {fileID: 1668970232140361007}
   - {fileID: 423537375677959877}
   - {fileID: 7334252697301289397}
+  - {fileID: 7450325261528489149}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,14 +170,14 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 8517308060633284883, guid: 53f0392934cef79429ccb262500e23f7,
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 4723107735738678597, guid: c8a3861a389f2e948ab1da65faddade8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.5, y: 1.875}
+  m_Size: {x: 2.5625, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -218,8 +221,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5625, y: 1.875}
-    newSize: {x: 2.5, y: 1.875}
+    oldSize: {x: 2.5625, y: 1.75}
+    newSize: {x: 2.5625, y: 1.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -240,9 +243,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.19846481}
+  m_Offset: {x: 0, y: -0.15199846}
   serializedVersion: 2
-  m_Radius: 0.66319567
+  m_Radius: 0.6167293
 --- !u!95 &4330754544799369302
 Animator:
   serializedVersion: 3
@@ -274,14 +277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f14aef980295e7479f23995db39733e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: f3f7de9ac425b594f92f33cd656ed88b, type: 2}
-  attackPoint: {fileID: 423537375677959877}
-  stompBox: {fileID: 1649565606558826986}
-  groundCheck: {fileID: 1668970232140361007}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
+  playerMovementsManager: {fileID: 4685950627742670114}
+  playerCollisionManager: {fileID: 3584348182448610715}
   legKickSFX: {fileID: 8300000, guid: e5b9080b808c3034f8df9eb72e957545, type: 3}
+  health: 0
+  isHurt: 0
+  stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +302,7 @@ MonoBehaviour:
   numberOfLives: 3
   activeHeart: {fileID: 21300000, guid: aaaa623b21cb6654fa639f3480c7d5fb, type: 3}
   inactiveHeart: {fileID: 21300000, guid: a8938ce56412ffb409218220de2d4d48, type: 3}
---- !u!114 &594934138
+--- !u!114 &4685950627742670114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,10 +311,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 4330754544799369299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad17d5bfe3a756546a75d7432096b225, type: 3}
+  m_Script: {fileID: 11500000, guid: 0328d68df8de216429b3dfc8bbec5012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: f3f7de9ac425b594f92f33cd656ed88b, type: 2}
+  kakapo: {fileID: 4330754544799369305}
+  attackPoint: {fileID: 423537375677959877}
+  groundCheck: {fileID: 1668970232140361007}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  whatIsPlatform:
+    serializedVersion: 2
+    m_Bits: 4096
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 512
+  isGrounded: 1
+  usingLadder: 0
+--- !u!114 &3584348182448610715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330754544799369299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14eeab1b7980b7408fc5063a9944c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kakapo: {fileID: 4330754544799369305}
+--- !u!114 &361489596436156547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330754544799369299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b86e4eee6ea8f4c96969a0977d6c5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4654118924149938485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7450325261528489149}
+  m_Layer: 11
+  m_Name: Ladder Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7450325261528489149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654118924149938485}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4330754544799369303}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9015697274122641373
 GameObject:
   m_ObjectHideFlags: 0
