@@ -93,7 +93,6 @@ public class Spider : Enemy
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("I touched Enemy");
             other.gameObject.GetComponent<DamageDealer>().Die();
         }
     }
