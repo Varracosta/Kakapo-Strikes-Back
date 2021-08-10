@@ -10,6 +10,7 @@ public class Spider : Enemy
 
     [SerializeField] private float _speed = 1f;
     [SerializeField] private Transform castPos;
+    [SerializeField] private LayerMask whatIsSurface;
     private float baseCastDist = 0.2f;
     private int damage = 1;
     
@@ -58,7 +59,7 @@ public class Spider : Enemy
         targetPos.y -= castDist;
 
         Debug.DrawLine(castPos.position, targetPos, Color.red);
-        if (Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        if (Physics2D.Linecast(castPos.position, targetPos, whatIsSurface))
         {
             val = true;
         }
@@ -92,7 +93,8 @@ public class Spider : Enemy
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<DamageDealer>().TakeDamage(damage);
+            Debug.Log("I touched Enemy");
+            other.gameObject.GetComponent<DamageDealer>().Die();
         }
     }
 
