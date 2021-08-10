@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 70ff9015e8eec9742b96b9e813ff8fa5
 TextureImporter:
   internalIDToNameTable:
@@ -12,6 +13,12 @@ TextureImporter:
       213: -3341573891944662379
     second: running_2
   - first:
+=======
+guid: 18c451995144f0d488ce70f64af8bf64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       213: 5720687236895615129
     second: running_3
   - first:
@@ -137,9 +144,15 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+<<<<<<< HEAD
         y: 2
         width: 40
         height: 28
+=======
+        y: 1
+        width: 40
+        height: 29
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +170,17 @@ TextureImporter:
       name: running_1
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 40
         y: 2
         width: 41
         height: 28
+=======
+        x: 41
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +198,17 @@ TextureImporter:
       name: running_2
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 81
         y: 2
         width: 41
         height: 28
+=======
+        x: 82
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +226,17 @@ TextureImporter:
       name: running_3
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 122
         y: 2
         width: 41
         height: 28
+=======
+        x: 123
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,10 +254,17 @@ TextureImporter:
       name: running_4
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 163
         y: 1
         width: 42
         height: 29
+=======
+        x: 165
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +282,17 @@ TextureImporter:
       name: running_5
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 205
         y: 1
         width: 42
         height: 29
+=======
+        x: 207
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,10 +310,17 @@ TextureImporter:
       name: running_6
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 247
         y: 1
         width: 41
         height: 29
+=======
+        x: 248
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,10 +338,17 @@ TextureImporter:
       name: running_7
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 288
         y: 1
         width: 41
         height: 29
+=======
+        x: 289
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +366,17 @@ TextureImporter:
       name: running_8
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 329
         y: 1
         width: 41
         height: 29
+=======
+        x: 330
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,9 +395,15 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 370
+<<<<<<< HEAD
         y: 1
         width: 40
         height: 29
+=======
+        y: 0
+        width: 40
+        height: 30
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

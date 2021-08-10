@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerInputHandler : MonoBehaviour
+{
+    public Vector2 RawMovementInput { get; private set; }
+    public int NormalizedInputX { get; private set; }
+    public int NormalizedInputY { get; private set; }
+    public bool JumpInput { get; private set; }
+    public bool GrabInput { get; private set; }
+    public bool AttackInput { get; private set; }
+
+    [SerializeField] private float inputHoldTime = 0.2f;
+    private float jumpInputStartTime;
+
+    private void Update()
+    {
+        CheckJumpInputHoldTime();
+    }
+    public void OnMoveInput(InputAction.CallbackContext context)
+    {
+        RawMovementInput = context.ReadValue<Vector2>();
+
+        NormalizedInputX = Mathf.RoundToInt(RawMovementInput.x);
+        NormalizedInputY = Mathf.RoundToInt(RawMovementInput.y);
+    }
+    public void OnAttackInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            AttackInput = true;
+
+        if (context.canceled)
+            AttackInput = false;
+    }
+    public void OnJumpInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            JumpInput = true;
+            jumpInputStartTime = Time.time;
+        }
+    }
+    public void OnGrabInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            GrabInput = true;
+
+        if (context.canceled)
+            GrabInput = false;
+    }
+    public void SetJumpInputToFalse() => JumpInput = false;
+    private void CheckJumpInputHoldTime()
+    {
+        if(Time.time >= jumpInputStartTime + inputHoldTime)
+        {
+            JumpInput = false;
+        }
+    }
+}

@@ -28,11 +28,14 @@ public class Kakapo : MonoBehaviour
     private float _attackRadius = 0.4f;
     private int _damage = 5;
 
+<<<<<<< HEAD
     private float groundCheckRadius = 0.5f;
 
     //Climbing info
     private float climbSpeed = 3f;
 
+=======
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
     //Caching references
     private Rigidbody2D rigidBody;
     private CircleCollider2D feetCollider;
@@ -65,7 +68,11 @@ public class Kakapo : MonoBehaviour
     }
     private void Update()
     {
+<<<<<<< HEAD
         if(!isHurt)
+=======
+        if(state != State.hurt)
+>>>>>>> deb36023d07f179e69758911dd5b4f887b6c39b4
         {
             Attack();
             Run();
