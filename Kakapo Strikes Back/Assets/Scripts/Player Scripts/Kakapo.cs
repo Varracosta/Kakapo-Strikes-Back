@@ -13,6 +13,7 @@ public class Kakapo : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] internal AudioClip legKickSFX;
+    [SerializeField] private AudioClip hurtSFX;
     #endregion
    
     #region Physics variables
@@ -53,14 +54,14 @@ public class Kakapo : MonoBehaviour
     private void Update()
     {
         FinishTheLevel();
-        //Flip();
     }
-
 
     public void TakeDamage(int damageValue)
     {
-        rigidBody.velocity = new Vector2(0f, 15f);
-        Physics2D.IgnoreLayerCollision(10, 11, true);
+        isHurt = true;
+        //rigidBody.velocity = new Vector2(0f, 15f);
+        //Physics2D.IgnoreLayerCollision(10, 11, true);
+        AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, 5f);
         animator.SetBool("Take damage", true);
 
         livesManager.numberOfLives -= damageValue;
@@ -77,7 +78,8 @@ public class Kakapo : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("Take damage", false);
-        Physics2D.IgnoreLayerCollision(10, 11, false);
+        isHurt = false;
+        //Physics2D.IgnoreLayerCollision(10, 11, false);
     }
 
     private void FinishTheLevel()
@@ -86,11 +88,5 @@ public class Kakapo : MonoBehaviour
         {
             sceneLoader.LoadNextLevel();
         }
-    }
-    private void Flip()
-    {
-        bool isFacingRight = Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon;
-        if (isFacingRight)
-            transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x), 1f);
     }
 }

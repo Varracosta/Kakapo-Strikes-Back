@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCollisionManager : MonoBehaviour
 {
     [SerializeField] internal Kakapo kakapo;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -13,11 +14,15 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy") ||
-            other.gameObject.CompareTag("Spikes"))
+        if(kakapo.isHurt == false)
         {
-            kakapo.TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+           if (other.gameObject.CompareTag("Enemy") ||
+                other.gameObject.CompareTag("Spikes"))
+           {
+                kakapo.TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+           }
         }
+        else { return; }
     }
 
     //Killing enemies by stomping them
