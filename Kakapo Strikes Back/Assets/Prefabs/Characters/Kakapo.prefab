@@ -279,7 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovementsManager: {fileID: 4685950627742670114}
   playerCollisionManager: {fileID: 3584348182448610715}
-  legKickSFX: {fileID: 8300000, guid: e5b9080b808c3034f8df9eb72e957545, type: 3}
+  legKickSFX: {fileID: 8300000, guid: 5d3b0b2b532176547b9830c43d33ca40, type: 3}
+  hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   health: 0
   isHurt: 0
   stompBox: {fileID: 1649565606558826986}
@@ -317,17 +318,9 @@ MonoBehaviour:
   kakapo: {fileID: 4330754544799369305}
   attackPoint: {fileID: 423537375677959877}
   groundCheck: {fileID: 1668970232140361007}
-  whatIsGround:
+  whatIsSurface:
     serializedVersion: 2
-    m_Bits: 256
-  whatIsPlatform:
-    serializedVersion: 2
-    m_Bits: 4096
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 512
-  isGrounded: 1
-  usingLadder: 0
+    m_Bits: 4352
 --- !u!114 &3584348182448610715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b86e4eee6ea8f4c96969a0977d6c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 512
+  ladderCheck: {fileID: 7450325261528489149}
 --- !u!1 &4654118924149938485
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4654118924149938485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4330754544799369303}
