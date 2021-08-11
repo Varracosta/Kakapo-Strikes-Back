@@ -135,9 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16ae2446d5a25549bb59671905e3766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  damage: 1
   currentHealth: 5
   pointsPerKill: 100
+  deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
   IsDead: 0
 --- !u!95 &73082394
 Animator:

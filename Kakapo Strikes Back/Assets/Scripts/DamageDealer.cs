@@ -7,6 +7,7 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private int currentHealth = 5;
     [SerializeField] private int pointsPerKill = 100;
+    [SerializeField] private AudioClip deathPopSFX;
 
     private Animator animator;
     public bool IsDead = false;
@@ -31,6 +32,7 @@ public class DamageDealer : MonoBehaviour
     {
         FindObjectOfType<UIManager>().AddToScore(pointsPerKill);
         IsDead = true;
+        AudioSource.PlayClipAtPoint(deathPopSFX, Camera.main.transform.position, 10f);
         animator.SetBool("IsDead", true);
         StartCoroutine(Dying());
     }

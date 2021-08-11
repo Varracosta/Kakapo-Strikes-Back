@@ -13,7 +13,7 @@ public class PlayerClimbingLadder : MonoBehaviour
     private float ladderCenter;
 
     private float verticalMovement;
-    private float climbingSpeed = 1.5f;
+    private float climbingSpeed = 2f;
 
     private Rigidbody2D rb;
     private Animator anim;
