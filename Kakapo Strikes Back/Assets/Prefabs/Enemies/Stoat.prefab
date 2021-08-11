@@ -185,6 +185,7 @@ MonoBehaviour:
   damage: 1
   currentHealth: 5
   pointsPerKill: 100
+  deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
   IsDead: 0
 --- !u!95 &1301066950
 Animator:
