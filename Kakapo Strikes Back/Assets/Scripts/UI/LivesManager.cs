@@ -7,7 +7,7 @@ public class LivesManager : MonoBehaviour
 {
     [SerializeField] private Image[] _lives;
     private const int MAX_LIVES = 3;
-    public int numberOfLives;
+    public int NumberOfLives { get; private set; }
 
     //Caching references
     public Sprite activeHeart;
@@ -15,15 +15,19 @@ public class LivesManager : MonoBehaviour
 
     void Start()
     {
-        numberOfLives = MAX_LIVES;
+        NumberOfLives = MAX_LIVES;
     }
 
     void Update()
     {
-        DisplayLives(numberOfLives);
+        DisplayLives(NumberOfLives);
+
+        if(NumberOfLives == 0)
+        {
+            FindObjectOfType<SceneLoader>().GameOver();
+        }
     }
 
-    public int GetLives() { return numberOfLives; }
     public void DisplayLives(int numberOfLives)
     {
         //creating basic "frame" of hearts with empty heart sprites 
@@ -38,14 +42,18 @@ public class LivesManager : MonoBehaviour
             _lives[i].sprite = activeHeart;
         }
     }
+    public void DecreaseLives(int damage)
+    {
+        NumberOfLives -= damage;
+    }
     public void Respawn()
     {
-        numberOfLives = MAX_LIVES;
+        NumberOfLives = MAX_LIVES;
     }
     public void AddLife()
     {
-        if (numberOfLives < MAX_LIVES)
-            numberOfLives++;
+        if (NumberOfLives < MAX_LIVES)
+            NumberOfLives++;
         else
             FindObjectOfType<UIManager>().AddToScore(500);
     }

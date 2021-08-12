@@ -12,13 +12,12 @@ public class LittleFluffyPest : Enemy
     //configuration
     [SerializeField] private float speed = 3f;
     [SerializeField] private Transform castPos;
-    [SerializeField] private DamageDealer damageDealer;
+    [SerializeField] private EnemyHP enemyHP;
     private float baseCastDist = 0.5f;
     private IsFacing facingDirection;
 
     //caching references
     private Rigidbody2D rigidBody;
-    private Animator animator;
     private Vector3 baseScale;
 
 
@@ -26,17 +25,12 @@ public class LittleFluffyPest : Enemy
     {
         facingDirection = IsFacing.Right;
         rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         baseScale = transform.localScale;
     }
 
-    private void Update()
-    {
-
-    }
     private void FixedUpdate()
     {
-        if(GetComponent<DamageDealer>().IsDead == false)
+        if(enemyHP.IsDead == false)
         {
             Move();
         }

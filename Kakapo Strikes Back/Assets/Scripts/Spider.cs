@@ -93,7 +93,8 @@ public class Spider : Enemy
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<DamageDealer>().Die();
+            //other.gameObject.GetComponent<DamageDealer>().Die();
+            other.gameObject.GetComponent<EnemyHP>().Die();
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverMenu;
-    int currentSceneIndex;
+    private int currentSceneIndex;
 
     private void Start()
     {

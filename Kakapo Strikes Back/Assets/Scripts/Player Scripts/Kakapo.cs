@@ -24,7 +24,7 @@ public class Kakapo : MonoBehaviour
     #endregion
 
     public int health;
-    public bool isHurt = false;
+    public bool IsHurt { get; private set; }
     internal int damage = 5;
 
     #region Cached components 
@@ -37,12 +37,13 @@ public class Kakapo : MonoBehaviour
     #endregion
     private void Start()
     {
+        IsHurt = false;
         startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sceneLoader = FindObjectOfType<SceneLoader>();
         livesManager = FindObjectOfType<LivesManager>();
-        health = FindObjectOfType<LivesManager>().GetLives();
+        health = FindObjectOfType<LivesManager>().NumberOfLives;
         startingGravity = rigidBody.gravityScale;
     }
 
@@ -58,28 +59,26 @@ public class Kakapo : MonoBehaviour
 
     public void TakeDamage(int damageValue)
     {
-        isHurt = true;
-        //rigidBody.velocity = new Vector2(0f, 15f);
-        //Physics2D.IgnoreLayerCollision(10, 11, true);
+        IsHurt = true;
         AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, 5f);
-        animator.SetBool("Take damage", true);
-
-        livesManager.numberOfLives -= damageValue;
-        livesManager.DisplayLives(livesManager.numberOfLives);
-
+        livesManager.DecreaseLives(damageValue);
         StartCoroutine(GetHurt());
 
-        if (livesManager.numberOfLives == 0)
+        if (livesManager.NumberOfLives < 1)
         {
+            animator.SetBool("Take damage", true);
+            Physics2D.IgnoreLayerCollision(10, 11, false);
             sceneLoader.GameOver();
         }
     }
     IEnumerator GetHurt()
     {
+        Physics2D.IgnoreLayerCollision(10, 11, true);
+        animator.SetBool("Take damage", true);
         yield return new WaitForSeconds(1.5f);
         animator.SetBool("Take damage", false);
-        isHurt = false;
-        //Physics2D.IgnoreLayerCollision(10, 11, false);
+        Physics2D.IgnoreLayerCollision(10, 11, false);
+        IsHurt = false;
     }
 
     private void FinishTheLevel()

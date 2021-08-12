@@ -30,10 +30,14 @@ public class PlayerMovementsManager : MonoBehaviour
     void Update()
     {
         CheckingGround();
-        Run();
-        Jump();
-        Attack();
-        Flip();
+
+        if(kakapo.IsHurt == false)
+        {
+           Run();
+           Jump();
+           Attack();
+           Flip();
+        }
     }
     private void CheckingGround()
     {
@@ -72,7 +76,8 @@ public class PlayerMovementsManager : MonoBehaviour
 
                 foreach (Collider2D enemy in enemies)
                 {
-                    enemy.GetComponent<DamageDealer>().TakeDamage(kakapo.damage);
+                    //enemy.GetComponent<DamageDealer>().TakeDamage(kakapo.damage);
+                    enemy.GetComponent<EnemyHP>().TakeDamage(kakapo.damage);
                 }
                 nextAttackTime = Time.time + 1f / attackRate;
             }

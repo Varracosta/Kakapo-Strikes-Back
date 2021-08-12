@@ -12,7 +12,8 @@ public class Stone : MonoBehaviour
 
         if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
         {
-            enemy.gameObject.GetComponent<DamageDealer>().Die();
+            //enemy.gameObject.GetComponent<DamageDealer>().Die();
+            enemy.gameObject.GetComponent<EnemyHP>().Die();
         }
     }
 

@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7334252697301289397}
   - component: {fileID: 1649565606558826986}
+  - component: {fileID: 155268767}
   m_Layer: 11
   m_Name: Stomp Box
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1645927, y: 0.17003989}
   m_EdgeRadius: 0
+--- !u!114 &155268767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303766647115136717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6697cb458499a4792f392196ba06f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stomper: {fileID: 0}
 --- !u!1 &4330754544799369299
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022681713, y: 0.14742708}
+  m_Offset: {x: -0.12378883, y: 0.091822386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -228,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6703787, y: 0.9450755}
+  m_Size: {x: 1.3019714, y: 1.0562849}
   m_EdgeRadius: 0
 --- !u!58 &975166726631087578
 CircleCollider2D:
@@ -243,9 +257,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15199846}
+  m_Offset: {x: -0.10546744, y: -0.2619834}
   serializedVersion: 2
-  m_Radius: 0.6167293
+  m_Radius: 0.5860907
 --- !u!95 &4330754544799369302
 Animator:
   serializedVersion: 3
@@ -282,7 +296,6 @@ MonoBehaviour:
   legKickSFX: {fileID: 8300000, guid: 5d3b0b2b532176547b9830c43d33ca40, type: 3}
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   health: 0
-  isHurt: 0
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
@@ -300,7 +313,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  numberOfLives: 3
   activeHeart: {fileID: 21300000, guid: aaaa623b21cb6654fa639f3480c7d5fb, type: 3}
   inactiveHeart: {fileID: 21300000, guid: a8938ce56412ffb409218220de2d4d48, type: 3}
 --- !u!114 &4685950627742670114
