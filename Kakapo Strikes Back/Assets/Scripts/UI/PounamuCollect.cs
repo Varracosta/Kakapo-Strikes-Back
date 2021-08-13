@@ -8,7 +8,7 @@ public class PounamuCollect : BonusCollect
     public override void AddBonus()
     {
         FindObjectOfType<UIManager>().AddToScore(50);
-        AudioSource.PlayClipAtPoint(bonusSFX, Camera.main.transform.position, 0.1f);
+        AudioSource.PlayClipAtPoint(bonusSFX, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }

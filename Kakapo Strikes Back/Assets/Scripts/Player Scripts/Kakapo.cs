@@ -14,6 +14,7 @@ public class Kakapo : MonoBehaviour
     [Header("Audio")]
     [SerializeField] internal AudioClip legKickSFX;
     [SerializeField] private AudioClip hurtSFX;
+    [SerializeField] private AudioClip levelCompleteSFX;
     #endregion
    
     #region Physics variables
@@ -85,6 +86,7 @@ public class Kakapo : MonoBehaviour
     {
         if (stompBox.IsTouchingLayers(LayerMask.GetMask("Exit")))
         {
+            AudioSource.PlayClipAtPoint(levelCompleteSFX, Camera.main.transform.position);
             sceneLoader.LoadNextLevel();
         }
     }

@@ -112,4 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e043d26ede32b469f02d5afe3ba09c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusSFX: {fileID: 8300000, guid: 635572b3483fcdb44b556b8eaea68114, type: 3}
+  bonusSFX: {fileID: 8300000, guid: ff953273586c0d746a0a663b4a044648, type: 3}

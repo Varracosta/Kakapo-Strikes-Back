@@ -11,6 +11,7 @@ TagManager:
   - Ladder
   - Stone
   - HurtBox
+  - Hedgehog
   layers:
   - Default
   - TransparentFX

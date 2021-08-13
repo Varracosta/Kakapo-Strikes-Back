@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stomper: {fileID: 0}
+  bounceForce: 20
 --- !u!1 &4330754544799369299
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +296,7 @@ MonoBehaviour:
   playerCollisionManager: {fileID: 3584348182448610715}
   legKickSFX: {fileID: 8300000, guid: 5d3b0b2b532176547b9830c43d33ca40, type: 3}
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
+  levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
   health: 0
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043

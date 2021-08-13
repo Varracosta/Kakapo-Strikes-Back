@@ -43,6 +43,6 @@ public class EnemyHP : MonoBehaviour
     private IEnumerator Dying()
     {
         yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 }
