@@ -30,6 +30,79 @@ Transform:
   m_Father: {fileID: 5384057397445356203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2969075214250097439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7608965418580440654}
+  - component: {fileID: 8735227473266154720}
+  - component: {fileID: 843455629323285069}
+  m_Layer: 10
+  m_Name: HurtBox
+  m_TagString: HurtBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7608965418580440654
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969075214250097439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5384057397445356203}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8735227473266154720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969075214250097439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2fa2ca5ebe55843a5e67b3cdaba4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
+  enemyHP: 5
+  IsDead: 0
+--- !u!61 &843455629323285069
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969075214250097439}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.015668869, y: -0.11490744}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3238335, y: 1.2298146}
+  m_EdgeRadius: 0
 --- !u!1 &6134698407411733672
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +137,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7143266277621330479}
+  - {fileID: 7608965418580440654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,11 +223,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000000025345294, y: -0.21261176}
-  m_Size: {x: 3.0000014, y: 1.0078244}
+  m_Offset: {x: 0.027106717, y: -0.40537703}
+  m_Size: {x: 2.4036412, y: 0.6222977}
   m_Direction: 1
 --- !u!114 &3236484165553301021
 MonoBehaviour:
@@ -169,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   castPos: {fileID: 7143266277621330479}
-  damageDealer: {fileID: 7541367383077518898}
+  enemyHP: {fileID: 8735227473266154720}
 --- !u!114 &7541367383077518898
 MonoBehaviour:
   m_ObjectHideFlags: 0

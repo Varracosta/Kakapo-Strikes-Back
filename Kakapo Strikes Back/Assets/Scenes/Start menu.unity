@@ -666,7 +666,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: proudly made and owned by Varracosta. All rights superduper reserved
+  m_text: "Proudly made and owned by Varracosta and K. \nMusic by Scott Elliot, New
+    Zealand Forest sounds by Department of Conservation of NZ, sounds by Bobby Prince.\nAll
+    rights superduper reserved"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 223dabdbd6dad28449d52c669f028291, type: 2}
   m_sharedMaterial: {fileID: -2100624436582556272, guid: 223dabdbd6dad28449d52c669f028291,
@@ -694,8 +696,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

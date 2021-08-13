@@ -10,6 +10,8 @@ TagManager:
   - Spider
   - Ladder
   - Stone
+  - HurtBox
+  - Hedgehog
   layers:
   - Default
   - TransparentFX

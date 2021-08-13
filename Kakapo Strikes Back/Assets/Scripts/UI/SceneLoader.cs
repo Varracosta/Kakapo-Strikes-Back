@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverMenu;
-    int currentSceneIndex;
+    [SerializeField] private AudioClip gameOverSFX;
+    private int currentSceneIndex;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void GameOver()
     {
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 0.1f);
         StartCoroutine(GameOverCoroutine());
     }
     private IEnumerator GameOverCoroutine()

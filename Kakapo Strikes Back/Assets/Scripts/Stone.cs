@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D stomper;
-
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject enemy = other.gameObject;
-
-        if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
+        if (other.gameObject.CompareTag("HurtBox") || other.gameObject.CompareTag("Spikes"))
         {
-            enemy.gameObject.GetComponent<DamageDealer>().Die();
+            other.gameObject.GetComponent<EnemyHP>().Die();
         }
     }
-
 }
