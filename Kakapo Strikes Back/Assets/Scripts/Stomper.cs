@@ -25,9 +25,8 @@ public class Stomper : MonoBehaviour
     {
         if (other.gameObject.CompareTag("HurtBox"))
         {
-            //other.gameObject.GetComponent<DamageDealer>().TakeDamage(2);
             other.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
-            rb.AddForce(transform.up * bounceForce, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, bounceForce);
         }
     }
 }

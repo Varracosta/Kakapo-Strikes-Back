@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2159642413999122297}
   - component: {fileID: 2159642413999122296}
   - component: {fileID: 2159642413999122299}
-  - component: {fileID: 4208452067572599612}
   - component: {fileID: 1979005049}
   m_Layer: 8
   m_Name: stone
@@ -134,19 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4208452067572599612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2159642413999122298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700377f3f8b987b49831a16f9a2adfa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stomper: {fileID: 2321034699686929395}
 --- !u!114 &1979005049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9196169460501898586}
   - component: {fileID: 2321034699686929395}
+  - component: {fileID: 8927872415238104334}
   m_Layer: 8
   m_Name: stomping bottom
   m_TagString: Untagged
@@ -289,3 +276,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5027858, y: 0.32930374}
   m_EdgeRadius: 0
+--- !u!114 &8927872415238104334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330545763382120735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700377f3f8b987b49831a16f9a2adfa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

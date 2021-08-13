@@ -76,8 +76,7 @@ public class PlayerMovementsManager : MonoBehaviour
 
                 foreach (Collider2D enemy in enemies)
                 {
-                    //enemy.GetComponent<DamageDealer>().TakeDamage(kakapo.damage);
-                    enemy.GetComponent<EnemyHP>().TakeDamage(kakapo.damage);
+                    enemy.GetComponentInChildren<EnemyHP>().TakeDamage(kakapo.damage);
                 }
                 nextAttackTime = Time.time + 1f / attackRate;
             }

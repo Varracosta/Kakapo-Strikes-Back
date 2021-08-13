@@ -75,8 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
-  animator: {fileID: 1301066950}
-  enemyHP: 0
+  enemyHP: 5
   IsDead: 0
 --- !u!61 &843455629323285069
 BoxCollider2D:

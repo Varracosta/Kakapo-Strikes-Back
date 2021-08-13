@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D stomper;
+    //[SerializeField] private BoxCollider2D stomper;
 
-    private void OnCollisionEnter2D(Collision2D other)
+    //private void OnCollisionEnter2D(Collision2D other)
+    //{
+    //    GameObject enemy = other.gameObject;
+
+    //    if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
+    //    {
+    //        enemy.gameObject.GetComponent<EnemyHP>().Die();
+    //        enemy.gameObject.GetComponentInChildren<EnemyHP>().Die();
+    //    }
+    //}
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject enemy = other.gameObject;
-
-        if (stomper.IsTouchingLayers(LayerMask.GetMask("Killable enemy")))
+        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Spikes"))
         {
-            //enemy.gameObject.GetComponent<DamageDealer>().Die();
-            enemy.gameObject.GetComponent<EnemyHP>().Die();
+            Debug.Log("I touch enemy");
+            //other.gameObject.GetComponentInChildren<EnemyHP>().Die();
+            other.gameObject.GetComponent<EnemyHP>().Die();
         }
     }
-
 }
