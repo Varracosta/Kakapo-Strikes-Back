@@ -28,5 +28,10 @@ public class Stomper : MonoBehaviour
             other.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
             rb.velocity = new Vector2(rb.velocity.x, bounceForce);
         }
+
+        if (other.gameObject.CompareTag("Spikes"))
+        {
+            FindObjectOfType<Kakapo>().TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+        }
     }
 }

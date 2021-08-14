@@ -61,11 +61,12 @@ public class Kakapo : MonoBehaviour
     public void TakeDamage(int damageValue)
     {
         IsHurt = true;
+        rigidBody.velocity += new Vector2(5f, 5f);
         AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, 5f);
         livesManager.DecreaseLives(damageValue);
         StartCoroutine(GetHurt());
 
-        if (livesManager.NumberOfLives < 1)
+        if (livesManager.NumberOfLives == 0)
         {
             animator.SetBool("Take damage", true);
             Physics2D.IgnoreLayerCollision(10, 11, false);
