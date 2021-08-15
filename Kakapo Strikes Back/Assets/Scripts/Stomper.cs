@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stomper : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D stomper;
+    private Kakapo kakapo;
     private int damage = 5;
 
     private Rigidbody2D rb;
@@ -12,13 +13,8 @@ public class Stomper : MonoBehaviour
 
     void Start()
     {
+        kakapo = FindObjectOfType<Kakapo>();
         rb = transform.parent.GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,9 +25,15 @@ public class Stomper : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, bounceForce);
         }
 
-        if (other.gameObject.CompareTag("Spikes"))
+        if(kakapo.IsHurt == false)
         {
-            FindObjectOfType<Kakapo>().TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+            if (other.gameObject.CompareTag("Spikes"))
+            {
+                kakapo.PerformKnockback(other);
+                kakapo.TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
+                Debug.Log("Feet touched");
+            }
         }
+        else { return; }
     }
 }

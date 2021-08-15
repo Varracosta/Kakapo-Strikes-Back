@@ -24,7 +24,6 @@ public class Kakapo : MonoBehaviour
     internal float startingGravity;
     #endregion
 
-    public int health;
     public bool IsHurt { get; private set; }
     internal int damage = 5;
 
@@ -44,7 +43,6 @@ public class Kakapo : MonoBehaviour
         animator = GetComponent<Animator>();
         sceneLoader = FindObjectOfType<SceneLoader>();
         livesManager = FindObjectOfType<LivesManager>();
-        health = FindObjectOfType<LivesManager>().NumberOfLives;
         startingGravity = rigidBody.gravityScale;
     }
 
@@ -61,7 +59,6 @@ public class Kakapo : MonoBehaviour
     public void TakeDamage(int damageValue)
     {
         IsHurt = true;
-        rigidBody.velocity += new Vector2(5f, 5f);
         AudioSource.PlayClipAtPoint(hurtSFX, Camera.main.transform.position, 5f);
         livesManager.DecreaseLives(damageValue);
         StartCoroutine(GetHurt());
@@ -81,6 +78,17 @@ public class Kakapo : MonoBehaviour
         animator.SetBool("Take damage", false);
         Physics2D.IgnoreLayerCollision(10, 11, false);
         IsHurt = false;
+    }
+    public void PerformKnockback(Collider2D other)
+    {
+        if(other.gameObject.transform.position.x > transform.position.x)
+        {
+            rigidBody.velocity = new Vector2(-5f, 15f);
+        }
+        else if (other.gameObject.transform.position.x < transform.position.x)
+        {
+            rigidBody.velocity = new Vector2(5f, 15f);
+        }
     }
 
     private void FinishTheLevel()
