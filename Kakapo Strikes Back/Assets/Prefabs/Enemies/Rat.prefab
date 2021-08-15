@@ -154,10 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  currentHealth: 5
-  pointsPerKill: 100
-  deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
-  IsDead: 0
 --- !u!95 &5177802684668834710
 Animator:
   serializedVersion: 3
@@ -222,9 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
-  animator: {fileID: 5177802684668834710}
-  enemyHP: 5
-  IsDead: 0
 --- !u!61 &3459509422843004006
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ public class Spider : Enemy
             other.gameObject.GetComponent<Kakapo>().TakeDamage(damage);
         }
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("HurtBox"))
         {
             other.gameObject.GetComponent<EnemyHP>().Die();
         }
