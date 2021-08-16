@@ -30,12 +30,4 @@ public class Parallax : MonoBehaviour
             transform.position = new Vector3(currentCameraPosition.position.x + offsetPositionX, transform.position.y);
         }
     }
-
-    void Update()
-    {
-
-    }
-
-
-
 }
