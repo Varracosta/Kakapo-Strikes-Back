@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovementsManager : MonoBehaviour
 {
@@ -19,12 +20,7 @@ public class PlayerMovementsManager : MonoBehaviour
     private float nextAttackTime = 0f;
     private float attackRate = 2f;
     private float groundCheckRadius = 0.5f;
-    
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,9 +29,9 @@ public class PlayerMovementsManager : MonoBehaviour
 
         if(kakapo.IsHurt == false)
         {
-           Run();
-           Jump();
-           Attack();
+            Run();
+            Jump();
+            Attack();
            Flip();
         }
     }
@@ -55,13 +51,13 @@ public class PlayerMovementsManager : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
-        {
-            if (Input.GetKey(KeyCode.Space))
+            if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
             {
-                kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
+                }
             }
-        }
     }
     private void Attack()
     {

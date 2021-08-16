@@ -185,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: c8a3861a389f2e948ab1da65faddade8,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -232,7 +232,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12378883, y: 0.091822386}
+  m_Offset: {x: -0.0037937164, y: 0.16542697}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -243,7 +243,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3019714, y: 1.0562849}
+  m_Size: {x: 1.5419617, y: 0.90907574}
   m_EdgeRadius: 0
 --- !u!58 &975166726631087578
 CircleCollider2D:
@@ -297,7 +297,6 @@ MonoBehaviour:
   legKickSFX: {fileID: 8300000, guid: 5d3b0b2b532176547b9830c43d33ca40, type: 3}
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
-  health: 0
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
