@@ -17,11 +17,13 @@ public class PlayerClimbingLadder : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private PlayerInputHandler inputHandler;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        inputHandler = GetComponent<PlayerInputHandler>();
     }
 
     void Update()
@@ -30,8 +32,8 @@ public class PlayerClimbingLadder : MonoBehaviour
         GrabingLadder();
         Climbing();
 
-        LadderUpDown();
         CenteredPositionOnLadder();
+        anim.SetFloat("VelocityY", inputHandler.NormInputY);
     }
     
     private void OnDrawGizmos()
@@ -50,8 +52,7 @@ public class PlayerClimbingLadder : MonoBehaviour
         if (OnLadder)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
-            //rb.velocity = new Vector2(rb.velocity.x, verticalMovement * climbingSpeed);
-            rb.velocity = new Vector2(rb.velocity.x, verticalMovement * climbingSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, inputHandler.NormInputY * climbingSpeed);
         }
         else
         {
@@ -61,7 +62,7 @@ public class PlayerClimbingLadder : MonoBehaviour
 
     private void GrabingLadder()
     {
-        if (isLadderDetected && verticalMovement != 0)
+        if (isLadderDetected && inputHandler.NormInputY != 0)
         {
             OnLadder = true;
 
@@ -73,13 +74,6 @@ public class PlayerClimbingLadder : MonoBehaviour
 
         anim.SetBool("OnLadder", OnLadder);
     }
-    private void LadderUpDown()
-    {
-        verticalMovement = FindObjectOfType<PlayerMovementsManager>().Movement.y;
-
-        anim.SetFloat("VelocityY", verticalMovement);
-    }
-
     private void CenteredPositionOnLadder()
     {
         if (OnLadder && centered)
