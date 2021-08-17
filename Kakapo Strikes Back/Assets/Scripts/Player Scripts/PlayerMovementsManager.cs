@@ -21,18 +21,33 @@ public class PlayerMovementsManager : MonoBehaviour
     private float attackRate = 2f;
     private float groundCheckRadius = 0.5f;
 
+    private PlayerActionControls playerActionControls;
+    public Vector2 Movement { get; private set; }
+
+    private void Awake()
+    {
+        playerActionControls = new PlayerActionControls();
+        playerActionControls.Enable();
+    }
+
+    private void Start()
+    {
+        playerActionControls.Player.Jump.performed += Jump;
+        playerActionControls.Player.Attack.performed += Attack;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        Movement = playerActionControls.Player.Movement.ReadValue<Vector2>();
         CheckingGround();
 
         if(kakapo.IsHurt == false)
         {
             Run();
-            Jump();
-            Attack();
-           Flip();
+            //Jump();
+            //Attack();
+            Flip();
         }
     }
     private void CheckingGround()
@@ -44,38 +59,32 @@ public class PlayerMovementsManager : MonoBehaviour
     private void Run()
     {
         kakapo.rigidBody.velocity = new Vector2
-            (kakapo.horizontalMovement * speed, kakapo.rigidBody.velocity.y);
+            (Movement.x * speed, kakapo.rigidBody.velocity.y);
 
-        kakapo.animator.SetFloat("VelocityX", Mathf.Abs(kakapo.horizontalMovement));
+        kakapo.animator.SetFloat("VelocityX", Mathf.Abs(Movement.x));
     }
 
-    private void Jump()
+    private void Jump(InputAction.CallbackContext context)
     {
-            if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
-                }
-            }
+        if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
+        {
+            kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
+        }
     }
-    private void Attack()
+    private void Attack(InputAction.CallbackContext context)
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetKey(KeyCode.R))
-            {
-                kakapo.animator.SetTrigger("Attack");
-                AudioSource.PlayClipAtPoint(kakapo.legKickSFX, Camera.main.transform.position, 0.2f);
+             kakapo.animator.SetTrigger("Attack");
+             AudioSource.PlayClipAtPoint(kakapo.legKickSFX, Camera.main.transform.position, 0.2f);
 
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, LayerMask.GetMask("Killable enemy"));
+             Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, LayerMask.GetMask("Killable enemy"));
 
-                foreach (Collider2D enemy in enemies)
-                {
-                    enemy.GetComponentInChildren<EnemyHP>().TakeDamage(kakapo.damage);
-                }
-                nextAttackTime = Time.time + 1f / attackRate;
-            }
+             foreach (Collider2D enemy in enemies)
+             {
+                 enemy.GetComponentInChildren<EnemyHP>().TakeDamage(kakapo.damage);
+             }
+             nextAttackTime = Time.time + 1f / attackRate;
         }
     }
     private void Flip()

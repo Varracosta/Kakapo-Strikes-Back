@@ -50,6 +50,7 @@ public class PlayerClimbingLadder : MonoBehaviour
         if (OnLadder)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
+            //rb.velocity = new Vector2(rb.velocity.x, verticalMovement * climbingSpeed);
             rb.velocity = new Vector2(rb.velocity.x, verticalMovement * climbingSpeed);
         }
         else
@@ -74,7 +75,7 @@ public class PlayerClimbingLadder : MonoBehaviour
     }
     private void LadderUpDown()
     {
-        verticalMovement = Input.GetAxisRaw("Vertical");
+        verticalMovement = FindObjectOfType<PlayerMovementsManager>().Movement.y;
 
         anim.SetFloat("VelocityY", verticalMovement);
     }

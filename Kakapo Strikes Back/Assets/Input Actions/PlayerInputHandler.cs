@@ -5,17 +5,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    public void OnMoveInput(InputAction.CallbackContext context)
+    private PlayerActionControls playerActionControls;
+    private void Awake()
     {
-
+        playerActionControls = new PlayerActionControls();
+        playerActionControls.Enable();
     }
-
-    public void OnJumpInput(InputAction.CallbackContext context)
-    {
-
-    }
-
-    public void OnAttackInput(InputAction.CallbackContext context)
+    private void Update()
     {
 
     }
