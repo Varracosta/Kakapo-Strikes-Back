@@ -2733,6 +2733,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdff4c442bc638b4a9d79f763253ed93, type: 3}
+--- !u!61 &665140952 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1649565606558826986, guid: 1fec6b555acaaee4e876262a612488f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4330754545894729041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &665372518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5640799461124373976, guid: 3096d16f11347c6448aeb908c5808e56,
@@ -22875,6 +22881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 155268767, guid: 1fec6b555acaaee4e876262a612488f2, type: 3}
+      propertyPath: stomper
+      value: 
+      objectReference: {fileID: 665140952}
     - target: {fileID: 4330754544799369299, guid: 1fec6b555acaaee4e876262a612488f2,
         type: 3}
       propertyPath: m_Name
@@ -22935,6 +22945,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4330754544799369305, guid: 1fec6b555acaaee4e876262a612488f2,
+        type: 3}
+      propertyPath: gameOverSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 80acced7091fe6f4683e3e14b8ed051e, type: 3}
     - target: {fileID: 4330754545894729043, guid: 1fec6b555acaaee4e876262a612488f2,
         type: 3}
       propertyPath: _lives.Array.data[0]

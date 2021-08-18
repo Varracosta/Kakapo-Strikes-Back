@@ -74,6 +74,7 @@ public class PlayerClimbingLadder : MonoBehaviour
 
         anim.SetBool("OnLadder", OnLadder);
     }
+
     private void CenteredPositionOnLadder()
     {
         if (OnLadder && centered)
