@@ -16,6 +16,17 @@ public class Stomper : MonoBehaviour
         kakapo = FindObjectOfType<Kakapo>();
         rb = transform.parent.GetComponent<Rigidbody2D>();
     }
+    private void Update()
+    {
+        if (kakapo.IsHurt)
+        {
+            stomper.enabled = false;
+        }
+        else
+        {
+            stomper.enabled = true;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

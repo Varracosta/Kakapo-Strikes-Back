@@ -15,6 +15,7 @@ public class Kakapo : MonoBehaviour
     [SerializeField] internal AudioClip legKickSFX;
     [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private AudioClip levelCompleteSFX;
+    [SerializeField] private AudioClip gameOverSFX;
     #endregion
    
     #region Physics variables
@@ -65,9 +66,7 @@ public class Kakapo : MonoBehaviour
 
         if (livesManager.NumberOfLives == 0)
         {
-            animator.SetBool("Take damage", true);
-            Physics2D.IgnoreLayerCollision(10, 11, false);
-            sceneLoader.GameOver();
+            Dying();
         }
     }
     IEnumerator GetHurt()
@@ -78,6 +77,13 @@ public class Kakapo : MonoBehaviour
         animator.SetBool("Take damage", false);
         Physics2D.IgnoreLayerCollision(10, 11, false);
         IsHurt = false;
+    }
+    public void Dying()
+    {
+        animator.SetBool("Take damage", true);
+        Physics2D.IgnoreLayerCollision(10, 11, false);
+        AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 2f);
+        sceneLoader.GameOver();
     }
     public void PerformKnockback(Collider2D other)
     {

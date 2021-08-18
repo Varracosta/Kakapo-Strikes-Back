@@ -20,6 +20,12 @@ public class PlayerMovementsManager : MonoBehaviour
     private float attackRate = 2f;
     private float groundCheckRadius = 0.5f;
 
+    private PlayerInputHandler inputHandler;
+
+    private void Start()
+    {
+        inputHandler = GetComponent<PlayerInputHandler>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,9 +35,9 @@ public class PlayerMovementsManager : MonoBehaviour
         if(kakapo.IsHurt == false)
         {
             Run();
-            Jump();
-            Attack();
-           Flip();
+            Jump(inputHandler.JumpInput);
+            Attack(inputHandler.AttackInput);
+            Flip();
         }
     }
     private void CheckingGround()
@@ -42,27 +48,32 @@ public class PlayerMovementsManager : MonoBehaviour
 
     private void Run()
     {
-        kakapo.rigidBody.velocity = new Vector2
-            (kakapo.horizontalMovement * speed, kakapo.rigidBody.velocity.y);
+        if(kakapo.IsHurt == false)
+        {
+            kakapo.rigidBody.velocity = new Vector2
+                (inputHandler.NormInputX * speed, kakapo.rigidBody.velocity.y);
+        }
 
-        kakapo.animator.SetFloat("VelocityX", Mathf.Abs(kakapo.horizontalMovement));
+        kakapo.animator.SetFloat("VelocityX", Mathf.Abs(inputHandler.NormInputX));
     }
 
-    private void Jump()
+    private void Jump(bool jumpInput)
     {
+        if(jumpInput)
+        {
+            inputHandler.StopJump();
             if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
             {
-                if (Input.GetKey(KeyCode.Space))
-                {
-                    kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
-                }
+                kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
             }
+        }
     }
-    private void Attack()
+    private void Attack(bool attackInput)
     {
-        if (Time.time >= nextAttackTime)
+        if(attackInput)
         {
-            if (Input.GetKey(KeyCode.R))
+            inputHandler.StopAttack();
+            if (Time.time >= nextAttackTime)
             {
                 kakapo.animator.SetTrigger("Attack");
                 AudioSource.PlayClipAtPoint(kakapo.legKickSFX, Camera.main.transform.position, 0.2f);
