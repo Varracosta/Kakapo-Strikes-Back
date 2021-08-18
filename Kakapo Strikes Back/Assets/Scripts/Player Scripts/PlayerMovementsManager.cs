@@ -14,7 +14,7 @@ public class PlayerMovementsManager : MonoBehaviour
 
     private bool isGrounded;
     private float speed = 10f;
-    private float jumpSpeed = 20f;
+    private float jumpSpeed = 21f;
     private float attackRadius = 0.4f;
     private float nextAttackTime = 0f;
     private float attackRate = 2f;
