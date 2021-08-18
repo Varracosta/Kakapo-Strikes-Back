@@ -19,8 +19,6 @@ public class Kakapo : MonoBehaviour
     #endregion
    
     #region Physics variables
-    internal float horizontalMovement;
-    internal float verticalMovement;
     internal Vector3 startPosition;
     internal float startingGravity;
     #endregion
@@ -47,11 +45,6 @@ public class Kakapo : MonoBehaviour
         startingGravity = rigidBody.gravityScale;
     }
 
-    private void FixedUpdate()
-    {
-        horizontalMovement = Input.GetAxisRaw("Horizontal");
-        verticalMovement = Input.GetAxisRaw("Vertical");
-    }
     private void Update()
     {
         FinishTheLevel();

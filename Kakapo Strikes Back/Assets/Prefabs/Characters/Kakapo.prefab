@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6697cb458499a4792f392196ba06f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomper: {fileID: 0}
+  stomper: {fileID: 1649565606558826986}
   bounceForce: 20
 --- !u!1 &4330754544799369299
 GameObject:
@@ -217,7 +217,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -299,6 +299,7 @@ MonoBehaviour:
   legKickSFX: {fileID: 8300000, guid: 5d3b0b2b532176547b9830c43d33ca40, type: 3}
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 80acced7091fe6f4683e3e14b8ed051e, type: 3}
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
@@ -331,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kakapo: {fileID: 4330754544799369305}
+  playerData: {fileID: 11400000, guid: 782e3f23538ef3b47bde948b9393409e, type: 2}
   attackPoint: {fileID: 423537375677959877}
   groundCheck: {fileID: 1668970232140361007}
   whatIsSurface:
@@ -361,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b86e4eee6ea8f4c96969a0977d6c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 782e3f23538ef3b47bde948b9393409e, type: 2}
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 512
@@ -377,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 52a1fa2e1d4bb54469d03eaa0671c676,
+  m_Actions: {fileID: -944628639613478452, guid: e20bb142d59ec544487c3e0fefbf7b03,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -405,8 +408,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 788582c6-e30b-4499-af5f-f646addae8d0
-    m_ActionName: Player/Movement[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionId: 88417644-6e81-47b0-a900-d29049536c11
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4330754545894729046}
@@ -421,8 +424,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3f1a1c1d-c5d1-4795-831e-b412b23af79b
-    m_ActionName: Player/Jump[/XInputControllerWindows/buttonSouth,/Keyboard/space]
+    m_ActionId: fb621e8e-9217-4585-8445-7c432243096f
+    m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4330754545894729046}
@@ -437,8 +440,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e4743af6-6df3-4106-80f0-ca5cc7b1964f
-    m_ActionName: Player/Attack[/XInputControllerWindows/rightTrigger,/Keyboard/r]
+    m_ActionId: 060bed80-580a-4d47-9a4b-c6dbf762dcb5
+    m_ActionName: Player/Attack[/Keyboard/r,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

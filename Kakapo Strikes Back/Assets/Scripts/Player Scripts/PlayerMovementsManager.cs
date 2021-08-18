@@ -5,20 +5,14 @@ using UnityEngine;
 public class PlayerMovementsManager : MonoBehaviour
 {
     #region Main Data
-    [Header("Main Data")]
+    [Header("Inspector Data")]
     [SerializeField] internal Kakapo kakapo;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask whatIsSurface;
     #endregion
-
     private bool isGrounded;
-    private float speed = 10f;
-    private float jumpSpeed = 21f;
-    private float attackRadius = 0.4f;
-    private float nextAttackTime = 0f;
-    private float attackRate = 2f;
-    private float groundCheckRadius = 0.5f;
 
     private PlayerInputHandler inputHandler;
 
@@ -27,7 +21,6 @@ public class PlayerMovementsManager : MonoBehaviour
         inputHandler = GetComponent<PlayerInputHandler>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckingGround();
@@ -42,7 +35,7 @@ public class PlayerMovementsManager : MonoBehaviour
     }
     private void CheckingGround()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsSurface);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, playerData.groundCheckRadius, whatIsSurface);
         kakapo.animator.SetBool("OnSurface", isGrounded);
     }
 
@@ -50,8 +43,7 @@ public class PlayerMovementsManager : MonoBehaviour
     {
         if(kakapo.IsHurt == false)
         {
-            kakapo.rigidBody.velocity = new Vector2
-                (inputHandler.NormInputX * speed, kakapo.rigidBody.velocity.y);
+            kakapo.rigidBody.velocity = new Vector2(inputHandler.NormInputX * playerData.movementSpeed, kakapo.rigidBody.velocity.y);
         }
 
         kakapo.animator.SetFloat("VelocityX", Mathf.Abs(inputHandler.NormInputX));
@@ -64,7 +56,7 @@ public class PlayerMovementsManager : MonoBehaviour
             inputHandler.StopJump();
             if (isGrounded && !FindObjectOfType<PlayerClimbingLadder>().OnLadder)
             {
-                kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, jumpSpeed);
+                kakapo.rigidBody.velocity = new Vector2(kakapo.rigidBody.velocity.x, playerData.jumpSpeed);
             }
         }
     }
@@ -73,18 +65,18 @@ public class PlayerMovementsManager : MonoBehaviour
         if(attackInput)
         {
             inputHandler.StopAttack();
-            if (Time.time >= nextAttackTime)
+            if (Time.time >= playerData.nextAttackTime)
             {
                 kakapo.animator.SetTrigger("Attack");
                 AudioSource.PlayClipAtPoint(kakapo.legKickSFX, Camera.main.transform.position, 0.2f);
 
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, LayerMask.GetMask("Killable enemy"));
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, playerData.attackRadius, LayerMask.GetMask("Killable enemy"));
 
                 foreach (Collider2D enemy in enemies)
                 {
-                    enemy.GetComponentInChildren<EnemyHP>().TakeDamage(kakapo.damage);
+                    enemy.GetComponentInChildren<EnemyHP>().TakeDamage(playerData.damage);
                 }
-                nextAttackTime = Time.time + 1f / attackRate;
+                playerData.nextAttackTime = Time.time + 1f / playerData.attackRate;
             }
         }
     }
