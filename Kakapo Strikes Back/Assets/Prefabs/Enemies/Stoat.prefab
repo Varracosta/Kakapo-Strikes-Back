@@ -75,8 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
-  enemyHP: 5
-  IsDead: 0
 --- !u!61 &843455629323285069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90,7 +88,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015668869, y: -0.11490744}
+  m_Offset: {x: 0.16215706, y: -0.11490744}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101,7 +99,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3238335, y: 1.2298146}
+  m_Size: {x: 1.6794853, y: 1.2298146}
   m_EdgeRadius: 0
 --- !u!1 &6134698407411733672
 GameObject:
@@ -114,10 +112,10 @@ GameObject:
   - component: {fileID: 5384057397445356203}
   - component: {fileID: 1330704267838738825}
   - component: {fileID: 1694416260039391477}
-  - component: {fileID: 5210379939464406123}
   - component: {fileID: 3236484165553301021}
   - component: {fileID: 7541367383077518898}
   - component: {fileID: 1301066950}
+  - component: {fileID: 7822561633680552050}
   m_Layer: 10
   m_Name: Stoat
   m_TagString: Enemy
@@ -213,22 +211,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &5210379939464406123
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6134698407411733672}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.027106717, y: -0.40537703}
-  m_Size: {x: 2.4036412, y: 0.6222977}
-  m_Direction: 1
 --- !u!114 &3236484165553301021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,10 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  currentHealth: 5
-  pointsPerKill: 100
-  deathPopSFX: {fileID: 8300000, guid: 47a1194e4ff09a047a110340036715d6, type: 3}
-  IsDead: 0
 --- !u!95 &1301066950
 Animator:
   serializedVersion: 3
@@ -280,3 +258,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &7822561633680552050
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134698407411733672}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.037322998, y: -0.403957}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 0.48, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.088707, y: 0.6723708}
+  m_EdgeRadius: 0
