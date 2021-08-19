@@ -8,7 +8,7 @@ public class DrowningScript : MonoBehaviour
     {
         if (collision.CompareTag("Kakapo"))
         {
-            FindObjectOfType<Kakapo>().Dying();
+            StartCoroutine(FindObjectOfType<Kakapo>().Dying());
         }
     }
 }

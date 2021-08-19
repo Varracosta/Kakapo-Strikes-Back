@@ -13,8 +13,6 @@ public class PlayerClimbingLadder : MonoBehaviour
     private bool centered = true;
     private float ladderCenter;
 
-    private float climbingSpeed = 3f;
-
     private Rigidbody2D rb;
     private Animator anim;
     private PlayerInputHandler inputHandler;

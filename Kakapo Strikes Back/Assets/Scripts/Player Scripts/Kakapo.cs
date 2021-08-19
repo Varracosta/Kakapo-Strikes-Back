@@ -59,7 +59,7 @@ public class Kakapo : MonoBehaviour
 
         if (livesManager.NumberOfLives == 0)
         {
-            Dying();
+            StartCoroutine(Dying());
         }
     }
     IEnumerator GetHurt()
@@ -71,10 +71,11 @@ public class Kakapo : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
         IsHurt = false;
     }
-    public void Dying()
+    public IEnumerator Dying()
     {
         animator.SetBool("Take damage", true);
         Physics2D.IgnoreLayerCollision(10, 11, false);
+        yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 2f);
         sceneLoader.GameOver();
     }
