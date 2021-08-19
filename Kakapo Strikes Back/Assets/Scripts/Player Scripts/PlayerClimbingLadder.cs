@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerClimbingLadder : MonoBehaviour
 {
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private LayerMask whatIsLadder;
     [SerializeField] private Transform ladderCheck;
     private float ladderCheckRadius = 0.1f;
@@ -12,7 +13,6 @@ public class PlayerClimbingLadder : MonoBehaviour
     private bool centered = true;
     private float ladderCenter;
 
-    private float verticalMovement;
     private float climbingSpeed = 3f;
 
     private Rigidbody2D rb;
@@ -39,12 +39,12 @@ public class PlayerClimbingLadder : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(ladderCheck.position, ladderCheckRadius);
+        Gizmos.DrawSphere(ladderCheck.position, playerData.ladderCheckRadius);
     }
 
     private void DetectingLadder()
     {
-        isLadderDetected = Physics2D.OverlapCircle(ladderCheck.position, ladderCheckRadius, whatIsLadder);
+        isLadderDetected = Physics2D.OverlapCircle(ladderCheck.position, playerData.ladderCheckRadius, whatIsLadder);
     }
 
     private void Climbing()
@@ -52,7 +52,7 @@ public class PlayerClimbingLadder : MonoBehaviour
         if (OnLadder)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.velocity = new Vector2(rb.velocity.x, inputHandler.NormInputY * climbingSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, inputHandler.NormInputY * playerData.climbSpeed);
         }
         else
         {
