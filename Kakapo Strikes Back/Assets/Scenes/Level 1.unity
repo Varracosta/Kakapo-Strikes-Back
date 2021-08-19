@@ -6532,12 +6532,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3096d16f11347c6448aeb908c5808e56, type: 3}
---- !u!70 &761925932 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7588715579566640618, guid: 7b14d131100bd284b85b267f85ac4968,
-    type: 3}
-  m_PrefabInstance: {fileID: 1048494367}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &776122312
 GameObject:
   m_ObjectHideFlags: 0
@@ -17854,7 +17848,7 @@ PrefabInstance:
         type: 3}
       propertyPath: collider
       value: 
-      objectReference: {fileID: 761925932}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b14d131100bd284b85b267f85ac4968, type: 3}
 --- !u!4 &1055181297 stripped
@@ -19350,11 +19344,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rat
-      objectReference: {fileID: 0}
-    - target: {fileID: 225808683948513860, guid: 7b14d131100bd284b85b267f85ac4968,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 225808683948513861, guid: 7b14d131100bd284b85b267f85ac4968,
         type: 3}
@@ -22950,12 +22939,6 @@ PrefabInstance:
       propertyPath: _lives.Array.data[2]
       value: 
       objectReference: {fileID: 375758548}
-    - target: {fileID: 4685950627742670114, guid: 1fec6b555acaaee4e876262a612488f2,
-        type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 11400000, guid: 782e3f23538ef3b47bde948b9393409e,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec6b555acaaee4e876262a612488f2, type: 3}
 --- !u!1001 &5019290435900947371
