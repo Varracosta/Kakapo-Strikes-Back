@@ -77,7 +77,8 @@ public class Kakapo : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
         yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 2f);
-        sceneLoader.GameOver();
+        //sceneLoader.GameOver();
+        SceneLoader.sceneLoader.GameOver();
     }
     public void PerformKnockback(Collider2D other)
     {
@@ -96,7 +97,8 @@ public class Kakapo : MonoBehaviour
         if (stompBox.IsTouchingLayers(LayerMask.GetMask("Exit")))
         {
             AudioSource.PlayClipAtPoint(levelCompleteSFX, Camera.main.transform.position);
-            sceneLoader.LoadNextLevel();
+            //sceneLoader.LoadNextLevel();
+            SceneLoader.sceneLoader.LoadNextLevel();
         }
     }
 }

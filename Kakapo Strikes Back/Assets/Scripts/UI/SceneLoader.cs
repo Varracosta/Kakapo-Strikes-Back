@@ -8,17 +8,19 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     private int currentSceneIndex;
 
+    public static SceneLoader sceneLoader;
     private void Start()
     {
+        sceneLoader = this;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     public void StartLevel()
     {
         SceneManager.LoadScene("Level 1");
-        Time.timeScale = 1f;
     }
     public void Restart()
     {
+        UIManager.instance.ResetPause();
         SceneManager.LoadScene("Level 1");
         Time.timeScale = 1f;
     }
@@ -37,9 +39,8 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator GameOverCoroutine()
     {
-        yield return new WaitForSeconds(1f);
-        gameOverMenu.SetActive(true);
-        Time.timeScale = 0f;
+        yield return new WaitForSeconds(1.4f);
+        SceneManager.LoadScene("GameOver");
     }
     public void QuitTheGame()
     {

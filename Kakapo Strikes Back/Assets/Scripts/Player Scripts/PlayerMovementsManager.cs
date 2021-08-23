@@ -23,8 +23,9 @@ public class PlayerMovementsManager : MonoBehaviour
 
     void Update()
     {
-        CheckingGround();
+        if (UIManager.isPaused) { return; }
 
+        CheckingGround();
         if(kakapo.IsHurt == false)
         {
             Run();
