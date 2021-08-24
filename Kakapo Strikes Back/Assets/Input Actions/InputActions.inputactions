@@ -1,5 +1,5 @@
 {
-    "name": "Player",
+    "name": "InputActions",
     "maps": [
         {
             "name": "Player",
@@ -157,9 +157,9 @@
                 },
                 {
                     "name": "Navigate",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "5bc19479-d693-45a2-a6ae-f3c8a342b43a",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -208,17 +208,6 @@
                 },
                 {
                     "name": "",
-                    "id": "5de1ef6d-17e7-4078-8420-285fddce49da",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Navigate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bcd6f7e2-3c7d-453f-a6ef-13a9e86a0d76",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -236,6 +225,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause ",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "8be5be30-8e20-42d4-a523-9577d833a73a",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "63cbddb6-a5e5-4700-837f-c52994449ecf",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b078c59d-1290-43f5-b116-d1cdf3a06e1f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "0cd1843d-4c37-4846-9194-7f7b82f041dc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "50ba3d8f-98a0-469a-b776-39c63a48d38d",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "e3fcae5b-06f5-4cd7-a66a-898394b86584",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

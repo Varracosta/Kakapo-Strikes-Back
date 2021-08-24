@@ -40,6 +40,13 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = score.ToString();
     }
+    public bool IsPauseMenuActive()
+    {
+        bool isActive;
+        if(pauseMenu.activeInHierarchy) { isActive = true; }
+        else { isActive = false; }
+        return isActive;
+    }
     public void DeterminePause()
     {
         if (!isPaused)
@@ -50,6 +57,7 @@ public class UIManager : MonoBehaviour
     public void ResetPause()
     {
         isPaused = !isPaused;
+        Time.timeScale = 1f;
     }
     public void PauseGame()
     {

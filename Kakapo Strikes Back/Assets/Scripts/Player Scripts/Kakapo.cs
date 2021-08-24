@@ -30,26 +30,19 @@ public class Kakapo : MonoBehaviour
     [SerializeField] internal BoxCollider2D stompBox;
     internal Rigidbody2D rigidBody;
     internal Animator animator;
-    private SceneLoader sceneLoader;
     private LivesManager livesManager;
 
     #endregion
     private void Start()
     {
+        SceneLoader.instance.SaveScene();
         IsHurt = false;
         startPosition = new Vector3(-16.64f, -2.07f, 1.9f);
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        sceneLoader = FindObjectOfType<SceneLoader>();
         livesManager = FindObjectOfType<LivesManager>();
         startingGravity = rigidBody.gravityScale;
     }
-
-    private void Update()
-    {
-        FinishTheLevel();
-    }
-
     public void TakeDamage(int damageValue)
     {
         IsHurt = true;
@@ -77,8 +70,7 @@ public class Kakapo : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
         yield return new WaitForSeconds(0.5f);
         AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 2f);
-        //sceneLoader.GameOver();
-        SceneLoader.sceneLoader.GameOver();
+        SceneLoader.instance.GameOver();
     }
     public void PerformKnockback(Collider2D other)
     {
@@ -89,16 +81,6 @@ public class Kakapo : MonoBehaviour
         else if (other.gameObject.transform.position.x < transform.position.x)
         {
             rigidBody.velocity = new Vector2(5f, 15f);
-        }
-    }
-
-    private void FinishTheLevel()
-    {
-        if (stompBox.IsTouchingLayers(LayerMask.GetMask("Exit")))
-        {
-            AudioSource.PlayClipAtPoint(levelCompleteSFX, Camera.main.transform.position);
-            //sceneLoader.LoadNextLevel();
-            SceneLoader.sceneLoader.LoadNextLevel();
         }
     }
 }

@@ -42,7 +42,7 @@ public class EnemyHP : MonoBehaviour
 
     private IEnumerator Dying()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         Destroy(transform.parent.gameObject);
     }
 }

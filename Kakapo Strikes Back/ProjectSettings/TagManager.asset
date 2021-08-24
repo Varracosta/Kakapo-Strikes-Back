@@ -12,6 +12,7 @@ TagManager:
   - Stone
   - HurtBox
   - Hedgehog
+  - ExitFlag
   layers:
   - Default
   - TransparentFX
