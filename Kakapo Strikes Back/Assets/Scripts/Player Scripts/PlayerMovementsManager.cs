@@ -23,10 +23,11 @@ public class PlayerMovementsManager : MonoBehaviour
 
     void Update()
     {
-        if (UIManager.isPaused) { return; }
+        if (PauseMenu.isPaused) { return; }
 
         CheckingGround();
-        if(kakapo.IsHurt == false)
+        if (kakapo.IsHurt) { return; }
+        else
         {
             Run();
             Jump(inputHandler.JumpInput);

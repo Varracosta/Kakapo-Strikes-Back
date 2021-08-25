@@ -10,67 +10,20 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private Kakapo kakapo;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject pauseMenu;
 
     private float score = 0f;
-    public static bool isPaused;
-
-    private InputActions inputActions;
     public static UIManager instance;
-    private void Awake()
-    {
-        inputActions = new InputActions();
-    }
+
     private void Start()
     {
         instance = this;
     }
 
-    private void OnEnable()
-    {
-        inputActions.Enable();
-        inputActions.UI.Pause.performed += _ => DeterminePause();
-    }
-    private void OnDisable()
-    {
-        inputActions.UI.Pause.performed -= _ => DeterminePause();
-        inputActions.Disable();
-    }
     private void Update()
     {
         scoreText.text = score.ToString();
     }
-    public bool IsPauseMenuActive()
-    {
-        bool isActive;
-        if(pauseMenu.activeInHierarchy) { isActive = true; }
-        else { isActive = false; }
-        return isActive;
-    }
-    public void DeterminePause()
-    {
-        if (!isPaused)
-            PauseGame();
-        else
-            ResumeGame();
-    }
-    public void ResetPause()
-    {
-        isPaused = !isPaused;
-        Time.timeScale = 1f;
-    }
-    public void PauseGame()
-    {
-        Time.timeScale = 0f;
-        isPaused = true;
-        pauseMenu.SetActive(true);
-    }
-    public void ResumeGame()
-    {
-        Time.timeScale = 1f;
-        isPaused = false;
-        pauseMenu.SetActive(false);
-    }
+
     public void AddToScore(int scoreValue)
     {
         score += scoreValue;

@@ -23428,6 +23428,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6387266926264125893, guid: da293a0ee5db1e845982eefb19be7fdc,
+        type: 3}
+      propertyPath: pauseM
+      value: 
+      objectReference: {fileID: 23011276}
     - target: {fileID: 8030804141848769084, guid: da293a0ee5db1e845982eefb19be7fdc,
         type: 3}
       propertyPath: m_RootOrder
@@ -23488,11 +23493,6 @@ PrefabInstance:
       propertyPath: kakapo
       value: 
       objectReference: {fileID: 1096445192}
-    - target: {fileID: 8030804141848769085, guid: da293a0ee5db1e845982eefb19be7fdc,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 23011276}
     - target: {fileID: 8030804141848769085, guid: da293a0ee5db1e845982eefb19be7fdc,
         type: 3}
       propertyPath: scoreText

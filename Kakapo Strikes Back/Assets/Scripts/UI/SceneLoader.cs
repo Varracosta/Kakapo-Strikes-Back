@@ -28,7 +28,7 @@ public class SceneLoader : MonoBehaviour
 
         if(sceneToContinue != 0)
         {
-            UIManager.instance.ResetPause();
+            FindObjectOfType<PauseMenu>().ResetPause();
             Time.timeScale = 1f;
             SceneManager.LoadScene(sceneToContinue);
         }
@@ -36,7 +36,9 @@ public class SceneLoader : MonoBehaviour
     }
     public void BackToMenu()
     {
-        UIManager.instance.ResetPause();
+        if (PauseMenu.isPaused)
+            FindObjectOfType<PauseMenu>().ResetPause();
+
         SceneManager.LoadScene(0);
     }
     public void LoadNextLevel()

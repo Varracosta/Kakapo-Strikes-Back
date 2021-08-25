@@ -1,44 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseM;
+
+    public static bool isPaused;
     private InputActions inputActions;
-    public static bool isPaused = false; 
 
     private void Awake()
     {
         inputActions = new InputActions();
-        inputActions.Enable();
     }
-    private void Start()
+
+    private void OnEnable()
     {
+        inputActions.Enable();
         inputActions.UI.Pause.performed += _ => DeterminePause();
+    }
+    private void OnDisable()
+    {
+        inputActions.UI.Pause.performed -= _ => DeterminePause();
+        inputActions.Disable();
     }
     public void DeterminePause()
     {
         if (!isPaused)
-        {
             PauseGame();
-        }
         else
-        {
-            ResumeGame();
-        }
+            ResumeGme();
+    }
+    public void ResetPause()
+    {
+        if (isPaused)
+            isPaused = false;
+
+        Time.timeScale = 1f;
     }
     public void PauseGame()
     {
         Time.timeScale = 0f;
         isPaused = true;
-        pauseMenu.SetActive(true);
+        pauseM.SetActive(true);
     }
-    public void ResumeGame()
+    public void ResumeGme()
     {
         Time.timeScale = 1f;
         isPaused = false;
-        pauseMenu.SetActive(false);
+        pauseM.SetActive(false);
     }
 }
