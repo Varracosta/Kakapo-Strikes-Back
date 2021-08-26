@@ -7,11 +7,16 @@ public class SceneLoader : MonoBehaviour
 {
     private int currentSceneIndex;
     private int sceneToContinue;
-
+    
     public static SceneLoader instance;
     private void Start()
     {
         instance = this;
+    }
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "End game")
+            UIManager.instance.ResetScore();
     }
     public void StartLevel()
     {
@@ -29,6 +34,7 @@ public class SceneLoader : MonoBehaviour
         if(sceneToContinue != 0)
         {
             FindObjectOfType<PauseMenu>().ResetPause();
+            UIManager.instance.ResetScore();
             Time.timeScale = 1f;
             SceneManager.LoadScene(sceneToContinue);
         }
@@ -45,6 +51,10 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadNextLevelCoroutine());
     }
+    public void LoadControllersScreen()
+    {
+        SceneManager.LoadScene(1);
+    }
     private IEnumerator LoadNextLevelCoroutine()
     {
         yield return new WaitForSeconds(1f);
@@ -58,6 +68,7 @@ public class SceneLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("GameOver");
+        UIManager.instance.ResetScore();
     }
     public void QuitTheGame()
     {

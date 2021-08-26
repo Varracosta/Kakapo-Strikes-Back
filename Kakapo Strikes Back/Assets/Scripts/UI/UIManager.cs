@@ -9,21 +9,21 @@ using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Kakapo kakapo;
-    [SerializeField] private TextMeshProUGUI scoreText;
 
     private float score = 0f;
     public static UIManager instance;
 
-    private void Start()
+    private void Awake()
     {
-        instance = this;
+        if (FindObjectsOfType<UIManager>().Length > 1)
+            Destroy(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
-
-    private void Update()
-    {
-        scoreText.text = score.ToString();
-    }
-
+    public float GetScore() { return score; }
     public void AddToScore(int scoreValue)
     {
         score += scoreValue;
