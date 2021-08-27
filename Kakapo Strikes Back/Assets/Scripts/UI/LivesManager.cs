@@ -55,6 +55,6 @@ public class LivesManager : MonoBehaviour
         if (NumberOfLives < MAX_LIVES)
             NumberOfLives++;
         else
-            FindObjectOfType<UIManager>().AddToScore(500);
+            FindObjectOfType<GameScoreStats>().AddToScore(500);
     }
 }

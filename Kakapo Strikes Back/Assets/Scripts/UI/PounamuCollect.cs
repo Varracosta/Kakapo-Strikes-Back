@@ -7,7 +7,7 @@ public class PounamuCollect : BonusCollect
     [SerializeField] private AudioClip bonusSFX;
     public override void AddBonus()
     {
-        FindObjectOfType<UIManager>().AddToScore(50);
+        FindObjectOfType<GameScoreStats>().AddToScore(50);
         AudioSource.PlayClipAtPoint(bonusSFX, Camera.main.transform.position);
         Destroy(gameObject);
     }

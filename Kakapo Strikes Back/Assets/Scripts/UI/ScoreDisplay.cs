@@ -14,6 +14,6 @@ public class ScoreDisplay : MonoBehaviour
 
     void Update()
     {
-        scoreDisplay.text = UIManager.instance.GetScore().ToString();
+        scoreDisplay.text = GameScoreStats.instance.GetScore().ToString();
     }
 }

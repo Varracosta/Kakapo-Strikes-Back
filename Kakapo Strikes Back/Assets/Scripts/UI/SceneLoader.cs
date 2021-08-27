@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
     private void Update()
     {
         if (SceneManager.GetActiveScene().name == "End game")
-            UIManager.instance.ResetScore();
+            GameScoreStats.instance.ResetScore();
     }
     public void StartLevel()
     {
@@ -33,8 +33,7 @@ public class SceneLoader : MonoBehaviour
 
         if(sceneToContinue != 0)
         {
-            FindObjectOfType<PauseMenu>().ResetPause();
-            UIManager.instance.ResetScore();
+            GameScoreStats.instance.ResetScore();
             Time.timeScale = 1f;
             SceneManager.LoadScene(sceneToContinue);
         }
@@ -68,7 +67,7 @@ public class SceneLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("GameOver");
-        UIManager.instance.ResetScore();
+        GameScoreStats.instance.ResetScore();
     }
     public void QuitTheGame()
     {

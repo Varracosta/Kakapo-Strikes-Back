@@ -1,21 +1,17 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using TMPro;
-using UnityEngine.EventSystems;
 
-public class UIManager : MonoBehaviour
+public class GameScoreStats : MonoBehaviour
 {
     [SerializeField] private Kakapo kakapo;
 
     private float score = 0f;
-    public static UIManager instance;
+    public static GameScoreStats instance;
 
     private void Awake()
     {
-        if (FindObjectsOfType<UIManager>().Length > 1)
+        if (FindObjectsOfType<GameScoreStats>().Length > 1)
             Destroy(gameObject);
         else
         {
