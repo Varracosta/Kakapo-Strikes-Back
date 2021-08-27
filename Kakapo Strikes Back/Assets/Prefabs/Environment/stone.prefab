@@ -288,4 +288,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700377f3f8b987b49831a16f9a2adfa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomper: {fileID: 2321034699686929395}
+  collisionSFX: {fileID: 8300000, guid: 2082fc35d984a56449091d721f7551b1, type: 3}

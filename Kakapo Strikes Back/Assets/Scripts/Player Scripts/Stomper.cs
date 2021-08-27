@@ -42,7 +42,6 @@ public class Stomper : MonoBehaviour
             {
                 kakapo.PerformKnockback(other);
                 kakapo.TakeDamage(other.gameObject.GetComponent<DamageDealer>().GetDamage());
-                Debug.Log("Feet touched");
             }
         }
         else { return; }

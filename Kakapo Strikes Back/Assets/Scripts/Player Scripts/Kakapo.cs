@@ -59,7 +59,7 @@ public class Kakapo : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(10, 11, true);
         animator.SetBool("Take damage", true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         animator.SetBool("Take damage", false);
         Physics2D.IgnoreLayerCollision(10, 11, false);
         IsHurt = false;

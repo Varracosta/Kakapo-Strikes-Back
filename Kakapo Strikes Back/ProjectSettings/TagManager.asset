@@ -13,6 +13,7 @@ TagManager:
   - HurtBox
   - Hedgehog
   - ExitFlag
+  - Ground
   layers:
   - Default
   - TransparentFX

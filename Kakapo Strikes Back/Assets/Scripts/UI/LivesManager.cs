@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class LivesManager : MonoBehaviour
 {
+    //Displaying and storing info about lives balance 
     [SerializeField] private Image[] _lives;
+    [SerializeField] private Sprite activeHeart;
+    [SerializeField] private Sprite inactiveHeart;
     private const int MAX_LIVES = 3;
-    public int NumberOfLives { get; private set; }
 
-    //Caching references
-    public Sprite activeHeart;
-    public Sprite inactiveHeart;
+    public int NumberOfLives { get; private set; }
 
     void Start()
     {

@@ -5,6 +5,7 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
+    //Displays score on the screen
     private TextMeshProUGUI scoreDisplay;
     void Start()
     {
