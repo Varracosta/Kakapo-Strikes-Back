@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f39dda94d4e1945ae8cb92122e4b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kakapo: {fileID: 0}
+  bonusLifeSFX: {fileID: 8300000, guid: 03acc3b093c048a4f9bb2593b05a0bac, type: 3}

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] private AudioClip startFirstLevelSFX;
     private int currentSceneIndex;
     private int sceneToContinue;
     
@@ -20,6 +21,12 @@ public class SceneLoader : MonoBehaviour
     }
     public void StartLevel()
     {
+        StartCoroutine(WaitAndStartFirstLevel());
+    }
+    private IEnumerator WaitAndStartFirstLevel()
+    {
+        AudioSource.PlayClipAtPoint(startFirstLevelSFX, Camera.main.transform.position, 0.5f);
+        yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene("Level 1");
     }
     public void SaveScene()

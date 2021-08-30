@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameScoreStats : MonoBehaviour
 {
-    [SerializeField] private Kakapo kakapo;
-
-    private float score = 0f;
+    private int score = 0;
+    private int bonus;
+    private int bonusInterval = 500;
     public static GameScoreStats instance;
 
     private void Awake()
@@ -18,6 +18,11 @@ public class GameScoreStats : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        bonus = bonusInterval;
+    }
+    private void Update()
+    {
+        AddBonusLifeForScore();
     }
 
     public float GetScore() { return score; }
@@ -25,9 +30,17 @@ public class GameScoreStats : MonoBehaviour
     {
         score += scoreValue;
     }
-
+    private void AddBonusLifeForScore()
+    {
+        if(score >= bonus)
+        {
+            FindObjectOfType<Kakapo>().InstantiatePopUp();
+            LivesManager.instance.AddLife();
+            bonus += bonusInterval;
+        }
+    }
     public void ResetScore()
     {
-        score = 0f;
+        score = 0;
     }
 }

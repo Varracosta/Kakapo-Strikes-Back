@@ -300,6 +300,9 @@ MonoBehaviour:
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 80acced7091fe6f4683e3e14b8ed051e, type: 3}
+  bonusLifeSFX: {fileID: 8300000, guid: 03acc3b093c048a4f9bb2593b05a0bac, type: 3}
+  bonusText: {fileID: 8547156950316478534, guid: c761ea477ec075a45a49372fda3e83e7,
+    type: 3}
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
@@ -351,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kakapo: {fileID: 4330754544799369305}
+  levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
 --- !u!114 &361489596436156547
 MonoBehaviour:
   m_ObjectHideFlags: 0

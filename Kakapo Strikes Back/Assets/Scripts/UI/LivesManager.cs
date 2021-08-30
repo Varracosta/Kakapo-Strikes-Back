@@ -10,11 +10,13 @@ public class LivesManager : MonoBehaviour
     [SerializeField] private Sprite activeHeart;
     [SerializeField] private Sprite inactiveHeart;
     private const int MAX_LIVES = 3;
+    public static LivesManager instance;
 
     public int NumberOfLives { get; private set; }
 
     void Start()
     {
+        instance = this;
         NumberOfLives = MAX_LIVES;
     }
 
@@ -55,6 +57,6 @@ public class LivesManager : MonoBehaviour
         if (NumberOfLives < MAX_LIVES)
             NumberOfLives++;
         else
-            FindObjectOfType<GameScoreStats>().AddToScore(500);
+            FindObjectOfType<GameScoreStats>().AddToScore(250);
     }
 }
