@@ -16,10 +16,6 @@ public class Kakapo : MonoBehaviour
     [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private AudioClip levelCompleteSFX;
     [SerializeField] private AudioClip gameOverSFX;
-
-    [Header("Other")]
-    [SerializeField] private AudioClip bonusLifeSFX;
-    [SerializeField] private GameObject bonusText;
     #endregion
 
     #region Physics variables
@@ -86,12 +82,5 @@ public class Kakapo : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(5f, 15f);
         }
-    }
-    public void InstantiatePopUp()
-    {
-        Instantiate(bonusText, transform.position, Quaternion.identity);
-        AudioSource.PlayClipAtPoint(bonusLifeSFX, Camera.main.transform.position);
-        Debug.Log("Kakapo: " + transform.position);
-        Debug.Log("PopUp: " + bonusText.transform.position);
     }
 }

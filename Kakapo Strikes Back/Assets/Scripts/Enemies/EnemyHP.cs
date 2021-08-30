@@ -33,8 +33,9 @@ public class EnemyHP : MonoBehaviour
 
     public void Die()
     {
-        FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
         IsDead = true;
+        KillQuotes.instance.PlayKillPhrase();
+        FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
         AudioSource.PlayClipAtPoint(deathPopSFX, Camera.main.transform.position, 10f);
         animator.SetBool("IsDead", IsDead);
         StartCoroutine(Dying());

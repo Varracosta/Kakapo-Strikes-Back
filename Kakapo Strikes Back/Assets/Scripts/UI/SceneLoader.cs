@@ -40,9 +40,12 @@ public class SceneLoader : MonoBehaviour
 
         if(sceneToContinue != 0)
         {
+            if(PauseMenu.isPaused)
+                FindObjectOfType<PauseMenu>().ResetPause();
+
             GameScoreStats.instance.ResetScore();
-            Time.timeScale = 1f;
             SceneManager.LoadScene(sceneToContinue);
+            Time.timeScale = 1f;
         }
         else { return; }
     }
@@ -55,22 +58,22 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadNextLevelCoroutine());
+        StartCoroutine(WaitAndLoadNextLevel());
     }
     public void LoadControllersScreen()
     {
         SceneManager.LoadScene(1);
     }
-    private IEnumerator LoadNextLevelCoroutine()
+    private IEnumerator WaitAndLoadNextLevel()
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
     public void GameOver()
     {
-        StartCoroutine(GameOverCoroutine());
+        StartCoroutine(WaitAndLoadGameOver());
     }
-    private IEnumerator GameOverCoroutine()
+    private IEnumerator WaitAndLoadGameOver()
     {
         yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("GameOver");

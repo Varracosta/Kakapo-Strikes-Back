@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 330776432}
   - component: {fileID: 1126196421}
   - component: {fileID: 2062502337}
-  m_Layer: 10
+  m_Layer: 19
   m_Name: SmashBox
   m_TagString: Spikes
   m_Icon: {fileID: 0}

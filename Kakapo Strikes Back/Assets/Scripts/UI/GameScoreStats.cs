@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameScoreStats : MonoBehaviour
 {
+    [SerializeField] private AudioClip bonusLifeSFX;
+    [SerializeField] private GameObject bonusText;
     private int score = 0;
     private int bonus;
-    private int bonusInterval = 500;
+    private int bonusInterval = 1500;
     public static GameScoreStats instance;
 
     private void Awake()
@@ -34,7 +36,8 @@ public class GameScoreStats : MonoBehaviour
     {
         if(score >= bonus)
         {
-            FindObjectOfType<Kakapo>().InstantiatePopUp();
+            Instantiate(bonusText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(bonusLifeSFX, Camera.main.transform.position);
             LivesManager.instance.AddLife();
             bonus += bonusInterval;
         }

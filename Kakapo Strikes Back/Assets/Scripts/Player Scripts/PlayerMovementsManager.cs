@@ -72,7 +72,7 @@ public class PlayerMovementsManager : MonoBehaviour
                 kakapo.animator.SetTrigger("Attack");
                 AudioSource.PlayClipAtPoint(kakapo.legKickSFX, Camera.main.transform.position, 0.2f);
 
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, playerData.attackRadius, LayerMask.GetMask("Killable enemy"));
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, playerData.attackRadius, LayerMask.GetMask("HurtBox"));
 
                 foreach (Collider2D enemy in enemies)
                 {
