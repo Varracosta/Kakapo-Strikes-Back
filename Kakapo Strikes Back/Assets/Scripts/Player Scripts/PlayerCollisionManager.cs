@@ -6,7 +6,6 @@ public class PlayerCollisionManager : MonoBehaviour
 {
     [SerializeField] internal Kakapo kakapo;
     [SerializeField] private AudioClip levelCompleteSFX;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         TriggerTakingDamage(other);
@@ -32,7 +31,7 @@ public class PlayerCollisionManager : MonoBehaviour
         if (other.gameObject.CompareTag("ExitFlag"))
         {
             AudioSource.PlayClipAtPoint(levelCompleteSFX, Camera.main.transform.position, 0.5f);
-            SceneLoader.instance.LoadNextLevel();
+            SceneLoader.instance.LoadTotalScoreScene();
         }
     }
 }

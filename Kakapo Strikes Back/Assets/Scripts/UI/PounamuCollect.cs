@@ -5,6 +5,7 @@ using UnityEngine;
 public class PounamuCollect : BonusCollect
 {
     [SerializeField] private AudioClip bonusSFX;
+
     public override void AddBonus()
     {
         FindObjectOfType<GameScoreStats>().AddToScore(50);

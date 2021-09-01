@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private AudioClip startFirstLevelSFX;
     private int currentSceneIndex;
     private int sceneToContinue;
     
@@ -13,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     private void Start()
     {
         instance = this;
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     private void Update()
     {
@@ -25,7 +25,6 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator WaitAndStartFirstLevel()
     {
-        AudioSource.PlayClipAtPoint(startFirstLevelSFX, Camera.main.transform.position, 0.5f);
         yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene("Level 1");
     }
@@ -38,12 +37,13 @@ public class SceneLoader : MonoBehaviour
     {
         sceneToContinue = PlayerPrefs.GetInt("SavedScene");
 
-        if(sceneToContinue != 0)
+        if(sceneToContinue != 0) // make possible to load only playable levels, not total score after level scenes (make levels by even numbers perhaps)
         {
             if(PauseMenu.isPaused)
                 FindObjectOfType<PauseMenu>().ResetPause();
 
             GameScoreStats.instance.ResetScore();
+            GameScoreStats.instance.ResetLevelStats();
             SceneManager.LoadScene(sceneToContinue);
             Time.timeScale = 1f;
         }
@@ -60,14 +60,25 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(WaitAndLoadNextLevel());
     }
-    public void LoadControllersScreen()
-    {
-        SceneManager.LoadScene(1);
-    }
     private IEnumerator WaitAndLoadNextLevel()
+    {
+        MusicPlayer.instance.PlayOnClick();
+        GameScoreStats.instance.ResetLevelStats();
+        yield return new WaitForSeconds(2.2f);
+        SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+    public void LoadTotalScoreScene()
+    {
+        StartCoroutine(WaitAndTotalScoreScene());
+    }
+    private IEnumerator WaitAndTotalScoreScene()
     {
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+    public void LoadControllersScreen()
+    {
+        SceneManager.LoadScene(1);
     }
     public void GameOver()
     {

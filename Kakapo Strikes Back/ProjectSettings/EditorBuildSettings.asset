@@ -15,8 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Total Score Lvl 1.unity
+    guid: 6880d1f53efc4b64ba022ca35f3278ce
+  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 40e7e288b2fde4246b5fceab080717ad
+  - enabled: 1
+    path: Assets/Scenes/Total Score Lvl 2.unity
+    guid: 2d80a1e6f1118084ebea8c884d0f1762
   - enabled: 1
     path: Assets/Scenes/End game.unity
     guid: 758efa49dd3fe8e418bfe6d61bf9d26a

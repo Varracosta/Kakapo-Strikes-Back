@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1654883367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1654883368}
+  m_Layer: 11
+  m_Name: Searching Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1654883368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654883367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4330754544799369303}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540192876546153304
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +153,7 @@ GameObject:
   - component: {fileID: 361489596436156547}
   - component: {fileID: 3520877843059993507}
   - component: {fileID: 4330754545894729046}
+  - component: {fileID: 2052411170437899034}
   m_Layer: 11
   m_Name: Kakapo
   m_TagString: Kakapo
@@ -145,6 +176,7 @@ Transform:
   - {fileID: 423537375677959877}
   - {fileID: 7334252697301289397}
   - {fileID: 7450325261528489149}
+  - {fileID: 1654883368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -300,9 +332,6 @@ MonoBehaviour:
   hurtSFX: {fileID: 8300000, guid: 082d6a7683b85b8479e4f580c2595b6b, type: 3}
   levelCompleteSFX: {fileID: 8300000, guid: 18ebe2d14b625dd4bbb4287b4800e063, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 80acced7091fe6f4683e3e14b8ed051e, type: 3}
-  bonusLifeSFX: {fileID: 8300000, guid: 03acc3b093c048a4f9bb2593b05a0bac, type: 3}
-  bonusText: {fileID: 8547156950316478534, guid: c761ea477ec075a45a49372fda3e83e7,
-    type: 3}
   stompBox: {fileID: 1649565606558826986}
 --- !u!114 &4330754545894729043
 MonoBehaviour:
@@ -463,6 +492,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508192c54ffef0e4f9f132b3cce618e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2052411170437899034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330754544799369299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9de365bc89d45342ba1723b76ce7613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  searchPoint: {fileID: 1654883368}
+  whatIsCreature:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsCone:
+    serializedVersion: 2
+    m_Bits: 128
+  searchRadius: 5
 --- !u!1 &4654118924149938485
 GameObject:
   m_ObjectHideFlags: 0
