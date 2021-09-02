@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5802650011469071027}
   - component: {fileID: 1801675126635247924}
   - component: {fileID: 2326385100540091633}
+  - component: {fileID: 2771339297208392210}
   m_Layer: 6
   m_Name: Kereru_0
   m_TagString: Untagged
@@ -130,3 +131,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.75}
   m_EdgeRadius: 0
+--- !u!114 &2771339297208392210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766619799906574060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c422735636f9aa845aad1043055ff027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialWhite: {fileID: 2100000, guid: a6ae9796fe10754498e479111e481552, type: 2}
+  foundSound: {fileID: 8300000, guid: a87495fd11db20d4f98527fb9facb5e2, type: 3}

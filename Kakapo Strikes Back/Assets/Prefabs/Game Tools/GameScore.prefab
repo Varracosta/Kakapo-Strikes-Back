@@ -46,3 +46,7 @@ MonoBehaviour:
   bonusLifeSFX: {fileID: 8300000, guid: 03acc3b093c048a4f9bb2593b05a0bac, type: 3}
   bonusText: {fileID: 8547156950316478534, guid: c761ea477ec075a45a49372fda3e83e7,
     type: 3}
+  creatureText: {fileID: 6564618568697642799, guid: ae5b32b6fdfd6224fa712292b8487249,
+    type: 3}
+  coneText: {fileID: 4900073856891516678, guid: e0405ef41299b604a8423f673a10457e,
+    type: 3}

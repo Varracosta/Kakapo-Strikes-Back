@@ -7,6 +7,8 @@ public class GameScoreStats : MonoBehaviour
     #region References
     [SerializeField] private AudioClip bonusLifeSFX;
     [SerializeField] private GameObject bonusText;
+    [SerializeField] private GameObject creatureText;
+    [SerializeField] private GameObject coneText;
     #endregion
 
     #region Data
@@ -63,6 +65,8 @@ public class GameScoreStats : MonoBehaviour
                 return;
 
             creaturesList.Add(creature.gameObject);
+            creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
+            Instantiate(creatureText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
         }
     }
     public void AddToConesList(Collider2D[] cones)
@@ -73,7 +77,8 @@ public class GameScoreStats : MonoBehaviour
                 return;
 
             conesList.Add(cone.gameObject);
-
+            cone.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
+            Instantiate(coneText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
         }
     }
     public void ResetLevelStats()

@@ -63,9 +63,9 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator WaitAndLoadNextLevel()
     {
         MusicPlayer.instance.PlayOnClick();
-        GameScoreStats.instance.ResetLevelStats();
         yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene(currentSceneIndex + 1);
+        GameScoreStats.instance.ResetLevelStats();
     }
     public void LoadTotalScoreScene()
     {

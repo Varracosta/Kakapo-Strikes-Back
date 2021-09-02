@@ -915,49 +915,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &287700818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 287700820}
-  - component: {fileID: 287700819}
-  m_Layer: 0
-  m_Name: ItemsToFind
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &287700819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287700818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d17632e1d25e2f4f99cb881e667d6c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &287700820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287700818}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &293455886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5640799461124373976, guid: 3096d16f11347c6448aeb908c5808e56,
@@ -6501,20 +6458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7832608609334694046, guid: 08ea78e4b1748004a86d89e27967427a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 7832608610256625694, guid: 08ea78e4b1748004a86d89e27967427a,
         type: 3}
       propertyPath: m_Name
       value: Katipo
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832608610256625694, guid: 08ea78e4b1748004a86d89e27967427a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7832608610256625890, guid: 08ea78e4b1748004a86d89e27967427a,
         type: 3}
