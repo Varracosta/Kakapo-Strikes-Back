@@ -14,13 +14,14 @@ public class GameScoreStats : MonoBehaviour
     #region Data
     private int score;
     private int killCount;
+    private int creaturesCount;
     private int bonus;
     private int bonusInterval = 1500;
     #endregion
 
     #region Lists for found items
-    private List<GameObject> conesList;
-    private List<GameObject> creaturesList;
+    private List<GameObject> conesList = new List<GameObject>();
+    private List<GameObject> creaturesList = new List<GameObject>();
     #endregion
     public static GameScoreStats instance;
 
@@ -37,9 +38,7 @@ public class GameScoreStats : MonoBehaviour
         bonus = bonusInterval;
         score = 0;
         killCount = 0;
-
-        conesList = new List<GameObject>();
-        creaturesList = new List<GameObject>();
+        creaturesCount = 0;
     }
     private void OnEnable()
     {
@@ -48,15 +47,10 @@ public class GameScoreStats : MonoBehaviour
     private void Update()
     {
         AddBonusLifeForScore();
+        Debug.Log(creaturesList.Count);
     }
-    public void AddToScore(int scoreValue)
-    {
-        score += scoreValue;
-    }
-    private void AddToKillCount()
-    {
-        killCount++;
-    }
+    public void AddToScore(int scoreValue)  {   score += scoreValue;    }
+    private void AddToKillCount() { killCount++;    }
     public void AddToCreaturesList(Collider2D[] creatures)
     {
         foreach (Collider2D creature in creatures)
@@ -65,6 +59,8 @@ public class GameScoreStats : MonoBehaviour
                 return;
 
             creaturesList.Add(creature.gameObject);
+            DisplayCreature.instance.DisplayFoundCreature(creature.gameObject);
+            creaturesCount++;
             creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
             Instantiate(creatureText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
         }
@@ -84,7 +80,7 @@ public class GameScoreStats : MonoBehaviour
     public void ResetLevelStats()
     {
         killCount = 0;
-        creaturesList.Clear();
+        creaturesCount = 0;
         conesList.Clear();
     }
     private void AddBonusLifeForScore()
@@ -101,9 +97,11 @@ public class GameScoreStats : MonoBehaviour
     {
         score = 0;
         killCount = 0;
+        creaturesCount = 0;
     }
     public int GetScore() { return score; }
     public int GetKillCount() { return killCount; }
     public int GetConesCount() { return conesList.Count; }
-    public int GetCreaturesCount() { return creaturesList.Count; }
+    public int GetCreaturesCount() { return creaturesCount; }
+    public List<GameObject> GetCreatureList() { return creaturesList; }
 }

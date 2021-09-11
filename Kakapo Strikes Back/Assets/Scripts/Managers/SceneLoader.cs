@@ -19,15 +19,7 @@ public class SceneLoader : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "End game")
             GameScoreStats.instance.ResetScore();
     }
-    public void StartLevel()
-    {
-        StartCoroutine(WaitAndStartFirstLevel());
-    }
-    private IEnumerator WaitAndStartFirstLevel()
-    {
-        yield return new WaitForSeconds(2.2f);
-        SceneManager.LoadScene("Level 1");
-    }
+    #region Save and Load methods
     public void SaveScene()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -49,12 +41,21 @@ public class SceneLoader : MonoBehaviour
         }
         else { return; }
     }
-    public void BackToMenu()
-    {
-        if (PauseMenu.isPaused)
-            FindObjectOfType<PauseMenu>().ResetPause();
+    #endregion
 
-        SceneManager.LoadScene(0);
+    #region Levels Loading
+    public void StartLevel()
+    {
+        StartCoroutine(WaitAndStartFirstLevel());
+    }
+    private IEnumerator WaitAndStartFirstLevel()
+    {
+        yield return new WaitForSeconds(2.2f);
+        SceneManager.LoadScene("Level 1");
+    }
+    public void LoadSecondLevel()
+    {
+        SceneManager.LoadScene("Level 2");
     }
     public void LoadNextLevel()
     {
@@ -67,6 +68,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex + 1);
         GameScoreStats.instance.ResetLevelStats();
     }
+    #endregion
+
+    #region Loading other scenes
     public void LoadTotalScoreScene()
     {
         StartCoroutine(WaitAndTotalScoreScene());
@@ -80,6 +84,28 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void LoadLevelsList()
+    {
+        SceneManager.LoadScene("Levels list");
+    }
+    #endregion
+
+    #region Loading Menus
+    public void LoadMainMenu()
+    {
+        if (PauseMenu.isPaused)
+            FindObjectOfType<PauseMenu>().ResetPause();
+
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene(currentSceneIndex - 1);
+    }
+    #endregion
+
+    #region Other
     public void GameOver()
     {
         StartCoroutine(WaitAndLoadGameOver());
@@ -94,4 +120,5 @@ public class SceneLoader : MonoBehaviour
     {
         Application.Quit();
     }
+    #endregion
 }

@@ -596,6 +596,11 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4279566321
       objectReference: {fileID: 0}
+    - target: {fileID: 6105860138520952932, guid: 4f3ce5e91da49a647bbdc1ec86a844e1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -142
+      objectReference: {fileID: 0}
     - target: {fileID: 6105860138520952933, guid: 4f3ce5e91da49a647bbdc1ec86a844e1,
         type: 3}
       propertyPath: m_SpriteState.m_DisabledSprite
@@ -611,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 6105860138520952933, guid: 4f3ce5e91da49a647bbdc1ec86a844e1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadControllersScreen
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6105860139148993339, guid: 4f3ce5e91da49a647bbdc1ec86a844e1,
         type: 3}

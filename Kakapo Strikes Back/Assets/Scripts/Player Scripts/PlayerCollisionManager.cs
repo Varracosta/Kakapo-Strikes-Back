@@ -9,7 +9,7 @@ public class PlayerCollisionManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         TriggerTakingDamage(other);
-        FinishLevel(other);
+        //FinishLevel(other);
     }
 
     private void TriggerTakingDamage(Collider2D other)

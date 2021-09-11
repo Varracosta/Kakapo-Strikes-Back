@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2326385100540091633}
   - component: {fileID: 2771339297208392210}
   m_Layer: 6
-  m_Name: Kereru_0
+  m_Name: Kereru
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

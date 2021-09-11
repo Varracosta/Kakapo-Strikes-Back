@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject foundCreaturesMenu;
 
     public static bool isPaused;
     private InputActions inputActions;
@@ -50,5 +51,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         pauseMenu.SetActive(false);
+    }
+
+    public void OpenFoundCreaturesMenu()
+    {
+        foundCreaturesMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+
+    public void CloseFoundCreaturesMenu()
+    {
+        pauseMenu.SetActive(true);
+        foundCreaturesMenu.SetActive(false);
     }
 }
