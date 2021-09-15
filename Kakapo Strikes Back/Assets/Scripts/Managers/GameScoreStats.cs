@@ -47,7 +47,6 @@ public class GameScoreStats : MonoBehaviour
     private void Update()
     {
         AddBonusLifeForScore();
-        Debug.Log(creaturesList.Count);
     }
     public void AddToScore(int scoreValue)  {   score += scoreValue;    }
     private void AddToKillCount() { killCount++;    }

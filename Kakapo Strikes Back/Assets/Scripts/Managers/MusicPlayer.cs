@@ -26,4 +26,9 @@ public class MusicPlayer : MonoBehaviour
         AudioSource.PlayClipAtPoint(startLevelPhrasesSFX[phraseCounter], Camera.main.transform.position);
         phraseCounter++;
     }
+
+    public void StopPlayingMusic()
+    {
+        AudioListener.pause = true;
+    }
 }
