@@ -8,12 +8,6 @@ public class PlayerCollisionManager : MonoBehaviour
     [SerializeField] private AudioClip levelCompleteSFX;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        TriggerTakingDamage(other);
-        //FinishLevel(other);
-    }
-
-    private void TriggerTakingDamage(Collider2D other)
-    {
         if (kakapo.IsHurt == false)
         {
             if (other.gameObject.CompareTag("Enemy") ||
@@ -26,12 +20,8 @@ public class PlayerCollisionManager : MonoBehaviour
         else { return; }
     }
 
-    private void FinishLevel(Collider2D other)
+    private void TriggerTakingDamage(Collider2D other)
     {
-        if (other.gameObject.CompareTag("ExitFlag"))
-        {
-            AudioSource.PlayClipAtPoint(levelCompleteSFX, Camera.main.transform.position, 0.5f);
-            SceneLoader.instance.LoadTotalScoreScene();
-        }
+
     }
 }
