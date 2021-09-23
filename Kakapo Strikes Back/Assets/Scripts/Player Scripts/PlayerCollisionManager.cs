@@ -19,9 +19,4 @@ public class PlayerCollisionManager : MonoBehaviour
         }
         else { return; }
     }
-
-    private void TriggerTakingDamage(Collider2D other)
-    {
-
-    }
 }

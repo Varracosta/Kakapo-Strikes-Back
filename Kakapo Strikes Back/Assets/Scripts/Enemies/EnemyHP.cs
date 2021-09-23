@@ -42,12 +42,13 @@ public class EnemyHP : MonoBehaviour
         KillQuotes.instance.PlayKillPhrase();
         FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
         AudioSource.PlayClipAtPoint(deathPopSFX, Camera.main.transform.position, 10f);
-        animator.SetBool("IsDead", IsDead);
+
         StartCoroutine(Dying());
     }
 
-    private IEnumerator Dying()
+    public IEnumerator Dying()
     {
+        animator.SetBool("IsDead", IsDead);
         yield return new WaitForSeconds(0.3f);
         Destroy(transform.parent.gameObject);
     }

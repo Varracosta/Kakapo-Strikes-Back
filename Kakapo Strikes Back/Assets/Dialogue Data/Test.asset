@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0124e297adf9b9640aff85d529c5870e, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "KAKAPO: \n Pests... there are so many of them! How would I defeat this wave
+    of enemies?..."
+  - "TANE: \nDo not be afraid, little one"
+  - "TANE: \nYou've come so far, and this swarm of enemies won't be a problem for
+    you. I'll help you "
+  - 'TANE:
+
+    There is a power, old as the World itself, the power of ancient and
+    wise people of the Boomers tribe. '
+  - "TANE:\nThis power is long forgotten, but it is mighty and deadly enough to eliminate
+    allied forces. \r\n"
+  - 'TANE:
+
+    Take this power to slay your enemies, and bring peace to our home.'
