@@ -17,6 +17,7 @@ public class GameScoreStats : MonoBehaviour
     private int creaturesCount;
     private int bonus;
     private int bonusInterval = 1500;
+    private bool isWorking = true;
     #endregion
 
     #region Lists for found items
@@ -46,7 +47,8 @@ public class GameScoreStats : MonoBehaviour
     }
     private void Update()
     {
-        AddBonusLifeForScore();
+        if(isWorking)
+            AddBonusLifeForScore();
     }
     public void AddToScore(int scoreValue)  {   score += scoreValue;    }
     private void AddToKillCount() { killCount++;    }
@@ -103,4 +105,8 @@ public class GameScoreStats : MonoBehaviour
     public int GetConesCount() { return conesList.Count; }
     public int GetCreaturesCount() { return creaturesCount; }
     public List<GameObject> GetCreatureList() { return creaturesList; }
+    public void SwitchOff()
+    {
+        isWorking = false;
+    }
 }

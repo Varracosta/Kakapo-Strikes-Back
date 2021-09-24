@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0124e297adf9b9640aff85d529c5870e, type: 3}
-  m_Name: Test
+  m_Name: Cutscene conversation
   m_EditorClassIdentifier: 
   dialogue:
   - "KAKAPO: \n Pests... there are so many of them! How would I defeat this wave

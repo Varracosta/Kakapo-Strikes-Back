@@ -77,6 +77,7 @@ public class PlayerMovementsManager : MonoBehaviour
                 foreach (Collider2D enemy in enemies)
                 {
                     enemy.GetComponentInChildren<EnemyHP>().TakeDamage(playerData.damage);
+                    KillQuotes.instance.PlayKillPhrase();
                 }
                 playerData.nextAttackTime = Time.time + 1f / playerData.attackRate;
             }

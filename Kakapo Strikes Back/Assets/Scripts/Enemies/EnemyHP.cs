@@ -15,7 +15,7 @@ public class EnemyHP : MonoBehaviour
     public bool IsDead { get; private set; }
 
     public delegate void OnEnemyKill();
-    public static  event OnEnemyKill EnemyKill;
+    public static event OnEnemyKill EnemyKill;
 
 
     void Start() 
@@ -39,7 +39,6 @@ public class EnemyHP : MonoBehaviour
     {
         IsDead = true;
         EnemyKill?.Invoke();
-        KillQuotes.instance.PlayKillPhrase();
         FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
         AudioSource.PlayClipAtPoint(deathPopSFX, Camera.main.transform.position, 10f);
 

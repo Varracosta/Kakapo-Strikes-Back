@@ -11,6 +11,7 @@ public class Stone : MonoBehaviour
         if (other.gameObject.CompareTag("HurtBox") || other.gameObject.CompareTag("Spikes"))
         {
             other.gameObject.GetComponent<EnemyHP>().Die();
+            KillQuotes.instance.PlayKillPhrase();
         }
         else if (other.gameObject.CompareTag("Ground"))
         {

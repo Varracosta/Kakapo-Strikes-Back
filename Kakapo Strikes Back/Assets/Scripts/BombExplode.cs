@@ -4,44 +4,33 @@ using UnityEngine;
 
 public class BombExplode : MonoBehaviour
 {
+    [SerializeField] private AudioClip explosionSFX;
     private Animator animator;
-    private CapsuleCollider2D capCollider;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        capCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponentInParent<Animator>();
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        //Explode();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy") ||
-                other.gameObject.CompareTag("Hedgehog"))
+        if (other.gameObject.CompareTag("HurtBox") ||
+                other.gameObject.CompareTag("Spikes"))
         {
-            other.gameObject.GetComponentInChildren<EnemyHP>().Dying();
+            other.gameObject.GetComponent<EnemyHP>().Die();
+            StartCoroutine(WaitAndExplode());
         }
 
-        //animator.SetBool("Explode", true);
-        //StartCoroutine(WaitAndExplode());
-    }
-
-    private void Explode()
-    {
-        if (capCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (other.gameObject.CompareTag("Ground"))
         {
-            animator.SetBool("Explode", true);
             StartCoroutine(WaitAndExplode());
         }
     }
-
     private IEnumerator WaitAndExplode()
     {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        animator.SetBool("Explode", true);
+        AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(transform.parent.gameObject);
     }
 }

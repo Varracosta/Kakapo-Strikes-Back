@@ -33,6 +33,7 @@ public class Stomper : MonoBehaviour
         if (other.gameObject.CompareTag("HurtBox"))
         {
             other.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
+            KillQuotes.instance.PlayKillPhrase();
             rb.velocity = new Vector2(rb.velocity.x, bounceForce);
         }
 

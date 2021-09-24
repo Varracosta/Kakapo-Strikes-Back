@@ -12,6 +12,7 @@ public class StartCutscene : MonoBehaviour
         if (other.gameObject.CompareTag("Kakapo"))
         {
             IsCutsceneStarted = true;
+            GameScoreStats.instance.SwitchOff();
             cutscene.SetActive(true);
             MusicPlayer.instance.StopPlayingMusic();
         }

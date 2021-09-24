@@ -13,7 +13,7 @@ public class DropingBombs : MonoBehaviour
     [SerializeField] private GameObject bombPrefab;
     private float startToBombTimer = 78f;
     private float cutsceneLengthTimer = 30f;
-    private const float BOMB_INTERVAL = 0.5f;
+    private const float BOMB_INTERVAL = 0.4f;
     private float bombTimer;
 
     void Start()
