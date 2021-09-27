@@ -15,6 +15,7 @@ TagManager:
   - ExitFlag
   - Ground
   - Bomb
+  - Kirov
   layers:
   - Default
   - TransparentFX

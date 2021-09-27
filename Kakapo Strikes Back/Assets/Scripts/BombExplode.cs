@@ -30,7 +30,7 @@ public class BombExplode : MonoBehaviour
     {
         animator.SetBool("Explode", true);
         AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(transform.parent.gameObject);
     }
 }

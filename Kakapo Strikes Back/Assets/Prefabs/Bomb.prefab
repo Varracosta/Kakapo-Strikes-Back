@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336256292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.069, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8853031757955987422}
@@ -45,7 +45,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011426926, y: -0.15140885}
+  m_Offset: {x: 0.046108246, y: -0.15140885}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5942078, y: 0.13725555}
+  m_Size: {x: 2.031477, y: 0.13725555}
   m_EdgeRadius: 0
 --- !u!114 &336256294
 MonoBehaviour:
@@ -70,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8885254a55c52845a8dfc767f612455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider: {fileID: 0}
   explosionSFX: {fileID: 8300000, guid: 3203beb8e76dbbd4da4d37c96dd32fc5, type: 3}
 --- !u!1 &5436226698031433661
 GameObject:
@@ -83,7 +82,7 @@ GameObject:
   - component: {fileID: 8853031757955987422}
   - component: {fileID: 4601554200729222147}
   - component: {fileID: 7262646624305986408}
-  - component: {fileID: 5018409961775726376}
+  - component: {fileID: 7143934532227354908}
   - component: {fileID: 6232546137995571513}
   m_Layer: 0
   m_Name: Bomb
@@ -177,8 +176,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &5018409961775726376
-CapsuleCollider2D:
+--- !u!61 &7143934532227354908
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -190,9 +189,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.050736673, y: 0.005969072}
-  m_Size: {x: 1.5404007, y: 0.46068543}
-  m_Direction: 1
+  m_Offset: {x: 0.069042206, y: 0.015342787}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 0.6875}
+    newSize: {x: 2, y: 0.6875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4783459, y: 0.4113303}
+  m_EdgeRadius: 0
 --- !u!50 &6232546137995571513
 Rigidbody2D:
   serializedVersion: 4
@@ -212,5 +221,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
