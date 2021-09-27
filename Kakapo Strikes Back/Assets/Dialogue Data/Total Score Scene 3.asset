@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0124e297adf9b9640aff85d529c5870e, type: 3}
+  m_Name: Total Score Scene 3
+  m_EditorClassIdentifier: 
+  dialogue:
+  - Thanks to Kakapo and Tane's wisdom all pests on the grounds of Aotearoa were
+    defeated. Yet you never should underestimate how cunning your enemies could be,
+    especially in this era of Techology. There were still many of them in the air.
+    So once again Kakapo had to act.

@@ -14,6 +14,8 @@ TagManager:
   - Hedgehog
   - ExitFlag
   - Ground
+  - Bomb
+  - Kirov
   layers:
   - Default
   - TransparentFX
@@ -35,7 +37,7 @@ TagManager:
   - Exit
   - Stone
   - HurtBox
-  - 
+  - Bomb
   - 
   - 
   - 
