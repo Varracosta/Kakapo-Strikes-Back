@@ -764,6 +764,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b14d131100bd284b85b267f85ac4968, type: 3}
+--- !u!1 &335149112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690139356339082794, guid: 9406319345f90e74c84b4a88c112ff53,
+    type: 3}
+  m_PrefabInstance: {fileID: 888132490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &367544169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -771,6 +777,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7956929417347684448, guid: 2f90f9d4dca71304094b692fb74a6db4,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4330754544799369299, guid: 1fec6b555acaaee4e876262a612488f2,
+        type: 3}
     - target: {fileID: 7956929417347684449, guid: 2f90f9d4dca71304094b692fb74a6db4,
         type: 3}
       propertyPath: m_Name
@@ -1234,6 +1246,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eed284690f393d479509bdb0d667174, type: 3}
+--- !u!1 &515472269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 690139356331746736, guid: 9406319345f90e74c84b4a88c112ff53,
+    type: 3}
+  m_PrefabInstance: {fileID: 888132490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &536911276
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,6 +7464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutscene: {fileID: 619078955}
+  lives: {fileID: 515472269}
+  scorePoints: {fileID: 335149112}
 --- !u!4 &1722825322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6165317309867535118, guid: 4eed284690f393d479509bdb0d667174,

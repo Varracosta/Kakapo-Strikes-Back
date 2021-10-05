@@ -5,6 +5,8 @@ using UnityEngine;
 public class StartCutscene : MonoBehaviour
 {
     [SerializeField] private GameObject cutscene;
+    [SerializeField] private GameObject lives;
+    [SerializeField] private GameObject scorePoints;
     public bool IsCutsceneStarted { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,8 +15,9 @@ public class StartCutscene : MonoBehaviour
         {
             IsCutsceneStarted = true;
             GameScoreStats.instance.SwitchOff();
+            lives.SetActive(false);
+            scorePoints.SetActive(false);
             cutscene.SetActive(true);
-            //MusicPlayer.instance.StopPlayingMusic();
         }
     }
 

@@ -10,7 +10,6 @@ public class GameScoreStats : MonoBehaviour
     [SerializeField] private GameObject creatureText;
     [SerializeField] private GameObject coneText;
     [SerializeField] private GameObject player;
-
     #endregion
 
     #region Data
@@ -19,13 +18,13 @@ public class GameScoreStats : MonoBehaviour
     private int creaturesCount;
     private int bonus;
     private int bonusInterval = 1500;
-    private bool isWorking = true;
     #endregion
 
     #region Lists for found items
     private List<GameObject> conesList = new List<GameObject>();
     private List<GameObject> creaturesList = new List<GameObject>();
     #endregion
+    public bool isWorking;
     public static GameScoreStats instance;
 
     private void Awake()
@@ -38,6 +37,7 @@ public class GameScoreStats : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
+        isWorking = true;
         bonus = bonusInterval;
         score = 0;
         killCount = 0;
