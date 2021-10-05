@@ -14,7 +14,7 @@ public class StartCutscene : MonoBehaviour
             IsCutsceneStarted = true;
             GameScoreStats.instance.SwitchOff();
             cutscene.SetActive(true);
-            MusicPlayer.instance.StopPlayingMusic();
+            //MusicPlayer.instance.StopPlayingMusic();
         }
     }
 

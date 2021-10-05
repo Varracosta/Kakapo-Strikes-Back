@@ -9,6 +9,8 @@ public class GameScoreStats : MonoBehaviour
     [SerializeField] private GameObject bonusText;
     [SerializeField] private GameObject creatureText;
     [SerializeField] private GameObject coneText;
+    [SerializeField] private GameObject player;
+
     #endregion
 
     #region Data
@@ -50,7 +52,8 @@ public class GameScoreStats : MonoBehaviour
         if(isWorking)
             AddBonusLifeForScore();
     }
-    public void AddToScore(int scoreValue)  {   score += scoreValue;    }
+    public void AddToScore(int scoreValue)  {   score += scoreValue; }
+    public void SubtractFromScore(int scoreValue) { score -= scoreValue; }
     private void AddToKillCount() { killCount++;    }
     public void AddToCreaturesList(Collider2D[] creatures)
     {
@@ -88,8 +91,8 @@ public class GameScoreStats : MonoBehaviour
     {
         if(score >= bonus)
         {
-            Instantiate(bonusText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
-            AudioSource.PlayClipAtPoint(bonusLifeSFX, Camera.main.transform.position);
+            Instantiate(bonusText, player.transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(bonusLifeSFX, player.transform.position);
             LivesManager.instance.AddLife();
             bonus += bonusInterval;
         }

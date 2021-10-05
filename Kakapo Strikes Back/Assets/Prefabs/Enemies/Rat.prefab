@@ -194,7 +194,6 @@ GameObject:
   - component: {fileID: 4558190573388768848}
   - component: {fileID: 587815160818630659}
   - component: {fileID: 3459509422843004006}
-  - component: {fileID: 1222876487}
   m_Layer: 19
   m_Name: HurtBox
   m_TagString: HurtBox
@@ -255,20 +254,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1222876487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449430689583502458}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e9e02d6d6e4784189e2e1bb061193c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHP: {fileID: 587815160818630659}
-  timer: 50
 --- !u!1 &1747188878869880168
 GameObject:
   m_ObjectHideFlags: 0

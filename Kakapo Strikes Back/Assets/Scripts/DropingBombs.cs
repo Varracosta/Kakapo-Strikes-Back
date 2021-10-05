@@ -11,8 +11,8 @@ public class DropingBombs : MonoBehaviour
      3) Instantiate bomb prefabs
      */
     [SerializeField] private GameObject bombPrefab;
-    private float startToBombTimer = 78f;
-    private float cutsceneLengthTimer = 33f;
+    private float startToBombTimer = 79.8f;
+    private float cutsceneLengthTimer = 26f;
     private const float BOMB_INTERVAL = 0.6f;
     private float bombTimer;
 
