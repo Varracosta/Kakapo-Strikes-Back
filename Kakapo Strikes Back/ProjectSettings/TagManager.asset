@@ -18,6 +18,7 @@ TagManager:
   - Kirov
   - Border
   - Bullet
+  - Friendly
   layers:
   - Default
   - TransparentFX

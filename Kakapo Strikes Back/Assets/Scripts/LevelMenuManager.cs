@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class LevelMenuManager : MonoBehaviour
 {
-    [SerializeField] private Button level02Button, level03Button;
+    [SerializeField] private Button level02Button, level03Button, level04Button;
 
     void Start()
     {
         level02Button.interactable = false;
         level03Button.interactable = false;
+        level04Button.interactable = false;
 
         string levelName = PlayerPrefs.GetString("LevelPassed");
         switch (levelName)
@@ -22,6 +23,11 @@ public class LevelMenuManager : MonoBehaviour
             case "Level 2":
                 level02Button.interactable = true;
                 level03Button.interactable = true;
+                break;
+            case "Level 3":
+                level02Button.interactable = true;
+                level03Button.interactable = true;
+                level04Button.interactable = true;
                 break;
         }
     }

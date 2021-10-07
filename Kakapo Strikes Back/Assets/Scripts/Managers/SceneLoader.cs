@@ -82,7 +82,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadControllersScreen()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Controlers intro");
     }
     public void LoadLevelsList()
     {

@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4330754544799369303}
   - component: {fileID: 4330754544799369300}
   - component: {fileID: 4330754544799369301}
-  - component: {fileID: 6015447960209027031}
+  - component: {fileID: 6769149748111016457}
   - component: {fileID: 975166726631087578}
   - component: {fileID: 4330754544799369302}
   - component: {fileID: 4330754544799369305}
@@ -253,8 +253,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &6015447960209027031
-BoxCollider2D:
+--- !u!60 &6769149748111016457
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -262,11 +262,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 4330754544799369299}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 463652763978dcb4e99d0f2c4241c7c1, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0037937164, y: 0.16542697}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -276,9 +276,17 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5419617, y: 0.90907574}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.91954803, y: 0.76567614}
+      - {x: -0.847126, y: 0.6736139}
+      - {x: -0.7461376, y: 0.30257767}
+      - {x: -1.315773, y: -0.32262683}
+      - {x: -0.99061203, y: -0.5855398}
+      - {x: 0.51498604, y: -0.33988857}
+      - {x: 1.1201401, y: 0.050787568}
+      - {x: 1.2223358, y: 0.18173087}
+      - {x: 1.2064514, y: 0.5666685}
 --- !u!58 &975166726631087578
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -475,6 +483,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 060bed80-580a-4d47-9a4b-c6dbf762dcb5
     m_ActionName: Player/Attack[/Keyboard/r,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e53106f-4aba-4e16-b926-26855d2cf09b
+    m_ActionName: Player/Mouse Position[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0667d735-7bea-4447-9a72-e8501e643894
+    m_ActionName: Player/Shooting[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 69e95bc7-e272-4472-839f-40b1a18f0138
+    m_ActionName: UI/Click[/Mouse/leftButton,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5bc19479-d693-45a2-a6ae-f3c8a342b43a
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44fc99f4-faa0-4e59-8381-e4866101abf4
+    m_ActionName: UI/Pause [/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

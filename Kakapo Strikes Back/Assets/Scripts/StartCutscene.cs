@@ -13,12 +13,16 @@ public class StartCutscene : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Kakapo"))
         {
-            IsCutsceneStarted = true;
-            GameScoreStats.instance.SwitchOff();
-            lives.SetActive(false);
-            scorePoints.SetActive(false);
-            cutscene.SetActive(true);
+            StartCutScene();
         }
     }
 
+    public void StartCutScene()
+    {
+        IsCutsceneStarted = true;
+        GameScoreStats.instance.SwitchOff();
+        lives.SetActive(false);
+        scorePoints.SetActive(false);
+        cutscene.SetActive(true);
+    }
 }
