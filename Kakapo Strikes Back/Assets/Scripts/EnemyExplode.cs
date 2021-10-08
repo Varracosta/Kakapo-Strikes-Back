@@ -15,8 +15,7 @@ public class EnemyExplode : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectOfType<StartCutscene>().IsCutsceneStarted)
-            StartExplodeTimer();
+
     }
 
     private void StartExplodeTimer()

@@ -26,6 +26,7 @@ public class DropingBombs : MonoBehaviour
         if (FindObjectOfType<StartCutscene>().IsCutsceneStarted)
             StartBombing();
     }
+
     private void StartBombing()
     {
         startToBombTimer -= 1f * Time.deltaTime;

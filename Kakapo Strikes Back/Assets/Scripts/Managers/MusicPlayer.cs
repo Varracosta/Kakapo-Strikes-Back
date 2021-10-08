@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -20,15 +21,21 @@ public class MusicPlayer : MonoBehaviour
         }
         phraseCounter = 0;
     }
-
+    private void Update()
+    {
+        MusicSetUp();
+    }
     public void PlayOnClick()
     {
         AudioSource.PlayClipAtPoint(startLevelPhrasesSFX[phraseCounter], Camera.main.transform.position);
         phraseCounter++;
     }
 
-    public void StopPlayingMusic()
+    private void MusicSetUp() 
     {
-        AudioListener.pause = true;
+        if (SceneManager.GetActiveScene().name == "Level 3")
+        {
+                AudioListener.pause = FindObjectOfType<StartCutscene>().IsCutsceneStarted;
+        }
     }
 }

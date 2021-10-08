@@ -7,6 +7,7 @@ public class StartCutscene : MonoBehaviour
     [SerializeField] private GameObject cutscene;
     [SerializeField] private GameObject lives;
     [SerializeField] private GameObject scorePoints;
+
     public bool IsCutsceneStarted { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,13 +17,15 @@ public class StartCutscene : MonoBehaviour
             StartCutScene();
         }
     }
-
     public void StartCutScene()
     {
-        IsCutsceneStarted = true;
+        SwitchOnBool();
         GameScoreStats.instance.SwitchOff();
         lives.SetActive(false);
         scorePoints.SetActive(false);
         cutscene.SetActive(true);
     }
-}
+
+    public void SwitchOnBool() { IsCutsceneStarted = true; }
+    public void SwitchOffBool() { IsCutsceneStarted = false; }
+} 
