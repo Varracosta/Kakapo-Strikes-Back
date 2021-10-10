@@ -145,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreSubtract: 200
+  screechSFX: {fileID: 8300000, guid: ad1130484ebf28d4c9ccd84739d0ca73, type: 3}

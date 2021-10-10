@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameScoreStats : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameScoreStats : MonoBehaviour
     [SerializeField] private GameObject bonusText;
     [SerializeField] private GameObject creatureText;
     [SerializeField] private GameObject coneText;
-    [SerializeField] private GameObject player;
+    private GameObject player;
     #endregion
 
     #region Data
@@ -24,7 +25,7 @@ public class GameScoreStats : MonoBehaviour
     private List<GameObject> conesList = new List<GameObject>();
     private List<GameObject> creaturesList = new List<GameObject>();
     #endregion
-    public bool isWorking;
+    private bool isWorking;
     public static GameScoreStats instance;
 
     private void Awake()
@@ -36,6 +37,8 @@ public class GameScoreStats : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+
 
         isWorking = true;
         bonus = bonusInterval;
@@ -49,8 +52,15 @@ public class GameScoreStats : MonoBehaviour
     }
     private void Update()
     {
-        if(isWorking)
+        if (isWorking)
             AddBonusLifeForScore();
+    }
+    private void PlayerDetermine()
+    {
+        if (SceneManager.GetActiveScene().name == "Level 4")
+            player = FindObjectOfType<PlayerFlying>().gameObject;
+        else
+            player = FindObjectOfType<Kakapo>().gameObject;
     }
     public void AddToScore(int scoreValue)  {   score += scoreValue; }
     public void SubtractFromScore(int scoreValue) { score -= scoreValue; }
@@ -62,11 +72,12 @@ public class GameScoreStats : MonoBehaviour
             if (creaturesList.Exists(obj => obj == creature.gameObject))
                 return;
 
+            PlayerDetermine();
             creaturesList.Add(creature.gameObject);
             DisplayCreature.instance.DisplayFoundCreature(creature.gameObject);
             creaturesCount++;
             creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
-            Instantiate(creatureText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
+            Instantiate(creatureText, player.transform.position, Quaternion.identity);
         }
     }
     public void AddToConesList(Collider2D[] cones)
@@ -76,9 +87,10 @@ public class GameScoreStats : MonoBehaviour
             if (conesList.Exists(obj => obj == cone.gameObject))
                 return;
 
+            PlayerDetermine();
             conesList.Add(cone.gameObject);
             cone.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
-            Instantiate(coneText, FindObjectOfType<Kakapo>().transform.position, Quaternion.identity);
+            Instantiate(coneText, player.transform.position, Quaternion.identity);
         }
     }
     public void ResetLevelStats()
@@ -91,6 +103,7 @@ public class GameScoreStats : MonoBehaviour
     {
         if(score >= bonus)
         {
+            PlayerDetermine();
             Instantiate(bonusText, player.transform.position, Quaternion.identity);
             AudioSource.PlayClipAtPoint(bonusLifeSFX, player.transform.position);
             LivesManager.instance.AddLife();

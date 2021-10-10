@@ -5,7 +5,7 @@ using TMPro;
 
 public class KillToPassDisplay : MonoBehaviour
 {
-    [SerializeField] private int killToPassValue = 100;
+    public int KillToPassValue { get; private set; } = 50;
     private TextMeshProUGUI killToPassText;
     void Start()
     {
@@ -19,23 +19,23 @@ public class KillToPassDisplay : MonoBehaviour
     }
     void Update()
     {
-        killToPassText.text = killToPassValue.ToString();
+        killToPassText.text = KillToPassValue.ToString();
         FinishLevel();
     }
 
     private void SubtractFromKillValue()
     {
-        killToPassValue -= 1;
+        KillToPassValue -= 1;
     }
 
     private void AddToKillValue()
     {
-        killToPassValue += 1;
+        KillToPassValue += 1;
     }
 
     private void FinishLevel()
     {
-        if(killToPassValue <= 0)
+        if(KillToPassValue <= 0)
         {
             FindObjectOfType<StartCutscene>().StartCutScene();
         }

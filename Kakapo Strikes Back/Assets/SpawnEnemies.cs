@@ -21,16 +21,21 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > spawnTime)
+        if (FindObjectOfType<KillToPassDisplay>().KillToPassValue <= 2)
+            return;
+        else
         {
-            SpawnEnemy();
-            spawnTime = Time.time + timeBetweenEnemySpawn;
-        }
+            if(Time.time > spawnTime)
+            {
+                SpawnEnemy();
+                spawnTime = Time.time + timeBetweenEnemySpawn;
+            }
 
-        if (Time.time > spawnFriend)
-        {
-            SpawnFriendlyObstacle();
-            spawnFriend = Time.time + timeBetweenFriendSpawn;
+            if (Time.time > spawnFriend)
+            {
+                SpawnFriendlyObstacle();
+                spawnFriend = Time.time + timeBetweenFriendSpawn;
+            }
         }
     }
 

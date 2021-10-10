@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
 {
+    [SerializeField] private int damage = 1;
     [SerializeField] private AudioClip popSFX;
     private int pointsPerKill = 100;
     private Animator anim;
@@ -24,7 +25,15 @@ public class FlyingEnemy : MonoBehaviour
             FlyingEnemyKill?.Invoke();
             Destroy(other.gameObject);
             FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
-        }   
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(WaitAndDie());
+            FlyingEnemyKill?.Invoke();
+            FindObjectOfType<LivesManager>().DecreaseLives(1);
+            FindObjectOfType<GameScoreStats>().AddToScore(pointsPerKill);
+        }
     }
 
     private IEnumerator WaitAndDie()

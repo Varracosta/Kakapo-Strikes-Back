@@ -22,7 +22,6 @@ public class LivesManager : MonoBehaviour
 
     void Update()
     {
-
         DisplayLives(NumberOfLives);
 
         if(NumberOfLives == 0)

@@ -16,8 +16,6 @@ public class PlayerFlying : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         inputHandler = GetComponent<PlayerInputHandler>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         playerDirection = new Vector2(0, inputHandler.NormInputY);

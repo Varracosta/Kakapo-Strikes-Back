@@ -733,8 +733,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 4330754544799369299, guid: 1fec6b555acaaee4e876262a612488f2,
-        type: 3}
+      objectReference: {fileID: 325304759}
     - target: {fileID: 7956929417347684449, guid: 2f90f9d4dca71304094b692fb74a6db4,
         type: 3}
       propertyPath: m_Name
@@ -1398,6 +1397,12 @@ PrefabInstance:
 --- !u!4 &325304758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7450325261528489149, guid: 1fec6b555acaaee4e876262a612488f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 325304757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &325304759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4330754544799369299, guid: 1fec6b555acaaee4e876262a612488f2,
     type: 3}
   m_PrefabInstance: {fileID: 325304757}
   m_PrefabAsset: {fileID: 0}
@@ -5888,7 +5893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1076702590
 Transform:
   m_ObjectHideFlags: 0

@@ -50,5 +50,3 @@ MonoBehaviour:
     type: 3}
   coneText: {fileID: 4900073856891516678, guid: e0405ef41299b604a8423f673a10457e,
     type: 3}
-  player: {fileID: 4330754544799369299, guid: 1fec6b555acaaee4e876262a612488f2, type: 3}
-  isWorking: 0

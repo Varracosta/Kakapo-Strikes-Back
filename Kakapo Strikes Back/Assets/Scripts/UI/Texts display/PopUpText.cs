@@ -8,9 +8,4 @@ public class PopUpText : MonoBehaviour
     {
         Destroy(gameObject, 1f);
     }
-
-    void Update()
-    {
-        
-    }
 }

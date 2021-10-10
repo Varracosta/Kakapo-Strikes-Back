@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 223319651}
   - component: {fileID: 223319650}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Quit text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,8 +313,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278248191
-  m_fontColor: {r: 1, g: 0.88748914, b: 0, a: 1}
+    rgba: 4279950333
+  m_fontColor: {r: 0.99215686, g: 0.85882354, b: 0.101960786, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 290823261}
   - component: {fileID: 290823260}
   m_Layer: 5
-  m_Name: Levels list
+  m_Name: Discovered text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278248191
-  m_fontColor: {r: 1, g: 0.88748914, b: 0, a: 1}
+    rgba: 4279950333
+  m_fontColor: {r: 0.99215686, g: 0.85882354, b: 0.101960786, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 341164338}
   - component: {fileID: 341164337}
   m_Layer: 5
-  m_Name: Levels list
+  m_Name: 'Levels list text '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -583,8 +583,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278248191
-  m_fontColor: {r: 1, g: 0.88748914, b: 0, a: 1}
+    rgba: 4279950333
+  m_fontColor: {r: 0.99215686, g: 0.85882354, b: 0.101960786, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

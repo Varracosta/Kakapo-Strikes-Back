@@ -18,6 +18,8 @@ public class TurretShooting : MonoBehaviour
     }
     void Update()
     {
+        if (PauseMenu.isPaused) { return; }
+
         Point();
         Shoot();
     }
