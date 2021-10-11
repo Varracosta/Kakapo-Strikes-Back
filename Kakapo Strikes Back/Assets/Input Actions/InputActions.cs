@@ -172,17 +172,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9163e2ce-986b-4a82-b260-075886864995"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""50fd1b92-73f9-47b4-a7a0-8f2662c1ecaa"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
