@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartCutscene : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class StartCutscene : MonoBehaviour
         if (other.gameObject.CompareTag("Kakapo"))
         {
             StartCutScene();
+            PlayerPrefs.SetString("LevelPassed", SceneManager.GetActiveScene().name);
         }
     }
     public void StartCutScene()
