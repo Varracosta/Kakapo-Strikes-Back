@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4607742085353566337}
   - component: {fileID: 5525640183859955835}
   - component: {fileID: 3148341520923448289}
+  - component: {fileID: 5727019345273936989}
   m_Layer: 6
   m_Name: Titipounamu
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8900508856548780142}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.22, y: 1.2, z: -1.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -144,4 +145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialWhite: {fileID: 2100000, guid: a6ae9796fe10754498e479111e481552, type: 2}
+  popUpText: {fileID: 6564618568697642799, guid: ae5b32b6fdfd6224fa712292b8487249,
+    type: 3}
   foundSound: {fileID: 8300000, guid: a87495fd11db20d4f98527fb9facb5e2, type: 3}
+--- !u!114 &5727019345273936989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900508856548780142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6465ed6b2ef95bb4caa6cdf7124d0798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 11400000, guid: 8a7b171056c072442bcc4a47f366de51, type: 2}

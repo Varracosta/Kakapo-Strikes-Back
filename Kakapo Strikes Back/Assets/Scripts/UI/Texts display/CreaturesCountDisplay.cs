@@ -5,6 +5,7 @@ using TMPro;
 
 public class CreaturesCountDisplay : MonoBehaviour
 {
+    [SerializeField] private CreaturesStoringObject creatureStoring;
     private TextMeshProUGUI creaturesCountDisplay;
     void Start()
     {
@@ -14,6 +15,6 @@ public class CreaturesCountDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        creaturesCountDisplay.text = GameScoreStats.instance.GetCreaturesCount().ToString();
+        creaturesCountDisplay.text = creatureStoring.GetCreatureCount().ToString();
     }
 }

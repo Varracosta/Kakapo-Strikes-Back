@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4908233211660042405}
   - component: {fileID: 8302350338810017468}
   - component: {fileID: 1281354164575347430}
+  - component: {fileID: 8957947757747795589}
   m_Layer: 6
   m_Name: Kakariki
   m_TagString: Untagged
@@ -144,4 +145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialWhite: {fileID: 2100000, guid: a6ae9796fe10754498e479111e481552, type: 2}
+  popUpText: {fileID: 6564618568697642799, guid: ae5b32b6fdfd6224fa712292b8487249,
+    type: 3}
   foundSound: {fileID: 8300000, guid: a87495fd11db20d4f98527fb9facb5e2, type: 3}
+--- !u!114 &8957947757747795589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948470751683273592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6465ed6b2ef95bb4caa6cdf7124d0798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creature: {fileID: 11400000, guid: eef13302783906542a1248326023ed5b, type: 2}

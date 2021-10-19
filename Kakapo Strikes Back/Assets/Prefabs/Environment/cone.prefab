@@ -123,4 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialWhite: {fileID: 2100000, guid: a6ae9796fe10754498e479111e481552, type: 2}
+  popUpText: {fileID: 4900073856891516678, guid: e0405ef41299b604a8423f673a10457e,
+    type: 3}
   foundSound: {fileID: 8300000, guid: a87495fd11db20d4f98527fb9facb5e2, type: 3}

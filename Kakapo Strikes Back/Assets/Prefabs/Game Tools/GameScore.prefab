@@ -50,3 +50,4 @@ MonoBehaviour:
     type: 3}
   coneText: {fileID: 4900073856891516678, guid: e0405ef41299b604a8423f673a10457e,
     type: 3}
+  creaturesStoring: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}

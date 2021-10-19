@@ -23,7 +23,9 @@ public class GameScoreStats : MonoBehaviour
 
     #region Lists for found items
     private List<GameObject> conesList = new List<GameObject>();
-    private List<GameObject> creaturesList = new List<GameObject>();
+    //private List<GameObject> creaturesList = new List<GameObject>();
+
+    [SerializeField] private CreaturesStoringObject creaturesStoring;
     #endregion
     private bool isWorking;
     public static GameScoreStats instance;
@@ -38,13 +40,10 @@ public class GameScoreStats : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-
-
         isWorking = true;
         bonus = bonusInterval;
         score = 0;
         killCount = 0;
-        creaturesCount = 0;
     }
     private void OnEnable()
     {
@@ -69,15 +68,24 @@ public class GameScoreStats : MonoBehaviour
     {
         foreach (Collider2D creature in creatures)
         {
-            if (creaturesList.Exists(obj => obj == creature.gameObject))
-                return;
-
             PlayerDetermine();
-            creaturesList.Add(creature.gameObject);
-            DisplayCreature.instance.DisplayFoundCreature(creature.gameObject);
-            creaturesCount++;
-            creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
-            Instantiate(creatureText, player.transform.position, Quaternion.identity);
+            var _creature = creature.gameObject.GetComponent<Creature>().creature;
+            creaturesStoring.AddCreature(_creature, creature.gameObject, player);
+
+            //creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
+            //Instantiate(creatureText, player.transform.position, Quaternion.identity);
+            //creaturesCount++;
+                
+            //Old code
+            //if (creaturesList.Exists(obj => obj == creature.gameObject))
+            //    return;
+
+            //PlayerDetermine();
+            //creaturesList.Add(creature.gameObject);
+            //DisplayCreature.instance.DisplayFoundCreature(creature.gameObject);
+            //creaturesCount++;
+            //creature.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
+            //Instantiate(creatureText, player.transform.position, Quaternion.identity);
         }
     }
     public void AddToConesList(Collider2D[] cones)
@@ -89,14 +97,13 @@ public class GameScoreStats : MonoBehaviour
 
             PlayerDetermine();
             conesList.Add(cone.gameObject);
-            cone.gameObject.GetComponent<FlashWhenFound>().PlayFlashAndSound();
-            Instantiate(coneText, player.transform.position, Quaternion.identity);
+            cone.gameObject.GetComponent<FlashWhenFound>().PlayEffects(player);
         }
     }
     public void ResetLevelStats()
     {
         killCount = 0;
-        creaturesCount = 0;
+        creaturesStoring.ResetCreatureCount();
         conesList.Clear();
     }
     private void AddBonusLifeForScore()
@@ -114,15 +121,19 @@ public class GameScoreStats : MonoBehaviour
     {
         score = 0;
         killCount = 0;
-        creaturesCount = 0;
+        creaturesStoring.ResetCreatureCount();
     }
     public int GetScore() { return score; }
     public int GetKillCount() { return killCount; }
     public int GetConesCount() { return conesList.Count; }
-    public int GetCreaturesCount() { return creaturesCount; }
-    public List<GameObject> GetCreatureList() { return creaturesList; }
+    //public List<GameObject> GetCreatureList() { return creaturesList; }
+    public CreaturesStoringObject GetCreatureList() { return creaturesStoring; }
     public void SwitchOff()
     {
         isWorking = false;
+    }
+    private void OnApplicationQuit()
+    {
+        creaturesStoring.ClearContainer();   
     }
 }

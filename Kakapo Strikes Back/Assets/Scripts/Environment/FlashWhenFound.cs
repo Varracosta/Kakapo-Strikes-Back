@@ -6,6 +6,7 @@ public class FlashWhenFound : MonoBehaviour
 {
     [Header("Visual part")]
     [SerializeField] private Material materialWhite;
+    [SerializeField] private GameObject popUpText;
     private Material materialDefault;
     private SpriteRenderer spriteRenderer;
 
@@ -17,10 +18,11 @@ public class FlashWhenFound : MonoBehaviour
         materialDefault = spriteRenderer.material;
     }
     
-    public void PlayFlashAndSound()
+    public void PlayEffects(GameObject player)
     {
         StartCoroutine(WaitAndFlash());
         AudioSource.PlayClipAtPoint(foundSound, Camera.main.transform.position);
+        Instantiate(popUpText, player.transform.position, Quaternion.identity);
     }
     private IEnumerator WaitAndFlash()
     {

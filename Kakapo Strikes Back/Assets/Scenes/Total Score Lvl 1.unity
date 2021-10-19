@@ -1042,6 +1042,12 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6125657096805148654, guid: b63f353d09e70764caeb873b9db8b99b,
+        type: 3}
+      propertyPath: creatureStoring
+      value: 
+      objectReference: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b63f353d09e70764caeb873b9db8b99b, type: 3}
 --- !u!1001 &5561790791790482431

@@ -36,4 +36,11 @@ public class LevelMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelName);
     }
+
+    private void OnApplicationQuit()
+    {
+        level02Button.interactable = false;
+        level03Button.interactable = false;
+        level04Button.interactable = false;
+    }
 }

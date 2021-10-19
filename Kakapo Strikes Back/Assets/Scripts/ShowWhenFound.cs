@@ -14,7 +14,7 @@ public class ShowWhenFound : MonoBehaviour
 
     void Update()
     {
-        IsItSprite(GameScoreStats.instance.GetCreatureList());
+        //IsItSprite(GameScoreStats.instance.GetCreatureList());
     }
 
     private void IsItSprite(List<GameObject> creatureList)
