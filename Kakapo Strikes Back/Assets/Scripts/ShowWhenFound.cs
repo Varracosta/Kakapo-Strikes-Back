@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ShowWhenFound : MonoBehaviour
 {
     private Image image;
+    private CreaturesStoringObject creatureStore;
 
     void Start()
     {

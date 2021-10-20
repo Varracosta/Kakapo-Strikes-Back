@@ -22137,114 +22137,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8852104923133281222}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &690139356618201167 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769742297799561, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139356796988351 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741917694073, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139356836080906 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741945319116, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357062613427 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741651692149, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357172021997 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741739145515, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357429713111 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741481986833, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357669612040 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769741178657230, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357778113160 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769740734624078, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &690139357994901513 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8307769740983919567, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852104923133281222}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &739659139969231913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22420,47 +22312,47 @@ PrefabInstance:
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[0]
       value: 
-      objectReference: {fileID: 690139357669612040}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[1]
       value: 
-      objectReference: {fileID: 690139357994901513}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[2]
       value: 
-      objectReference: {fileID: 690139356796988351}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[3]
       value: 
-      objectReference: {fileID: 690139357172021997}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[4]
       value: 
-      objectReference: {fileID: 690139356836080906}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[5]
       value: 
-      objectReference: {fileID: 690139357778113160}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[6]
       value: 
-      objectReference: {fileID: 690139357429713111}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[7]
       value: 
-      objectReference: {fileID: 690139356618201167}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927404, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: creaturesToDisplay.Array.data[8]
       value: 
-      objectReference: {fileID: 690139357062613427}
+      objectReference: {fileID: 0}
     - target: {fileID: 1250640324184927405, guid: 69193f173a77a9e459af7d7fda9b0b22,
         type: 3}
       propertyPath: m_RootOrder

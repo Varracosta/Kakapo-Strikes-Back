@@ -464,6 +464,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: 62d77d9c3a54f0c4f94b1645bd28c381, type: 2}
   icon: {fileID: 1615518492}
   text: {fileID: 2066623422}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &227440798
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +518,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: eef13302783906542a1248326023ed5b, type: 2}
   icon: {fileID: 1958789609}
   text: {fileID: 6192576}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &349961193
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +846,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: 33b1dedd623fb7247a9e2621ed6b76fb, type: 2}
   icon: {fileID: 489131636}
   text: {fileID: 349961195}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &489131634
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +975,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: 2dbf162a729357d44914035b974caa69, type: 2}
   icon: {fileID: 1385074649}
   text: {fileID: 642381307}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &642381305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1166,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: 46be0866aeb3ab945a8cd0b464f0ce02, type: 2}
   icon: {fileID: 1194494654}
   text: {fileID: 394944800}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &778259532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1220,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: 8a7b171056c072442bcc4a47f366de51, type: 2}
   icon: {fileID: 901662262}
   text: {fileID: 137928609}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &839718971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1426,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: aeb3d9115c2c0ca41b4065a221240fc3, type: 2}
   icon: {fileID: 1097802851}
   text: {fileID: 1652095435}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &965070891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1480,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: ed8b37a871619ad47abcc1b32e233544, type: 2}
   icon: {fileID: 839718973}
   text: {fileID: 77363645}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &1097802849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,6 +1746,7 @@ MonoBehaviour:
   creatureObj: {fileID: 11400000, guid: c027c25d1512bbb42b743732f93f9a88, type: 2}
   icon: {fileID: 1433571535}
   text: {fileID: 1123858319}
+  creatureList: {fileID: 11400000, guid: cc46b9048bf8f074ca06b68ef4fcee05, type: 2}
 --- !u!1 &1194494652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,8 +3537,8 @@ RectTransform:
   m_Father: {fileID: 8307769740533317653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.77240217}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

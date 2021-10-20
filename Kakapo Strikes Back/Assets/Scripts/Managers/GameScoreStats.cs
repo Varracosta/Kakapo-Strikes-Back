@@ -16,17 +16,15 @@ public class GameScoreStats : MonoBehaviour
     #region Data
     private int score;
     private int killCount;
-    private int creaturesCount;
     private int bonus;
     private int bonusInterval = 1500;
     #endregion
 
     #region Lists for found items
-    private List<GameObject> conesList = new List<GameObject>();
-    //private List<GameObject> creaturesList = new List<GameObject>();
-
     [SerializeField] private CreaturesStoringObject creaturesStoring;
+    private List<GameObject> conesList = new List<GameObject>();
     #endregion
+
     private bool isWorking;
     public static GameScoreStats instance;
 
@@ -126,7 +124,6 @@ public class GameScoreStats : MonoBehaviour
     public int GetScore() { return score; }
     public int GetKillCount() { return killCount; }
     public int GetConesCount() { return conesList.Count; }
-    //public List<GameObject> GetCreatureList() { return creaturesList; }
     public CreaturesStoringObject GetCreatureList() { return creaturesStoring; }
     public void SwitchOff()
     {

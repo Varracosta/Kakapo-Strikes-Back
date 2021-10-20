@@ -7,18 +7,16 @@ public class CreatureSlot : MonoBehaviour
     [SerializeField] private CreatureObject creatureObj;
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private CreaturesStoringObject creatureList;
 
-    private void OnEnable()
+    private void Update()
     {
-        //GameScoreStats.instance.creaturesStoring.creatureFound += ShowIfMatch;
-        GameScoreStats.instance.GetCreatureList().creatureFound += DisplayIfMatch;
+        if (creatureList.HasCreature(creatureObj))
+            DisplayIfMatch(creatureObj);
     }
     private void DisplayIfMatch(CreatureObject creature)
     {
-        if(creature.Id == creatureObj.Id)
-        {
-            text.text = creature.Name.ToString();
-            icon.color = Color.white;
-        }
+        text.text = creature.Name.ToString();
+        icon.color = Color.white;
     }
 }
