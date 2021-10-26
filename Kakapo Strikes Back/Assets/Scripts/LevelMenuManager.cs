@@ -39,8 +39,9 @@ public class LevelMenuManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        level02Button.interactable = false;
-        level03Button.interactable = false;
-        level04Button.interactable = false;
+        PlayerPrefs.DeleteAll();
+        //level02Button.interactable = false;
+        //level03Button.interactable = false;
+        //level04Button.interactable = false;
     }
 }

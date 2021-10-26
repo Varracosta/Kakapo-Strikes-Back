@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject[] enemies;
     [SerializeField] private GameObject friendlyObstacle;
+    [SerializeField] private KillToPassDisplay killToPass;
 
     #region Data
     private float maxX = 3.5f;
@@ -21,14 +22,17 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<KillToPassDisplay>().KillToPassValue <= 2)
+        if (killToPass.KillToPassValue <= 2)
             return;
         else
         {
             if(Time.time > spawnTime)
             {
-                SpawnEnemy();
-                spawnTime = Time.time + timeBetweenEnemySpawn;
+                foreach (GameObject enemy in enemies)
+                {
+                    SpawnEnemy(enemy);
+                    spawnTime = Time.time + timeBetweenEnemySpawn;
+                }
             }
 
             if (Time.time > spawnFriend)
@@ -39,7 +43,7 @@ public class SpawnEnemies : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnEnemy(GameObject enemy)
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);

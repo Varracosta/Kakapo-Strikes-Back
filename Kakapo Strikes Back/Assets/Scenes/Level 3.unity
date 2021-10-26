@@ -1235,6 +1235,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2262801251623419000, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168827749}
+    - target: {fileID: 2939264856751409127, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 895823024}
+    - target: {fileID: 8307769741598695667, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168827749}
+    - target: {fileID: 8307769741772528031, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168827749}
+    - target: {fileID: 8466300726148111166, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 895823024}
     - target: {fileID: 8852104921277145058, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5164,6 +5189,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb5b4ef3bfb269446a32b95d132b4237, type: 3}
+--- !u!114 &895823024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5803838500198769832, guid: eb5b4ef3bfb269446a32b95d132b4237,
+    type: 3}
+  m_PrefabInstance: {fileID: 895823023}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957819e81acd4c945904da7761bf788e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &924779367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,6 +5679,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a96cd568406aed7498d941df2264b304, type: 3}
+--- !u!114 &1168827749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2912460489584570748, guid: a96cd568406aed7498d941df2264b304,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168827748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357e05a59b2659946a35c3d7880acdf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1169475619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6071,6 +6120,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1285867297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7251815416193991486, guid: 1229d9ecadebba947a418014d75f714b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1285867293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1285867298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7251815416232800420, guid: 1229d9ecadebba947a418014d75f714b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1285867293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1309308896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8098,6 +8159,21 @@ PrefabInstance:
       propertyPath: scorePoints
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 714724490054807639, guid: be8f221f96475a640a12273faa23a602,
+        type: 3}
+      propertyPath: UIElementsToHide.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 714724490054807639, guid: be8f221f96475a640a12273faa23a602,
+        type: 3}
+      propertyPath: UIElementsToHide.Array.data[0]
+      value: 
+      objectReference: {fileID: 1285867298}
+    - target: {fileID: 714724490054807639, guid: be8f221f96475a640a12273faa23a602,
+        type: 3}
+      propertyPath: UIElementsToHide.Array.data[1]
+      value: 
+      objectReference: {fileID: 1285867297}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be8f221f96475a640a12273faa23a602, type: 3}
 --- !u!1001 &5156090965251169575
