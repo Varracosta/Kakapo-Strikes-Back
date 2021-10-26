@@ -29,7 +29,7 @@ public class SceneLoader : MonoBehaviour
     {
         sceneToContinue = PlayerPrefs.GetInt("SavedScene");
 
-        if(sceneToContinue != 0) // make possible to load only playable levels, not total score after level scenes (make levels by even numbers perhaps)
+        if(sceneToContinue != 0) // makes possible to load only playable levels, not total score after level scenes (make levels by even numbers perhaps)
         {
             if(PauseMenu.isPaused)
                 FindObjectOfType<PauseMenu>().ResetPause();
@@ -84,19 +84,16 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Controlers intro");
     }
-    public void LoadLevelsList()
-    {
-        SceneManager.LoadScene("Levels list");
-    }
+
     #endregion
 
     #region Loading Menus
-    public void LoadMainMenu()
+    public void LoadLevelsList()
     {
         if (PauseMenu.isPaused)
             FindObjectOfType<PauseMenu>().ResetPause();
 
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Levels list");
     }
 
     public void GoBack()
