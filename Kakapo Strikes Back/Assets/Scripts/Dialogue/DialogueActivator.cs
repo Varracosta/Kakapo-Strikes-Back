@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Name of the script describes what it does - literaly just activates dialogue in cutscene
 public class DialogueActivator : MonoBehaviour
 {
     [SerializeField] private DialogueUI dialogueUI;

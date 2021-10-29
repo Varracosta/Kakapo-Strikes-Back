@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A scriptable object for storing all necessary data for Player
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/Player Data")]
 public class PlayerData : ScriptableObject
 {

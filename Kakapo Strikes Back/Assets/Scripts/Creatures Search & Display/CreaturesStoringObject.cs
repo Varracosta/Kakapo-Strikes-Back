@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//A creature "inventory"/info-holder. Everytime the Player finds a creature, the script checks if the creature has already been founded, 
+//and if no - adds it to the list, and activates visial and audio effects. It also contains info about creature count
+//to display in Total Score Scene 
+
 [CreateAssetMenu(fileName = "New Creatures Storing", menuName = "Creatures Storing")]
 public class CreaturesStoringObject : ScriptableObject
 {

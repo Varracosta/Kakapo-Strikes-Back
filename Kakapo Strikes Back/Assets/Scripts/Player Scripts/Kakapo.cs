@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+//Mainly a state script - holds info about Player's state, stores audios, starting point info, components references.
+// Also is responsible for passive actions: taking damage, performing knockback if hurt, running "dying" animation.
 public class Kakapo : MonoBehaviour
 {
     #region Inspector Part
@@ -72,6 +74,7 @@ public class Kakapo : MonoBehaviour
         AudioSource.PlayClipAtPoint(gameOverSFX, Camera.main.transform.position, 2f);
         SceneLoader.instance.GameOver();
     }
+
     public void PerformKnockback(Collider2D other)
     {
         if(other.gameObject.transform.position.x > transform.position.x)

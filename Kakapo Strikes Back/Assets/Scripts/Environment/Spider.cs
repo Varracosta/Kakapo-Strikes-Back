@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Spider : Enemy
+//Katipo is so chad that it has it's own script. Works pretty similar as Enemy script, except a spider moves verticaly. 
+//Also it damages Player AND enemies equally. You don't mess with katipo, no no. Although, it's not so scary or dangerous in real life
+public class Spider : MonoBehaviour
 {
     enum IsFacing { up, down };
 
@@ -29,7 +30,7 @@ public class Spider : Enemy
     {
         Move();
     }
-    protected override void Move()
+    private void Move()
     {
         float movementSpeed = _speed;
 
@@ -97,10 +98,4 @@ public class Spider : Enemy
             other.gameObject.GetComponent<EnemyHP>().Die();
         }
     }
-
-    protected override void Die()
-    {
-       //katipo is endangered spider in NZ, it's best to make it unkillable. Just try to avoid it
-    }
-
 }

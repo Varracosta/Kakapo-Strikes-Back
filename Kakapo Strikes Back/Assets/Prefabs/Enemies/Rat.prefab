@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 225808683948513861}
   - component: {fileID: 225808683948513856}
   - component: {fileID: 225808683948513858}
-  - component: {fileID: 6821173966470370921}
+  - component: {fileID: 5443229315096583763}
   - component: {fileID: 6096524071131216395}
   - component: {fileID: 5177802684668834710}
   - component: {fileID: 4817548607581054336}
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &225808683948513858
@@ -110,7 +110,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &6821173966470370921
+--- !u!114 &5443229315096583763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 225808683948513860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81224b254a70d8c4a9510cae2a7e6b0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f51daaf16b468a4db31444902d25a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   castPos: {fileID: 5336452045551567053}
   enemyHP: {fileID: 587815160818630659}
 --- !u!114 &6096524071131216395

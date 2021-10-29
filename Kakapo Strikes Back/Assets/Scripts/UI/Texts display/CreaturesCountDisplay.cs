@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Displays found amount of creatures on Total Score panel
 public class CreaturesCountDisplay : MonoBehaviour
 {
     [SerializeField] private CreaturesStoringObject creatureStoring;
@@ -11,8 +12,6 @@ public class CreaturesCountDisplay : MonoBehaviour
     {
         creaturesCountDisplay = GetComponent<TextMeshProUGUI>();   
     }
-
-    // Update is called once per frame
     void Update()
     {
         creaturesCountDisplay.text = creatureStoring.GetCreatureCount().ToString();

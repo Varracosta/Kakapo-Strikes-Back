@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for Player Movements - running, jumping, attacking - on all levels except 4th.
 public class PlayerMovementsManager : MonoBehaviour
 {
     #region Main Data
@@ -23,10 +24,10 @@ public class PlayerMovementsManager : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.isPaused) { return; }
+        if (PauseMenu.isPaused) { return; }   //prevents odd Kakapo movements if game is held on Pause 
 
         CheckingGround();
-        if (kakapo.IsHurt) { return; }
+        if (kakapo.IsHurt) { return; }  //prevents any Player movement if is hurt 
         else
         {
             Run();
@@ -83,6 +84,7 @@ public class PlayerMovementsManager : MonoBehaviour
             }
         }
     }
+    //Flips Kakapo sprite according to his velocity 
     private void Flip()
     {
         bool isFacingRight = Mathf.Abs(kakapo.rigidBody.velocity.x) > Mathf.Epsilon;

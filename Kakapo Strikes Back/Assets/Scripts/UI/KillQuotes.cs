@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Responsible for storing and playing phrases/quotes that Kakapo "says" after each kill. Phrases are played one after another
 public class KillQuotes : MonoBehaviour
 {
     [SerializeField] private AudioClip[] killPhrases;

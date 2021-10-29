@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//I've separated enemy scripts in three for Player to being able to stomp enemies. This script "sits" on child object HurtBox with it's own collider
+
+//Script responsible for taking damage from Player, "duying", and starting "death" animation.
+//Also contains an event for GameScore script variable  
 public class EnemyHP : MonoBehaviour
 {
-     //Script responsible for taking damage from Player
 
     [SerializeField] private AudioClip deathPopSFX;
     private Animator animator;
@@ -16,7 +19,6 @@ public class EnemyHP : MonoBehaviour
 
     public delegate void OnEnemyKill();
     public static event OnEnemyKill EnemyKill;
-
 
     void Start() 
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Responsible for Player climbing a ladder.
 public class PlayerClimbingLadder : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
@@ -13,14 +14,14 @@ public class PlayerClimbingLadder : MonoBehaviour
     private bool centered = true;
     private float ladderCenter;
 
-    private Rigidbody2D rb;
-    private Animator anim;
+    private Rigidbody2D rigidBody;
+    private Animator animator;
     private PlayerInputHandler inputHandler;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
         inputHandler = GetComponent<PlayerInputHandler>();
     }
 
@@ -31,15 +32,8 @@ public class PlayerClimbingLadder : MonoBehaviour
         Climbing();
 
         CenteredPositionOnLadder();
-        anim.SetFloat("VelocityY", inputHandler.NormInputY);
+        animator.SetFloat("VelocityY", inputHandler.NormInputY);
     }
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(ladderCheck.position, playerData.ladderCheckRadius);
-    }
-
     private void DetectingLadder()
     {
         isLadderDetected = Physics2D.OverlapCircle(ladderCheck.position, playerData.ladderCheckRadius, whatIsLadder);
@@ -49,12 +43,12 @@ public class PlayerClimbingLadder : MonoBehaviour
     {
         if (OnLadder)
         {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.velocity = new Vector2(rb.velocity.x, inputHandler.NormInputY * playerData.climbSpeed);
+            rigidBody.bodyType = RigidbodyType2D.Kinematic;
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, inputHandler.NormInputY * playerData.climbSpeed);
         }
         else
         {
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            rigidBody.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 
@@ -70,7 +64,7 @@ public class PlayerClimbingLadder : MonoBehaviour
             OnLadder = false; 
         }
 
-        anim.SetBool("OnLadder", OnLadder);
+        animator.SetBool("OnLadder", OnLadder);
     }
 
     private void CenteredPositionOnLadder()

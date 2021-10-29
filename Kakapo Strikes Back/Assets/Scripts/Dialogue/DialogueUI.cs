@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
 
+//Displays text from DialogueObj in dialogue box, opens and closes the later. 
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;

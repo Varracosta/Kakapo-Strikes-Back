@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script responsible for finding creatures and cones. There is a search point (as a child gameObject) on Player which adds every creature/cone
+// to array --> is hadled and processed in GameScore functions
 public class PlayerFindingStuffManager : MonoBehaviour
 {
     #region Main Info

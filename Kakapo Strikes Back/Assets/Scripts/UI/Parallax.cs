@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Displayimg and moving background layers according to Player position, creating parallax effect
 public class Parallax : MonoBehaviour
 {
     [SerializeField] private Vector2 parallaxMovement;

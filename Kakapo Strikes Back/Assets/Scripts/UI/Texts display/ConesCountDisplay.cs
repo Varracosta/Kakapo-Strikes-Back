@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Displays found amount of cones on Total Score panel
 public class ConesCountDisplay : MonoBehaviour
 {
     private TextMeshProUGUI conesCountDisplay;

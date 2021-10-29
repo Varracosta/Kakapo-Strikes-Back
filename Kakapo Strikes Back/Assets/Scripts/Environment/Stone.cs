@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Responsible for starting dying scripts of Enemies, and play kill quotes/sounds if hits an enemy/ground 
 public class Stone : MonoBehaviour
 {
     [SerializeField] private AudioClip collisionSFX;

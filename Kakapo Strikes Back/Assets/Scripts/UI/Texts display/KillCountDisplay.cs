@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Displays killed amount of pests on Total Score panel
 public class KillCountDisplay : MonoBehaviour
 {
     private TextMeshProUGUI killCountDisplay;
@@ -11,7 +12,6 @@ public class KillCountDisplay : MonoBehaviour
         killCountDisplay = GetComponent<TextMeshProUGUI>();   
     }
 
-    // Update is called once per frame
     void Update()
     {
         killCountDisplay.text = GameScoreStats.instance.GetKillCount().ToString();
