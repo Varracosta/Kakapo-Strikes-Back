@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //Responsible for loading different scenes/levels
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] private Button button;
     private int currentSceneIndex;
     private int sceneToContinue;
     
@@ -64,10 +66,12 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator WaitAndLoadNextLevel()
     {
+        button.interactable = false;
         MusicPlayer.instance.PlayOnClick();
         yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene(currentSceneIndex + 1);
         GameScoreStats.instance.ResetLevelStats();
+        button.interactable = true;
     }
     #endregion
 

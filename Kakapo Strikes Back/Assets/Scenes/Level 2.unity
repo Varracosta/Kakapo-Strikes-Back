@@ -5940,7 +5940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1076702590
 Transform:
   m_ObjectHideFlags: 0
@@ -10626,6 +10626,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1309748409}
+    - target: {fileID: 5590851237585890838, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afc3496023ab4634f9c2d70a56c9b7fa,
+        type: 3}
+    - target: {fileID: 5590851237585890838, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
+        type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a83bdbd1f1bdaf499fe928d875e8fec,
+        type: 3}
     - target: {fileID: 5590851237585890838, guid: 7cbfa5b51f62bf3429bd71ed4a0e6bd6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
