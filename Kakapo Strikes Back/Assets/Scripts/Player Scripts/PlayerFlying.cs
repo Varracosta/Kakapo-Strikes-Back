@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerFlying : MonoBehaviour
 {
     [SerializeField ]private float speed;
+    [SerializeField] private SceneLoader sceneLoader;
     private Rigidbody2D rigidBody;
     private Vector2 playerDirection;
     private PlayerInputHandler inputHandler;
@@ -14,6 +15,7 @@ public class PlayerFlying : MonoBehaviour
     private const float MIN_Y = -3f;
     void Start()
     {
+        sceneLoader.SaveScene();
         rigidBody = GetComponent<Rigidbody2D>();
         inputHandler = GetComponent<PlayerInputHandler>();
     }

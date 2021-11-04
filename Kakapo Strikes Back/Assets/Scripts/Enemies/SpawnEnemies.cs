@@ -8,6 +8,8 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] private GameObject[] enemies;
     [SerializeField] private GameObject friendlyObstacle;
     [SerializeField] private KillToPassDisplay killToPass;
+    private bool isLooping = true;
+    private int count = 0;
 
     #region Data
     private float maxX = 3.5f;
@@ -27,7 +29,7 @@ public class SpawnEnemies : MonoBehaviour
             return;
         else
         {
-            if(Time.time > spawnTime)
+            if (Time.time > spawnTime)
             {
                 foreach (GameObject enemy in enemies)
                 {
@@ -44,7 +46,7 @@ public class SpawnEnemies : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy(GameObject enemy)
+     private void SpawnEnemy(GameObject enemy)
     {
         float randomX = Random.Range(minX, maxX);
         float randomY = Random.Range(minY, maxY);

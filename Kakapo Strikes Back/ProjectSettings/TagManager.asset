@@ -42,8 +42,8 @@ TagManager:
   - HurtBox
   - Bomb
   - Possum
-  - 
-  - 
+  - Player
+  - Border
   - 
   - 
   - 

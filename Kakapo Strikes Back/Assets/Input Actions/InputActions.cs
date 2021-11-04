@@ -246,7 +246,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Scroll"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""6da8b8ad-31eb-4e5e-8480-aa3ec34df137"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
