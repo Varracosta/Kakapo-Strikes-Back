@@ -1,8 +1,11 @@
 # Kakapo Strikes Back!
 2D pixel art platformer about endangered New Zealand indiginous parrot kākāpō fighting against various pests
 
-Engine: Unity <br>
-Platform: Windows
+<u><b>Engine:</b></u> Unity <br>
+<u><b>Platform:</b></u> Windows
+<u><b>Graphic assets:</b></u> (c) Varracosta
+<u><b>Music and sounds:</b></u> 
+(c) Scott Elliot, Department of Conservation of New Zealand, Bobby Prince 
 
 <a href='https://postimg.cc/t1LS993P' target='_blank'><img src='https://i.postimg.cc/vBmpLBDP/4.jpg' border='0' alt='4'/></a>
 
