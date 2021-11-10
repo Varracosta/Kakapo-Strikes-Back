@@ -1,4 +1,4 @@
-# Kakapo Strikes Back!
+# Kākāpō Strikes Back!
 2D pixel art platformer about endangered New Zealand indiginous parrot kākāpō fighting against various pests
 
 <u><b>Engine:</b></u> Unity <br>
@@ -13,5 +13,5 @@
 
 <a href='https://postimg.cc/CdYy8488' target='_blank'><img src='https://i.postimg.cc/L4gmrC6x/2.jpg' border='0' alt='2'/></a>
 
-<h2><u>Play Here!</u></h2><br>
-<a href="https://varracosta.itch.io/kakapo-strikes-back">PLAY!</a> 
+
+<a href="https://varracosta.itch.io/kakapo-strikes-back"><h2><u>Play Here!</u></h2></a>
