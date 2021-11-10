@@ -11,6 +11,10 @@ public class KillToPassDisplay : MonoBehaviour
 {
     public int KillToPassValue { get; private set; } = 50;
     private TextMeshProUGUI killToPassText;
+
+    public delegate void OnLowKillValue();
+    public static event OnLowKillValue lowKillValue;
+
     void Start()
     {
         killToPassText = GetComponent<TextMeshProUGUI>();
@@ -32,6 +36,7 @@ public class KillToPassDisplay : MonoBehaviour
     {
         if(KillToPassValue <= 0)
         {
+            lowKillValue?.Invoke();
             FindObjectOfType<StartCutscene>().StartCutScene();
         }
     }

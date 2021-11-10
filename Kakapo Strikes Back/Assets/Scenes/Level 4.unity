@@ -909,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   sceneLoader: {fileID: 1677865629}
+  gameCamera: {fileID: 22754037}
 --- !u!95 &902198490
 Animator:
   serializedVersion: 3
@@ -1009,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902198488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.05, y: 1.5, z: 0}
+  m_LocalPosition: {x: -5.05, y: 0.76, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1458995210}
@@ -1413,6 +1414,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
         type: 3}
+      propertyPath: m_SceneBindings.Array.data[36].key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[31].value
       value: 
       objectReference: {fileID: 902198490}
@@ -1649,7 +1655,7 @@ PrefabInstance:
     - target: {fileID: 5156090965987057056, guid: 0e9c247f0cd4d264fb047fb4990bf0f3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5156090965987057071, guid: 0e9c247f0cd4d264fb047fb4990bf0f3,
         type: 3}

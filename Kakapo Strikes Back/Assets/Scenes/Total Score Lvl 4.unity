@@ -623,7 +623,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1760845332}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+        m_MethodName: LoadLevelsList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -913,6 +913,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9168101377886291497, guid: 095cb9dc22c97204aa48231517f730e6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3748174878953846026, guid: a90acddddcd9a6b4d86f24fd03c2a643,
+        type: 3}
+    - target: {fileID: 9168101377886291498, guid: 095cb9dc22c97204aa48231517f730e6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e0ee1345a04d5d94bb3f62f2b86036f8, type: 2}
     - target: {fileID: 9168101377886291499, guid: 095cb9dc22c97204aa48231517f730e6,
         type: 3}
       propertyPath: m_Name
@@ -983,7 +994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TO MAIN MENU
+  m_text: 'TO LEVELS
 
 '
   m_isRightToLeft: 0
