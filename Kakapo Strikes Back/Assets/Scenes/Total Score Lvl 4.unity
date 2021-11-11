@@ -682,12 +682,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 156253c49d6e87a40b8a2ddf4042d0ae,
+      objectReference: {fileID: 11400000, guid: f602229aaa3f04b40affb381de968dae,
         type: 2}
     - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
         type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 33
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
         type: 3}
@@ -703,12 +703,34 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
         type: 3}
+      propertyPath: m_SceneBindings.Array.data[33].key
+      value: 
+      objectReference: {fileID: -4954107693142317065, guid: f602229aaa3f04b40affb381de968dae,
+        type: 2}
+    - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[34].key
+      value: 
+      objectReference: {fileID: 1144744971682918109, guid: f602229aaa3f04b40affb381de968dae,
+        type: 2}
+    - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
+        type: 3}
       propertyPath: m_SceneBindings.Array.data[31].value
       value: 
       objectReference: {fileID: 1659345521}
     - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[32].value
+      value: 
+      objectReference: {fileID: 1659345521}
+    - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[33].value
+      value: 
+      objectReference: {fileID: 1659345521}
+    - target: {fileID: 8832606580217644696, guid: b33c14c093ec1934a9a06c8e09f533e0,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[34].value
       value: 
       objectReference: {fileID: 1659345521}
     - target: {fileID: 8832606580217644697, guid: b33c14c093ec1934a9a06c8e09f533e0,
